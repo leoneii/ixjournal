@@ -31,7 +31,7 @@ class MainWindow(QMainWindow):
         query.exec(que)
         #query.first()
         r=0
-        self.ui.tableWidget.setRowCount(int(qcount.value(0))-1)
+        self.ui.tableWidget.setRowCount(int(qcount.value(0)))
         while query.next():
             #self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(f'line_{r}'))
             self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(str(query.value(0))))
@@ -54,13 +54,8 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.resizeColumnsToContents()
 
     def findRec(self):
-        query = QSqlQuery()
-        query.exec("SELECT *  FROM jtab WHERE npp = 1 ;")
-        jmodel=QSqlTableModel()
-        jmodel.setTable("jtab")
-        self.ui.tableView.setModel(jmodel)
-        jmodel.setFilter()
-        jmodel.select()
+        self.updateWidg("SELECT *  FROM jtab WHERE numZak = '3028' ;", "SELECT COUNT(*) FROM jtab WHERE numZak = '3028' ;")
+
         #pass
 
     def addRec(self):
