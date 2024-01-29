@@ -40,8 +40,10 @@ class MainWindow(QMainWindow):
         pass
 
     def addRec(self):
-        adq=QSqlQuery()
+        adq = QSqlQuery()
+        adq.last()
         adq.exec("INSERT INTO jtab DEFAULT VALUES;")
+        self.formUpd()
 
     def changeRec(self):
         pass
@@ -50,7 +52,10 @@ class MainWindow(QMainWindow):
         pass  
 
     def formUpd(self):
-        pass
+        jmod=QSqlTableModel()
+        jmod.setTable("jtab")
+        self.ui.tableView.setModel(jmod)
+        jmod.select()
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
