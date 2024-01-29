@@ -19,16 +19,16 @@ class MainWindow(QMainWindow):
         DB.setDatabaseName("jourbd.sqlite")
         DB.open()
 
-        self.updateWidg()
+        self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
 
 
         
-    def updateWidg(self):
+    def updateWidg(self, que, quec):
         query = QSqlQuery()
         qcount = QSqlQuery()
-        qcount.exec("SELECT COUNT(*) FROM jtab;")
+        qcount.exec(quec)
         qcount.first()
-        query.exec("SELECT * FROM jtab ;")
+        query.exec(que)
         #query.first()
         r=0
         self.ui.tableWidget.setRowCount(int(qcount.value(0))-1)
