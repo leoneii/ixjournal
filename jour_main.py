@@ -1,7 +1,11 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow,QHeaderView,QTableWidget,QTableWidgetItem
+from PySide6.QtWidgets import QApplication, QMainWindow,QHeaderView,QTableWidget,QTableWidgetItem, QAbstractItemView
 from main import Ui_MainWindow
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
+from PyQt6.QtCore import QSize
+from PySide6.QtGui import QColor
+from PySide6.QtCore import QItemSelectionModel
+#import PySide6.QtGui
 #from PySide6 import QtWidgets
 
 class MainWindow(QMainWindow):
@@ -42,16 +46,29 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setItem(r, 5,  QTableWidgetItem(str(query.value(5))))
             self.ui.tableWidget.setItem(r, 6,  QTableWidgetItem(str(query.value(6))))
             self.ui.tableWidget.setItem(r, 7,  QTableWidgetItem(str(query.value(8))))
-            r+=1
-            if str(query.value(7)) == True: #оплачено
-                #self.ui.tableWidget.setPalette #Должно поменять цвет строки
-                pass
-            if str(query.value(7)) == True: #выдано
+            if str(query.value(7)) == "True":  # оплачено
+                for c in range(self.ui.tableWidget.columnCount()):
+                    self.ui.tableWidget.item(r, c).setBackground(QColor(0, 250, 100))  # Должно поменять цвет строки
+               # pass
+            #f str(query.value(7)) == True: #выдано
                 #self.ui.tableWidget. #Должно поменять цвет строки
-                pass  
+             #   pass  
+            r+=1
+        #self.ui.tableWidget.resizeColumnsToContents()
+        self.ui.tableWidget.resizeColumnToContents(0)
+        self.ui.tableWidget.resizeColumnToContents(1)
+        self.ui.tableWidget.resizeColumnToContents(2)
+        self.ui.tableWidget.resizeColumnToContents(3)
+        self.ui.tableWidget.resizeColumnToContents(4)
+        self.ui.tableWidget.resizeColumnToContents(5)
+        self.ui.tableWidget.resizeColumnToContents(6)
+      #  self.ui.tableWidget.setColumnWidth(7, 500)
 
+        self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)
+        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(5, QHeaderView.Stretch)
 
-        self.ui.tableWidget.resizeColumnsToContents()
+        self.ui.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+
 
     def findRec(self):
         self.updateWidg("SELECT *  FROM jtab WHERE numZak = '3028' ;", "SELECT COUNT(*) FROM jtab WHERE numZak = '3028' ;")
@@ -62,7 +79,7 @@ class MainWindow(QMainWindow):
         adq = QSqlQuery()
         adq.last()
         adq.exec("INSERT INTO jtab DEFAULT VALUES;")
-        self.formUpd()
+        self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
 
     def changeRec(self):
         pass
