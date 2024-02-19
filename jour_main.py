@@ -1,8 +1,9 @@
 import sys
-from PySide6.QtWidgets import QApplication, QMainWindow,QHeaderView,QTableWidget,QTableWidgetItem, QAbstractItemView
+from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
+    QMessageBox
 from main import Ui_MainWindow
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
-from PyQt6.QtCore import QSize
+from PySide6.QtCore import QSize
 from PySide6.QtGui import QColor
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
@@ -66,7 +67,6 @@ class MainWindow(QMainWindow):
 
         self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.ui.tableWidget.horizontalHeader().setSectionResizeMode(5, QHeaderView.Stretch)
-
         self.ui.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
 
 
@@ -85,7 +85,17 @@ class MainWindow(QMainWindow):
         pass
 
     def delRec(self):
-        pass  
+        dlg = QMessageBox(self)
+        dlg.setWindowTitle("Удаление записи")
+        dlg.setText("Уверены?")
+        dlg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+        dlg.setIcon(QMessageBox.Question)
+        button = dlg.exec()
+
+        if button == QMessageBox.Yes:
+            print("Yes!")
+        else:
+            print("No!")
 
     def formUpd(self):
         pass
