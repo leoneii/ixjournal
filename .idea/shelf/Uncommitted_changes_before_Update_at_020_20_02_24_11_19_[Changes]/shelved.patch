@@ -1,0 +1,109 @@
+Index: jour_main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>import sys\r\nfrom PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \\\r\n    QMessageBox\r\nfrom main import Ui_MainWindow\r\nfrom PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery\r\nfrom PySide6.QtCore import QSize\r\nfrom PySide6.QtGui import QColor\r\nfrom PySide6.QtCore import QItemSelectionModel\r\n#import PySide6.QtGui\r\n#from PySide6 import QtWidgets\r\n\r\nclass MainWindow(QMainWindow):\r\n    def __init__(self):\r\n        super().__init__()\r\n        self.ui = Ui_MainWindow()\r\n        self.ui.setupUi(self)\r\n        self.ui.pushButton_Find.clicked.connect(self.findRec)\r\n        self.ui.pushButton_Add.clicked.connect(self.addRec)\r\n        self.ui.pushButton_Change.clicked.connect(self.changeRec)\r\n        self.ui.pushButton_Del.clicked.connect(self.delRec)\r\n\r\n\r\n        DB = QSqlDatabase.addDatabase('QSQLITE')\r\n        DB.setDatabaseName(\"jourbd.sqlite\")\r\n        DB.open()\r\n\r\n        self.updateWidg(\"SELECT * FROM jtab;\",\"SELECT COUNT(*) FROM jtab;\")\r\n\r\n\r\n        \r\n    def updateWidg(self, que, quec):\r\n        query = QSqlQuery()\r\n        qcount = QSqlQuery()\r\n        qcount.exec(quec)\r\n        qcount.first()\r\n        query.exec(que)\r\n        #query.first()\r\n        r=0\r\n        self.ui.tableWidget.setRowCount(int(qcount.value(0)))\r\n        while query.next():\r\n            #self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(f'line_{r}'))\r\n            self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(str(query.value(0))))\r\n            self.ui.tableWidget.setItem(r, 1,  QTableWidgetItem(str(query.value(1))))\r\n            self.ui.tableWidget.setItem(r, 2,  QTableWidgetItem(str(query.value(2))))\r\n            self.ui.tableWidget.setItem(r, 3,  QTableWidgetItem(str(query.value(3))))\r\n            self.ui.tableWidget.setItem(r, 4,  QTableWidgetItem(str(query.value(4))))\r\n            self.ui.tableWidget.setItem(r, 5,  QTableWidgetItem(str(query.value(5))))\r\n            self.ui.tableWidget.setItem(r, 6,  QTableWidgetItem(str(query.value(6))))\r\n            self.ui.tableWidget.setItem(r, 7,  QTableWidgetItem(str(query.value(8))))\r\n            if str(query.value(7)) == \"True\":  # оплачено\r\n                for c in range(self.ui.tableWidget.columnCount()):\r\n                    self.ui.tableWidget.item(r, c).setBackground(QColor(0, 250, 100))  # Должно поменять цвет строки\r\n               # pass\r\n            #f str(query.value(7)) == True: #выдано\r\n                #self.ui.tableWidget. #Должно поменять цвет строки\r\n             #   pass  \r\n            r+=1\r\n        #self.ui.tableWidget.resizeColumnsToContents()\r\n        self.ui.tableWidget.resizeColumnToContents(0)\r\n        self.ui.tableWidget.resizeColumnToContents(1)\r\n        self.ui.tableWidget.resizeColumnToContents(2)\r\n        self.ui.tableWidget.resizeColumnToContents(3)\r\n        self.ui.tableWidget.resizeColumnToContents(4)\r\n        self.ui.tableWidget.resizeColumnToContents(5)\r\n        self.ui.tableWidget.resizeColumnToContents(6)\r\n      #  self.ui.tableWidget.setColumnWidth(7, 500)\r\n\r\n        self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)\r\n        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(5, QHeaderView.Stretch)\r\n        self.ui.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)\r\n\r\n\r\n    def findRec(self):\r\n        self.updateWidg(\"SELECT *  FROM jtab WHERE numZak = '3028' ;\", \"SELECT COUNT(*) FROM jtab WHERE numZak = '3028' ;\")\r\n\r\n        #pass\r\n\r\n    def addRec(self):\r\n        adq = QSqlQuery()\r\n        adq.last()\r\n        adq.exec(\"INSERT INTO jtab DEFAULT VALUES;\")\r\n        self.updateWidg(\"SELECT * FROM jtab;\",\"SELECT COUNT(*) FROM jtab;\")\r\n\r\n    def changeRec(self):\r\n        pass\r\n\r\n    def delRec(self):\r\n        dlg = QMessageBox(self)\r\n        dlg.setWindowTitle(\"Удаление записи\")\r\n        dlg.setText(\"Уверены?\")\r\n        dlg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)\r\n        dlg.setIcon(QMessageBox.Question)\r\n        button = dlg.exec()\r\n\r\n        if button == QMessageBox.Yes:\r\n            print(\"Yes!\")\r\n        else:\r\n            print(\"No!\")\r\n\r\n    def formUpd(self):\r\n        pass\r\n      #  jmod=QSqlTableModel()\r\n      #  jmod.setTable(\"jtab\")\r\n      #  self.ui.tableView.setModel(jmod)\r\n      #  jmod.select()\r\n\r\nif __name__ == '__main__':\r\n    app = QApplication(sys.argv)\r\n    window = MainWindow()\r\n    window.show()\r\n    sys.exit(app.exec())\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/jour_main.py b/jour_main.py
+--- a/jour_main.py	(revision bc41cac049075a14517d169ba4ea9f1cbfdb3f28)
++++ b/jour_main.py	(date 1708417134834)
+@@ -85,6 +85,8 @@
+         pass
+ 
+     def delRec(self):
++        quedel=QSqlQuery()
++
+         dlg = QMessageBox(self)
+         dlg.setWindowTitle("Удаление записи")
+         dlg.setText("Уверены?")
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f9d5d44c-6154-4772-8a67-23eb8f2a61de\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2bX0SeQg3NEe9cVIg4c04Rn4vae\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"last_opened_file_path\": \"E:/ixjournal\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f9d5d44c-6154-4772-8a67-23eb8f2a61de\" name=\"Changes\" comment=\"\" />\r\n      <created>1706346116351</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1706346116351</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bc41cac049075a14517d169ba4ea9f1cbfdb3f28)
++++ b/.idea/workspace.xml	(date 1708417136210)
+@@ -4,7 +4,12 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f9d5d44c-6154-4772-8a67-23eb8f2a61de" name="Changes" comment="" />
++    <list default="true" id="f9d5d44c-6154-4772-8a67-23eb8f2a61de" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/jour_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/jour_main.py" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/jourbd.sqlite" beforeDir="false" afterPath="$PROJECT_DIR$/jourbd.sqlite" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -12,18 +17,19 @@
+   </component>
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
++    <option name="UPDATE_TYPE" value="REBASE" />
+   </component>
+   <component name="ProjectId" id="2bX0SeQg3NEe9cVIg4c04Rn4vae" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "last_opened_file_path": "E:/ixjournal"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;E:/py_test/py_Jeopardy&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
+@@ -33,6 +39,18 @@
+       <option name="presentableId" value="Default" />
+       <updated>1706346116351</updated>
+     </task>
++    <task id="LOCAL-00001" summary="upd">
++      <created>1708337249311</created>
++      <option name="number" value="00001" />
++      <option name="presentableId" value="LOCAL-00001" />
++      <option name="project" value="LOCAL" />
++      <updated>1708337249311</updated>
++    </task>
++    <option name="localTasksCounter" value="2" />
+     <servers />
+   </component>
++  <component name="VcsManagerConfiguration">
++    <MESSAGE value="upd" />
++    <option name="LAST_COMMIT_MESSAGE" value="upd" />
++  </component>
+ </project>
+\ No newline at end of file
+Index: main.py
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># -*- coding: utf-8 -*-\r\n\r\n################################################################################\r\n## Form generated from reading UI file 'main.ui'\r\n##\r\n## Created by: Qt User Interface Compiler version 6.6.1\r\n##\r\n## WARNING! All changes made in this file will be lost when recompiling UI file!\r\n################################################################################\r\n\r\nfrom PySide6.QtCore import (QCoreApplication, QDate, QDateTime, QLocale,\r\n    QMetaObject, QObject, QPoint, QRect,\r\n    QSize, QTime, QUrl, Qt)\r\nfrom PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,\r\n    QCursor, QFont, QFontDatabase, QGradient,\r\n    QIcon, QImage, QKeySequence, QLinearGradient,\r\n    QPainter, QPalette, QPixmap, QRadialGradient,\r\n    QTransform)\r\nfrom PySide6.QtWidgets import (QApplication, QFrame, QGroupBox, QHBoxLayout,\r\n    QHeaderView, QMainWindow, QMenu, QMenuBar,\r\n    QPushButton, QSizePolicy, QStatusBar, QTableWidget,\r\n    QTableWidgetItem, QVBoxLayout, QWidget)\r\n\r\nclass Ui_MainWindow(object):\r\n    def setupUi(self, MainWindow):\r\n        if not MainWindow.objectName():\r\n            MainWindow.setObjectName(u\"MainWindow\")\r\n        MainWindow.resize(1496, 816)\r\n        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)\r\n        sizePolicy.setHorizontalStretch(0)\r\n        sizePolicy.setVerticalStretch(0)\r\n        sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())\r\n        MainWindow.setSizePolicy(sizePolicy)\r\n        MainWindow.setMinimumSize(QSize(800, 600))\r\n        self.centralwidget = QWidget(MainWindow)\r\n        self.centralwidget.setObjectName(u\"centralwidget\")\r\n        self.horizontalLayout = QHBoxLayout(self.centralwidget)\r\n        self.horizontalLayout.setObjectName(u\"horizontalLayout\")\r\n        self.tableWidget = QTableWidget(self.centralwidget)\r\n        if (self.tableWidget.columnCount() < 8):\r\n            self.tableWidget.setColumnCount(8)\r\n        __qtablewidgetitem = QTableWidgetItem()\r\n        __qtablewidgetitem.setBackground(QColor(255, 255, 255));\r\n        self.tableWidget.setHorizontalHeaderItem(0, __qtablewidgetitem)\r\n        __qtablewidgetitem1 = QTableWidgetItem()\r\n        self.tableWidget.setHorizontalHeaderItem(1, __qtablewidgetitem1)\r\n        __qtablewidgetitem2 = QTableWidgetItem()\r\n        self.tableWidget.setHorizontalHeaderItem(2, __qtablewidgetitem2)\r\n        __qtablewidgetitem3 = QTableWidgetItem()\r\n        self.tableWidget.setHorizontalHeaderItem(3, __qtablewidgetitem3)\r\n        __qtablewidgetitem4 = QTableWidgetItem()\r\n        self.tableWidget.setHorizontalHeaderItem(4, __qtablewidgetitem4)\r\n        __qtablewidgetitem5 = QTableWidgetItem()\r\n        self.tableWidget.setHorizontalHeaderItem(5, __qtablewidgetitem5)\r\n        __qtablewidgetitem6 = QTableWidgetItem()\r\n        self.tableWidget.setHorizontalHeaderItem(6, __qtablewidgetitem6)\r\n        __qtablewidgetitem7 = QTableWidgetItem()\r\n        self.tableWidget.setHorizontalHeaderItem(7, __qtablewidgetitem7)\r\n        self.tableWidget.setObjectName(u\"tableWidget\")\r\n\r\n        self.horizontalLayout.addWidget(self.tableWidget)\r\n\r\n        self.frame = QFrame(self.centralwidget)\r\n        self.frame.setObjectName(u\"frame\")\r\n        self.frame.setMinimumSize(QSize(150, 0))\r\n        self.frame.setFrameShape(QFrame.StyledPanel)\r\n        self.frame.setFrameShadow(QFrame.Raised)\r\n        self.pushButton_Find = QPushButton(self.frame)\r\n        self.pushButton_Find.setObjectName(u\"pushButton_Find\")\r\n        self.pushButton_Find.setGeometry(QRect(20, 10, 111, 24))\r\n        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)\r\n        sizePolicy1.setHorizontalStretch(0)\r\n        sizePolicy1.setVerticalStretch(0)\r\n        sizePolicy1.setHeightForWidth(self.pushButton_Find.sizePolicy().hasHeightForWidth())\r\n        self.pushButton_Find.setSizePolicy(sizePolicy1)\r\n        self.pushButton_Add = QPushButton(self.frame)\r\n        self.pushButton_Add.setObjectName(u\"pushButton_Add\")\r\n        self.pushButton_Add.setGeometry(QRect(20, 60, 111, 23))\r\n        self.pushButton_Change = QPushButton(self.frame)\r\n        self.pushButton_Change.setObjectName(u\"pushButton_Change\")\r\n        self.pushButton_Change.setGeometry(QRect(20, 90, 111, 23))\r\n        self.pushButton_Del = QPushButton(self.frame)\r\n        self.pushButton_Del.setObjectName(u\"pushButton_Del\")\r\n        self.pushButton_Del.setGeometry(QRect(20, 120, 111, 23))\r\n        self.groupBox = QGroupBox(self.frame)\r\n        self.groupBox.setObjectName(u\"groupBox\")\r\n        self.groupBox.setGeometry(QRect(10, 180, 131, 111))\r\n        self.verticalLayout = QVBoxLayout(self.groupBox)\r\n        self.verticalLayout.setObjectName(u\"verticalLayout\")\r\n        self.pushButton_Ext = QPushButton(self.groupBox)\r\n        self.pushButton_Ext.setObjectName(u\"pushButton_Ext\")\r\n\r\n        self.verticalLayout.addWidget(self.pushButton_Ext)\r\n\r\n        self.pushButton_Pay = QPushButton(self.groupBox)\r\n        self.pushButton_Pay.setObjectName(u\"pushButton_Pay\")\r\n\r\n        self.verticalLayout.addWidget(self.pushButton_Pay)\r\n\r\n\r\n        self.horizontalLayout.addWidget(self.frame)\r\n\r\n        MainWindow.setCentralWidget(self.centralwidget)\r\n        self.menubar = QMenuBar(MainWindow)\r\n        self.menubar.setObjectName(u\"menubar\")\r\n        self.menubar.setGeometry(QRect(0, 0, 1496, 30))\r\n        self.menu = QMenu(self.menubar)\r\n        self.menu.setObjectName(u\"menu\")\r\n        self.menu_2 = QMenu(self.menubar)\r\n        self.menu_2.setObjectName(u\"menu_2\")\r\n        self.menu_3 = QMenu(self.menubar)\r\n        self.menu_3.setObjectName(u\"menu_3\")\r\n        MainWindow.setMenuBar(self.menubar)\r\n        self.statusbar = QStatusBar(MainWindow)\r\n        self.statusbar.setObjectName(u\"statusbar\")\r\n        MainWindow.setStatusBar(self.statusbar)\r\n\r\n        self.menubar.addAction(self.menu.menuAction())\r\n        self.menubar.addAction(self.menu_2.menuAction())\r\n        self.menubar.addAction(self.menu_3.menuAction())\r\n\r\n        self.retranslateUi(MainWindow)\r\n\r\n        QMetaObject.connectSlotsByName(MainWindow)\r\n    # setupUi\r\n\r\n    def retranslateUi(self, MainWindow):\r\n        MainWindow.setWindowTitle(QCoreApplication.translate(\"MainWindow\", u\"MainWindow\", None))\r\n        ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)\r\n        ___qtablewidgetitem.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u041d\\u043e\\u043c\\u0435\\u0440 \\u043f/\\u043f\", None));\r\n        ___qtablewidgetitem1 = self.tableWidget.horizontalHeaderItem(1)\r\n        ___qtablewidgetitem1.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0414\\u0430\\u0442\\u0430\", None));\r\n        ___qtablewidgetitem2 = self.tableWidget.horizontalHeaderItem(2)\r\n        ___qtablewidgetitem2.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u041d\\u043e\\u043c\\u0435\\u0440 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\", None));\r\n        ___qtablewidgetitem3 = self.tableWidget.horizontalHeaderItem(3)\r\n        ___qtablewidgetitem3.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0422\\u0435\\u043b\\u0435\\u0444\\u043e\\u043d\", None));\r\n        ___qtablewidgetitem4 = self.tableWidget.horizontalHeaderItem(4)\r\n        ___qtablewidgetitem4.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0417\\u0430\\u043a\\u0430\\u0437\\u0447\\u0438\\u043a\", None));\r\n        ___qtablewidgetitem5 = self.tableWidget.horizontalHeaderItem(5)\r\n        ___qtablewidgetitem5.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u041e\\u043f\\u0438\\u0441\\u0430\\u043d\\u0438\\u0435 \\u0437\\u0430\\u043a\\u0430\\u0437\\u0430\", None));\r\n        ___qtablewidgetitem6 = self.tableWidget.horizontalHeaderItem(6)\r\n        ___qtablewidgetitem6.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0421\\u0442\\u043e\\u0438\\u043c\\u043e\\u0441\\u0442\\u044c\", None));\r\n        ___qtablewidgetitem7 = self.tableWidget.horizontalHeaderItem(7)\r\n        ___qtablewidgetitem7.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u041f\\u0440\\u0438\\u043c\\u0435\\u0447\\u0430\\u043d\\u0438\\u0435\", None));\r\n        self.pushButton_Find.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u041d\\u0430\\u0439\\u0442\\u0438\", None))\r\n        self.pushButton_Add.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0414\\u043e\\u0431\\u0430\\u0432\\u0438\\u0442\\u044c\", None))\r\n        self.pushButton_Change.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0418\\u0437\\u043c\\u0435\\u043d\\u0438\\u0442\\u044c\", None))\r\n        self.pushButton_Del.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0423\\u0434\\u0430\\u043b\\u0438\\u0442\\u044c\", None))\r\n        self.groupBox.setTitle(\"\")\r\n        self.pushButton_Ext.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u0412\\u044b\\u0434\\u0430\\u0442\\u044c\", None))\r\n        self.pushButton_Pay.setText(QCoreApplication.translate(\"MainWindow\", u\"\\u041e\\u043f\\u043b\\u0430\\u0447\\u0435\\u043d\", None))\r\n        self.menu.setTitle(QCoreApplication.translate(\"MainWindow\", u\"\\u041e\\u043f\\u0435\\u0440\\u0430\\u0446\\u0438\\u0438 \\u0436\\u0443\\u0440\\u043d\\u0430\\u043b\\u0430\", None))\r\n        self.menu_2.setTitle(QCoreApplication.translate(\"MainWindow\", u\"\\u041f\\u0435\\u0447\\u0430\\u0442\\u044c\", None))\r\n        self.menu_3.setTitle(QCoreApplication.translate(\"MainWindow\", u\"\\u0412\\u044b\\u0445\\u043e\\u0434\", None))\r\n    # retranslateUi\r\n\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/main.py b/main.py
+--- a/main.py	(revision bc41cac049075a14517d169ba4ea9f1cbfdb3f28)
++++ b/main.py	(date 1708335107060)
+@@ -94,10 +94,7 @@
+ 
+         self.pushButton_Pay = QPushButton(self.groupBox)
+         self.pushButton_Pay.setObjectName(u"pushButton_Pay")
+-
+         self.verticalLayout.addWidget(self.pushButton_Pay)
+-
+-
+         self.horizontalLayout.addWidget(self.frame)
+ 
+         MainWindow.setCentralWidget(self.centralwidget)

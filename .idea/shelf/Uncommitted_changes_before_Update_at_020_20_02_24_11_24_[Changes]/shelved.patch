@@ -1,0 +1,165 @@
+Index: jour_main.py
+===================================================================
+diff --git a/jour_main.py b/jour_main.py
+deleted file mode 100644
+--- a/jour_main.py	(revision bc41cac049075a14517d169ba4ea9f1cbfdb3f28)
++++ /dev/null	(revision bc41cac049075a14517d169ba4ea9f1cbfdb3f28)
+@@ -1,111 +0,0 @@
+-import sys
+-from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
+-    QMessageBox
+-from main import Ui_MainWindow
+-from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
+-from PySide6.QtCore import QSize
+-from PySide6.QtGui import QColor
+-from PySide6.QtCore import QItemSelectionModel
+-#import PySide6.QtGui
+-#from PySide6 import QtWidgets
+-
+-class MainWindow(QMainWindow):
+-    def __init__(self):
+-        super().__init__()
+-        self.ui = Ui_MainWindow()
+-        self.ui.setupUi(self)
+-        self.ui.pushButton_Find.clicked.connect(self.findRec)
+-        self.ui.pushButton_Add.clicked.connect(self.addRec)
+-        self.ui.pushButton_Change.clicked.connect(self.changeRec)
+-        self.ui.pushButton_Del.clicked.connect(self.delRec)
+-
+-
+-        DB = QSqlDatabase.addDatabase('QSQLITE')
+-        DB.setDatabaseName("jourbd.sqlite")
+-        DB.open()
+-
+-        self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+-
+-
+-        
+-    def updateWidg(self, que, quec):
+-        query = QSqlQuery()
+-        qcount = QSqlQuery()
+-        qcount.exec(quec)
+-        qcount.first()
+-        query.exec(que)
+-        #query.first()
+-        r=0
+-        self.ui.tableWidget.setRowCount(int(qcount.value(0)))
+-        while query.next():
+-            #self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(f'line_{r}'))
+-            self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(str(query.value(0))))
+-            self.ui.tableWidget.setItem(r, 1,  QTableWidgetItem(str(query.value(1))))
+-            self.ui.tableWidget.setItem(r, 2,  QTableWidgetItem(str(query.value(2))))
+-            self.ui.tableWidget.setItem(r, 3,  QTableWidgetItem(str(query.value(3))))
+-            self.ui.tableWidget.setItem(r, 4,  QTableWidgetItem(str(query.value(4))))
+-            self.ui.tableWidget.setItem(r, 5,  QTableWidgetItem(str(query.value(5))))
+-            self.ui.tableWidget.setItem(r, 6,  QTableWidgetItem(str(query.value(6))))
+-            self.ui.tableWidget.setItem(r, 7,  QTableWidgetItem(str(query.value(8))))
+-            if str(query.value(7)) == "True":  # оплачено
+-                for c in range(self.ui.tableWidget.columnCount()):
+-                    self.ui.tableWidget.item(r, c).setBackground(QColor(0, 250, 100))  # Должно поменять цвет строки
+-               # pass
+-            #f str(query.value(7)) == True: #выдано
+-                #self.ui.tableWidget. #Должно поменять цвет строки
+-             #   pass  
+-            r+=1
+-        #self.ui.tableWidget.resizeColumnsToContents()
+-        self.ui.tableWidget.resizeColumnToContents(0)
+-        self.ui.tableWidget.resizeColumnToContents(1)
+-        self.ui.tableWidget.resizeColumnToContents(2)
+-        self.ui.tableWidget.resizeColumnToContents(3)
+-        self.ui.tableWidget.resizeColumnToContents(4)
+-        self.ui.tableWidget.resizeColumnToContents(5)
+-        self.ui.tableWidget.resizeColumnToContents(6)
+-      #  self.ui.tableWidget.setColumnWidth(7, 500)
+-
+-        self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)
+-        self.ui.tableWidget.horizontalHeader().setSectionResizeMode(5, QHeaderView.Stretch)
+-        self.ui.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
+-
+-
+-    def findRec(self):
+-        self.updateWidg("SELECT *  FROM jtab WHERE numZak = '3028' ;", "SELECT COUNT(*) FROM jtab WHERE numZak = '3028' ;")
+-
+-        #pass
+-
+-    def addRec(self):
+-        adq = QSqlQuery()
+-        adq.last()
+-        adq.exec("INSERT INTO jtab DEFAULT VALUES;")
+-        self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+-
+-    def changeRec(self):
+-        pass
+-
+-    def delRec(self):
+-        dlg = QMessageBox(self)
+-        dlg.setWindowTitle("Удаление записи")
+-        dlg.setText("Уверены?")
+-        dlg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
+-        dlg.setIcon(QMessageBox.Question)
+-        button = dlg.exec()
+-
+-        if button == QMessageBox.Yes:
+-            print("Yes!")
+-        else:
+-            print("No!")
+-
+-    def formUpd(self):
+-        pass
+-      #  jmod=QSqlTableModel()
+-      #  jmod.setTable("jtab")
+-      #  self.ui.tableView.setModel(jmod)
+-      #  jmod.select()
+-
+-if __name__ == '__main__':
+-    app = QApplication(sys.argv)
+-    window = MainWindow()
+-    window.show()
+-    sys.exit(app.exec())
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"f9d5d44c-6154-4772-8a67-23eb8f2a61de\" name=\"Changes\" comment=\"\" />\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"ProjectId\" id=\"2bX0SeQg3NEe9cVIg4c04Rn4vae\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"last_opened_file_path\": \"E:/ixjournal\"\r\n  }\r\n}]]></component>\r\n  <component name=\"SpellCheckerSettings\" RuntimeDictionaries=\"0\" Folders=\"0\" CustomDictionaries=\"0\" DefaultDictionary=\"application-level\" UseSingleDictionary=\"true\" transferred=\"true\" />\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"f9d5d44c-6154-4772-8a67-23eb8f2a61de\" name=\"Changes\" comment=\"\" />\r\n      <created>1706346116351</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1706346116351</updated>\r\n    </task>\r\n    <servers />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision bc41cac049075a14517d169ba4ea9f1cbfdb3f28)
++++ b/.idea/workspace.xml	(date 1708417439414)
+@@ -4,7 +4,9 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="f9d5d44c-6154-4772-8a67-23eb8f2a61de" name="Changes" comment="" />
++    <list default="true" id="f9d5d44c-6154-4772-8a67-23eb8f2a61de" name="Changes" comment="">
++      <change beforePath="$PROJECT_DIR$/jour_main.py" beforeDir="false" />
++    </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+@@ -13,17 +15,20 @@
+   <component name="Git.Settings">
+     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+   </component>
++  <component name="GitToolBoxStore">
++    <option name="projectConfigVersion" value="5" />
++  </component>
+   <component name="ProjectId" id="2bX0SeQg3NEe9cVIg4c04Rn4vae" />
+   <component name="ProjectViewState">
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "last_opened_file_path": "E:/ixjournal"
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;E:/ixjournal&quot;
+   }
+-}]]></component>
++}</component>
+   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+   <component name="TaskManager">
+     <task active="true" id="Default" summary="Default task">
