@@ -77,7 +77,6 @@ class MainWindow(QMainWindow):
 
     def addRec(self):
         adq = QSqlQuery()
-        adq.last()
         adq.exec("INSERT INTO jtab DEFAULT VALUES;")
         self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
 
@@ -93,7 +92,9 @@ class MainWindow(QMainWindow):
         button = dlg.exec()
 
         if button == QMessageBox.Yes:
-            print("Yes!")
+            adq = QSqlQuery()
+            adq.exec("DELETE FROM jtab WHERE npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+";")
+            self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
         else:
             print("No!")
 
