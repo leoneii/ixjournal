@@ -1,6 +1,6 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
-    QMessageBox
+    QMessageBox, QDialog
 from main import Ui_MainWindow
 from newdial_ui import Ui_Dialog
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
