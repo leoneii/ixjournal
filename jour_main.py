@@ -2,6 +2,7 @@ import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
     QMessageBox
 from main import Ui_MainWindow
+from newdial_ui import Ui_Dialog
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize
 from PySide6.QtGui import QColor
@@ -64,7 +65,6 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.resizeColumnToContents(5)
         self.ui.tableWidget.resizeColumnToContents(6)
       #  self.ui.tableWidget.setColumnWidth(7, 500)
-
         self.ui.tableWidget.horizontalHeader().setStretchLastSection(True)
         self.ui.tableWidget.horizontalHeader().setSectionResizeMode(5, QHeaderView.Stretch)
         self.ui.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
@@ -86,11 +86,11 @@ class MainWindow(QMainWindow):
     def delRec(self):
         dlg = QMessageBox(self)
         dlg.setWindowTitle("Удаление записи")
-        dlg.setText("Уверены?")
+        txtd = self.ui.tableWidget.item(self.ui.tableWidget.currentRow(), 2).text()
+        dlg.setText("Уверены в удалении строки с номером заказа "+txtd+"?")
         dlg.setStandardButtons(QMessageBox.Yes | QMessageBox.No)
         dlg.setIcon(QMessageBox.Question)
         button = dlg.exec()
-
         if button == QMessageBox.Yes:
             adq = QSqlQuery()
             adq.exec("DELETE FROM jtab WHERE npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+";")
@@ -104,6 +104,16 @@ class MainWindow(QMainWindow):
       #  jmod.setTable("jtab")
       #  self.ui.tableView.setModel(jmod)
       #  jmod.select()
+
+class newdial(Ui_Dialog, QDialog):
+    """Employee dialog."""
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        # Run the .setupUi() method to show the GUI
+        self.setupUi(self)
+
+
+
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
