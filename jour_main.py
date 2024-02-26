@@ -1,7 +1,7 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
     QMessageBox, QDialog
-from main import Ui_MainWindow
+from main_ui import Ui_MainWindow
 from newdial_ui import Ui_Dialog
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize
@@ -76,14 +76,16 @@ class MainWindow(QMainWindow):
         #pass
 
     def addRec(self):
-        adq = QSqlQuery()
-        adq.exec("INSERT INTO jtab DEFAULT VALUES;")
-        self.updateWidg("SELECT * FROM jtab;", "SELECT COUNT(*) FROM jtab;")
-        dlg = newdial(self)
+        qcount = QSqlQuery()
+        qcount.exec("SELECT MAX(npp) FROM jtab")
+        qcount.first()
+        dlg = newdial(self, int(qcount.value(0))+1)
         dlg.exec()
 
+
     def changeRec(self):
-        pass
+        dlg = newdial(self, self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text())
+        dlg.exec()
 
     def delRec(self):
         dlg = QMessageBox(self)
@@ -108,11 +110,13 @@ class MainWindow(QMainWindow):
       #  jmod.select()
 
 class newdial(QDialog):
-    def __init__(self, parent=None):
+    def __init__(self, parent=None, ceFlag=0):
         super().__init__(parent)
         # Run the .setupUi() method to show the GUI
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
+        self.ui.lineEdit_npp.setText(str(ceFlag))
+        #parent.hide()
 
 
 

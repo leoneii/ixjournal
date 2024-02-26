@@ -34,7 +34,7 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>49</width>
+     <width>81</width>
      <height>16</height>
     </rect>
    </property>
@@ -44,7 +44,7 @@
     </font>
    </property>
    <property name="text">
-    <string>дата</string>
+    <string>дата/нпп</string>
    </property>
   </widget>
   <widget class="QLabel" name="label_numZak">
@@ -194,9 +194,9 @@
   <widget class="QLineEdit" name="lineEdit_dat">
    <property name="geometry">
     <rect>
-     <x>140</x>
+     <x>142</x>
      <y>10</y>
-     <width>113</width>
+     <width>111</width>
      <height>22</height>
     </rect>
    </property>
@@ -298,6 +298,16 @@
      <y>250</y>
      <width>371</width>
      <height>51</height>
+    </rect>
+   </property>
+  </widget>
+  <widget class="QLineEdit" name="lineEdit_npp">
+   <property name="geometry">
+    <rect>
+     <x>260</x>
+     <y>10</y>
+     <width>113</width>
+     <height>22</height>
     </rect>
    </property>
   </widget>
