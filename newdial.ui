@@ -302,6 +302,17 @@
    </property>
   </widget>
  </widget>
+ <tabstops>
+  <tabstop>lineEdit_dat</tabstop>
+  <tabstop>lineEdit_numZak</tabstop>
+  <tabstop>lineEdit_phone</tabstop>
+  <tabstop>lineEdit_nameZak</tabstop>
+  <tabstop>textEdit_descryption</tabstop>
+  <tabstop>lineEdit_costSum</tabstop>
+  <tabstop>textEdit_prim</tabstop>
+  <tabstop>checkBox_costYN</tabstop>
+  <tabstop>checkBox_end</tabstop>
+ </tabstops>
  <resources/>
  <connections>
   <connection>
@@ -311,8 +322,8 @@
    <slot>accept()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>248</x>
-     <y>254</y>
+     <x>388</x>
+     <y>354</y>
     </hint>
     <hint type="destinationlabel">
      <x>157</x>
@@ -327,8 +338,8 @@
    <slot>reject()</slot>
    <hints>
     <hint type="sourcelabel">
-     <x>316</x>
-     <y>260</y>
+     <x>456</x>
+     <y>360</y>
     </hint>
     <hint type="destinationlabel">
      <x>286</x>

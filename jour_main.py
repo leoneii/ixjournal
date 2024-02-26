@@ -54,7 +54,7 @@ class MainWindow(QMainWindow):
                # pass
             #f str(query.value(7)) == True: #выдано
                 #self.ui.tableWidget. #Должно поменять цвет строки
-             #   pass  
+            #   pass  
             r+=1
         #self.ui.tableWidget.resizeColumnsToContents()
         self.ui.tableWidget.resizeColumnToContents(0)
@@ -78,7 +78,9 @@ class MainWindow(QMainWindow):
     def addRec(self):
         adq = QSqlQuery()
         adq.exec("INSERT INTO jtab DEFAULT VALUES;")
-        self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+        self.updateWidg("SELECT * FROM jtab;", "SELECT COUNT(*) FROM jtab;")
+        dlg = newdial(self)
+        dlg.exec()
 
     def changeRec(self):
         pass
@@ -105,12 +107,12 @@ class MainWindow(QMainWindow):
       #  self.ui.tableView.setModel(jmod)
       #  jmod.select()
 
-class newdial(Ui_Dialog, QDialog):
-    """Employee dialog."""
+class newdial(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
         # Run the .setupUi() method to show the GUI
-        self.setupUi(self)
+        self.ui = Ui_Dialog()
+        self.ui.setupUi(self)
 
 
 
