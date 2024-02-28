@@ -111,13 +111,27 @@ class MainWindow(QMainWindow):
 
 class newdial(QDialog):
     def __init__(self, parent=None, ceFlag=0):
+        global mainW
+        mainW=parent
         super().__init__(parent)
         # Run the .setupUi() method to show the GUI
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
         self.ui.lineEdit_npp.setText(str(ceFlag))
-        #parent.hide()
+        self.ui.buttonBox.accepted.connect(self.okButton)
+        self.ui.buttonBox.rejected.connect(self.rejButton)
+        
+    def okButton(self):
+        qinsert = QSqlQuery()
+        inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+self.ui.lineEdit_dat.text()+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', "+str(self.ui.checkBox_costYN.isChecked())+", '"+self.ui.textEdit_prim.toPlainText()+"', "+str(self.ui.checkBox_end.isChecked())+");"
+        print(inNewRow)
+        qinsert.exec(inNewRow) 
+        mainW.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+        #mainW.hide()
+        self.close()
 
+    def rejButton(self):
+        self.close()
 
 
 
