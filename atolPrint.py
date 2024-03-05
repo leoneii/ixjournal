@@ -1,4 +1,6 @@
+import os
 import sys
+from time import sleep
 from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
     QMessageBox
 from atolMain import Ui_MainWindow
@@ -7,6 +9,7 @@ from PySide6.QtCore import QSize
 from PySide6.QtGui import QColor
 from PySide6.QtCore import QItemSelectionModel
 from libfptr10 import IFptr
+
 
 
 class MainWindow(QMainWindow):
@@ -28,6 +31,30 @@ class MainWindow(QMainWindow):
         self.ui.setupUi(self)
         self.ui.pushButton_test.clicked.connect(self.test)
         self.ui.closeShift.clicked.connect(self.closeShift)
+        self.ui.listButton.clicked.connect(self.listUpdate)
+
+    def listUpdate(self):
+        if self.ui.frameList.geometry().width() <= 300:
+            self.setMaximumWidth(29005)
+            self.ui.centralwidget.setMaximumWidth(65000)
+            for i in range(300):  
+                #sleep(0.005)
+                self.ui.frameList.setMinimumWidth(300+i)
+                self.ui.frameList.setMaximumWidth(300+i)
+            print ("1")
+        else:
+            for i in range(300):  
+                #sleep(0.005)
+                self.ui.frameList.setMinimumWidth(300-i-1)
+                self.ui.frameList.setMaximumWidth(300-i-1)
+
+            self.ui.centralwidget.setMaximumWidth(294)
+            self.setMaximumWidth(294)
+            #self.updateGeometry()
+
+            print ("2")    
+            
+
 
 
     def closeShift(self):
