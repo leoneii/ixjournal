@@ -79,12 +79,12 @@ class MainWindow(QMainWindow):
         qcount = QSqlQuery()
         qcount.exec("SELECT MAX(npp) FROM jtab")
         qcount.first()
-        dlg = newdial(self, int(qcount.value(0))+1)
+        dlg = newdial(self, int(qcount.value(0))+1,0)
         dlg.exec()
 
 
     def changeRec(self):
-        dlg = newdial(self, self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text())
+        dlg = newdial(self, self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text(),1)
         dlg.exec()
 
     def delRec(self):
@@ -110,20 +110,25 @@ class MainWindow(QMainWindow):
       #  jmod.select()
 
 class newdial(QDialog):
-    def __init__(self, parent=None, ceFlag=0):
-        global mainW
+    def __init__(self, parent=None, npp = 0,ceFlagp=0 ):
+        global mainW, ceFlag
+        ceFlag= ceFlagp
         mainW=parent
         super().__init__(parent)
         # Run the .setupUi() method to show the GUI
         self.ui = Ui_Dialog()
         self.ui.setupUi(self)
-        self.ui.lineEdit_npp.setText(str(ceFlag))
+        self.ui.lineEdit_npp.setText(str(npp))
         self.ui.buttonBox.accepted.connect(self.okButton)
         self.ui.buttonBox.rejected.connect(self.rejButton)
         
     def okButton(self):
         qinsert = QSqlQuery()
-        inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+self.ui.lineEdit_dat.text()+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', "+str(self.ui.checkBox_costYN.isChecked())+", '"+self.ui.textEdit_prim.toPlainText()+"', "+str(self.ui.checkBox_end.isChecked())+");"
+        if ceFlag == 0:
+            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+self.ui.lineEdit_dat.text()+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', "+str(self.ui.checkBox_costYN.isChecked())+", '"+self.ui.textEdit_prim.toPlainText()+"', "+str(self.ui.checkBox_end.isChecked())+");"
+        if ceFlag == 1:
+            inNewRow = "UPDATE jtab SET dat='"+self.ui.lineEdit_dat.text()+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= "+str(self.ui.checkBox_costYN.isChecked())+", prim= '"+self.ui.textEdit_prim.toPlainText()+"', End= "+str(self.ui.checkBox_end.isChecked())+" WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
+
         print(inNewRow)
         qinsert.exec(inNewRow) 
         mainW.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
