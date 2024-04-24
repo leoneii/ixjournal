@@ -84,6 +84,8 @@ class MainWindow(QMainWindow):
 
 
     def changeRec(self):
+        #currow=self.ui.tableWidget.currentRow()
+
         dlg = newdial(self, self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text(),1)
         dlg.exec()
 
@@ -121,6 +123,18 @@ class newdial(QDialog):
         self.ui.lineEdit_npp.setText(str(npp))
         self.ui.buttonBox.accepted.connect(self.okButton)
         self.ui.buttonBox.rejected.connect(self.rejButton)
+        if ceFlag == 1:
+            qinp = QSqlQuery()
+            qinp.exec("SELECT * FROM jtab WHERE npp = "+str(npp)+" ;")
+            qinp.first()
+            self.ui.lineEdit_dat.setText(qinp.value(1))
+            self.ui.lineEdit_numZak.setText(str(qinp.value(2)))
+            self.ui.lineEdit_phone.setText(qinp.value(3))
+            self.ui.lineEdit_nameZak.setText(qinp.value(4))
+            self.ui.textEdit_descryption.setText(qinp.value(5))
+            self.ui.lineEdit_costSum.setText(str(qinp.value(6)))
+            self.ui.checkBox_costYN.setChecked(bool(qinp.value(7)))
+            self.ui.textEdit_prim.setText(qinp.value(8))
         
     def okButton(self):
         qinsert = QSqlQuery()
