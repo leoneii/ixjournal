@@ -3,8 +3,9 @@ from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidg
     QMessageBox, QDialog
 from main_ui import Ui_MainWindow
 from newdial_ui import Ui_Dialog
+from finddial import Ui_fDial
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
-from PySide6.QtCore import QSize
+from PySide6.QtCore import QSize, QDate
 from PySide6.QtGui import QColor
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
@@ -71,11 +72,15 @@ class MainWindow(QMainWindow):
 
 
     def findRec(self):
-        self.updateWidg("SELECT *  FROM jtab WHERE numZak = '3028' ;", "SELECT COUNT(*) FROM jtab WHERE numZak = '3028' ;")
+        fdlg=fnddial()
+        fdlg.exec()
+        #self.updateWidg("SELECT *  FROM jtab WHERE numZak = '3028' ;", "SELECT COUNT(*) FROM jtab WHERE numZak = '3028' ;")
 
         #pass
 
     def addRec(self):
+
+
         qcount = QSqlQuery()
         qcount.exec("SELECT MAX(npp) FROM jtab")
         qcount.first()
@@ -135,6 +140,21 @@ class newdial(QDialog):
             self.ui.lineEdit_costSum.setText(str(qinp.value(6)))
             self.ui.checkBox_costYN.setChecked(bool(qinp.value(7)))
             self.ui.textEdit_prim.setText(qinp.value(8))
+        else:
+            qdate = QDate.currentDate()
+            sd = str(qdate.day())
+            if len(sd) == 1:
+                sd = "0" + sd
+            sm = str(qdate.month())
+            if len(sm) == 1:
+                sm = "0" + sm
+            stdate = sd + "." + sm + "." + str(qdate.year())
+            self.ui.lineEdit_dat.setText(stdate)
+            qnz = QSqlQuery()
+            qnz.exec("SELECT MAX(numZak) FROM jtab")
+            qnz.first()
+            self.ui.lineEdit_numZak.setText(str(qnz.value(0)+1))
+
         
     def okButton(self):
         qinsert = QSqlQuery()
@@ -143,7 +163,7 @@ class newdial(QDialog):
         if ceFlag == 1:
             inNewRow = "UPDATE jtab SET dat='"+self.ui.lineEdit_dat.text()+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= "+str(self.ui.checkBox_costYN.isChecked())+", prim= '"+self.ui.textEdit_prim.toPlainText()+"', End= "+str(self.ui.checkBox_end.isChecked())+" WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
 
-        print(inNewRow)
+        #print(inNewRow)
         qinsert.exec(inNewRow) 
         mainW.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
         #mainW.hide()
@@ -152,6 +172,11 @@ class newdial(QDialog):
     def rejButton(self):
         self.close()
 
+class fnddial(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_fDial()
+        self.ui.setupUi(self)
 
 
 if __name__ == '__main__':
