@@ -7,6 +7,7 @@ from finddial import Ui_fDial
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize, QDate
 from PySide6.QtGui import QColor
+#from datetime import date
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
 #from PySide6 import QtWidgets
@@ -17,6 +18,7 @@ class MainWindow(QMainWindow):
         self.ui = Ui_MainWindow()
         self.ui.setupUi(self)
         self.ui.pushButton_Find.clicked.connect(self.findRec)
+        self.ui.pushButton_UnFilter.clicked.connect(self.unFilter)
         self.ui.pushButton_Add.clicked.connect(self.addRec)
         self.ui.pushButton_Change.clicked.connect(self.changeRec)
         self.ui.pushButton_Del.clicked.connect(self.delRec)
@@ -29,7 +31,9 @@ class MainWindow(QMainWindow):
         self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
 
 
-        
+    def unFilter(self):
+        self.updateWidg("SELECT *  FROM jtab ", "SELECT COUNT(*) FROM jtab ;")
+
     def updateWidg(self, que, quec):
         query = QSqlQuery()
         qcount = QSqlQuery()
@@ -42,7 +46,7 @@ class MainWindow(QMainWindow):
         while query.next():
             #self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(f'line_{r}'))
             self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(str(query.value(0))))
-            self.ui.tableWidget.setItem(r, 1,  QTableWidgetItem(str(query.value(1))))
+            self.ui.tableWidget.setItem(r, 1,  QTableWidgetItem(QDate().fromString(query.value(1),'yyyy-MM-dd').toString('dd.MM.yyyy')))
             self.ui.tableWidget.setItem(r, 2,  QTableWidgetItem(str(query.value(2))))
             self.ui.tableWidget.setItem(r, 3,  QTableWidgetItem(str(query.value(3))))
             self.ui.tableWidget.setItem(r, 4,  QTableWidgetItem(str(query.value(4))))
@@ -72,10 +76,37 @@ class MainWindow(QMainWindow):
 
 
     def findRec(self):
-        fdlg=fnddial()
-        fdlg.exec()
-        #self.updateWidg("SELECT *  FROM jtab WHERE numZak = '3028' ;", "SELECT COUNT(*) FROM jtab WHERE numZak = '3028' ;")
 
+
+        fdlg=fnddial()
+        #self.dateEditDATAInicial.setDate(QDate.currentDate())
+
+        now=QDate.currentDate()
+        fdlg.ui.lineEdit_dateStart.setText('01.01.2024')
+        fdlg.ui.lineEdit_dateStart.setInputMask("99.99.9999")
+        fdlg.ui.lineEdit_dateEnd.setText(now.toString('dd.MM.yyyy'))
+        fdlg.ui.lineEdit_dateEnd.setInputMask("99.99.9999")
+        fdlg.exec()
+
+
+        dstart=QDate.fromString(fdlg.ui.lineEdit_dateStart.text(),'dd.MM.yyyy')
+        dstop=QDate.fromString(fdlg.ui.lineEdit_dateEnd.text(),'dd.MM.yyyy')
+        numz=fdlg.ui.lineEdit_numbZak.text()
+        namez=fdlg.ui.lineEdit_nameZak.text()
+        # firstdat=QDate.strptime(dstart,'%d.%m.%Y')
+        # secondat=QDate.strptime(dstop,'%d.%m.%Y')
+        # print(firstdat)
+
+        if len(numz)>0:
+            self.updateWidg("SELECT *  FROM jtab WHERE numZak = '" + numz + "';" , "SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;")
+        else:
+            if len(namez)>0:
+                self.updateWidg("SELECT * FROM jtab WHERE (dat between '" + dstart.toString(
+                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak='"+namez+"';",
+                                "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString(
+                                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak='"+namez+"';")
+            else:
+                self.updateWidg("SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';","SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';")
         #pass
 
     def addRec(self):
@@ -132,7 +163,7 @@ class newdial(QDialog):
             qinp = QSqlQuery()
             qinp.exec("SELECT * FROM jtab WHERE npp = "+str(npp)+" ;")
             qinp.first()
-            self.ui.lineEdit_dat.setText(qinp.value(1))
+            self.ui.lineEdit_dat.setText(QDate().fromString(qinp.value(1),'yyyy-MM-dd').toString('dd.MM.yyyy'));
             self.ui.lineEdit_numZak.setText(str(qinp.value(2)))
             self.ui.lineEdit_phone.setText(qinp.value(3))
             self.ui.lineEdit_nameZak.setText(qinp.value(4))
@@ -154,14 +185,15 @@ class newdial(QDialog):
             qnz.exec("SELECT MAX(numZak) FROM jtab")
             qnz.first()
             self.ui.lineEdit_numZak.setText(str(qnz.value(0)+1))
-
+            self.ui.lineEdit_costSum.setText("0")
         
     def okButton(self):
         qinsert = QSqlQuery()
+        dat = QDate().fromString(self.ui.lineEdit_dat.text(), 'dd.MM.yyyy').toString('yyyy-MM-dd');
         if ceFlag == 0:
-            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+self.ui.lineEdit_dat.text()+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', "+str(self.ui.checkBox_costYN.isChecked())+", '"+self.ui.textEdit_prim.toPlainText()+"', "+str(self.ui.checkBox_end.isChecked())+");"
+            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+dat+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', "+str(self.ui.checkBox_costYN.isChecked())+", '"+self.ui.textEdit_prim.toPlainText()+"', "+str(self.ui.checkBox_end.isChecked())+");"
         if ceFlag == 1:
-            inNewRow = "UPDATE jtab SET dat='"+self.ui.lineEdit_dat.text()+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= "+str(self.ui.checkBox_costYN.isChecked())+", prim= '"+self.ui.textEdit_prim.toPlainText()+"', End= "+str(self.ui.checkBox_end.isChecked())+" WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
+            inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= "+str(self.ui.checkBox_costYN.isChecked())+", prim= '"+self.ui.textEdit_prim.toPlainText()+"', End= "+str(self.ui.checkBox_end.isChecked())+" WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
 
         #print(inNewRow)
         qinsert.exec(inNewRow) 
