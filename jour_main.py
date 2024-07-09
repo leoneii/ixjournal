@@ -13,6 +13,12 @@ from PySide6.QtCore import QItemSelectionModel
 #from PySide6 import QtWidgets
 
 class MainWindow(QMainWindow):
+    global Gcue, Gcuec,begd,stod
+    Gcue="SELECT *  FROM jtab "
+    Gcuec="SELECT COUNT(*) FROM jtab ;"
+    begd='01.01.2024'
+    now = QDate.currentDate()
+    stod=now.toString('dd.MM.yyyy')
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
@@ -22,19 +28,35 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Add.clicked.connect(self.addRec)
         self.ui.pushButton_Change.clicked.connect(self.changeRec)
         self.ui.pushButton_Del.clicked.connect(self.delRec)
+        self.ui.pushButton_Ext.clicked.connect(self.Vidat)
 
 
         DB = QSqlDatabase.addDatabase('QSQLITE')
         DB.setDatabaseName("jourbd.sqlite")
         DB.open()
 
-        self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+        #self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+        self.updateWidg(Gcue, Gcuec)
 
+    def Vidat(self):
+        querv=QSqlQuery()
+        querv.exec("UPDATE jtab SET End=1 WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
 
     def unFilter(self):
-        self.updateWidg("SELECT *  FROM jtab ", "SELECT COUNT(*) FROM jtab ;")
+        global Gcue,Gcuec,begd,stod
+        Gcue = "SELECT *  FROM jtab "
+        Gcuec = "SELECT COUNT(*) FROM jtab ;"
+        begd = '01.01.2024'
+        now = QDate.currentDate()
+        stod = now.toString('dd.MM.yyyy')
+        self.updateWidg(Gcue,Gcuec)
 
     def updateWidg(self, que, quec):
+        global Gque,Gquec;
+        if que=='LAST':
+            que=Gque;
+            quec=Gquec;
+
         query = QSqlQuery()
         qcount = QSqlQuery()
         qcount.exec(quec)
@@ -59,7 +81,7 @@ class MainWindow(QMainWindow):
                # pass
             #f str(query.value(7)) == True: #выдано
                 #self.ui.tableWidget. #Должно поменять цвет строки
-            #   pass  
+            #   pass
             r+=1
         #self.ui.tableWidget.resizeColumnsToContents()
         self.ui.tableWidget.resizeColumnToContents(0)
@@ -76,21 +98,20 @@ class MainWindow(QMainWindow):
 
 
     def findRec(self):
-
-
-        fdlg=fnddial()
-        #self.dateEditDATAInicial.setDate(QDate.currentDate())
-
-        now=QDate.currentDate()
-        fdlg.ui.lineEdit_dateStart.setText('01.01.2024')
+        global Gcue,Gcuec,begd,stod
+        fdlg=fnddial()#self.dateEditDATAInicial.setDate(QDate.currentDate())
+        #now=QDate.currentDate()
+        fdlg.ui.lineEdit_dateStart.setText(begd)
         fdlg.ui.lineEdit_dateStart.setInputMask("99.99.9999")
-        fdlg.ui.lineEdit_dateEnd.setText(now.toString('dd.MM.yyyy'))
+        fdlg.ui.lineEdit_dateEnd.setText(stod)
         fdlg.ui.lineEdit_dateEnd.setInputMask("99.99.9999")
         fdlg.exec()
 
 
         dstart=QDate.fromString(fdlg.ui.lineEdit_dateStart.text(),'dd.MM.yyyy')
         dstop=QDate.fromString(fdlg.ui.lineEdit_dateEnd.text(),'dd.MM.yyyy')
+        begd=dstart.toString('dd.MM.yyyy')
+        stod=dstop.toString('dd.MM.yyyy')
         numz=fdlg.ui.lineEdit_numbZak.text()
         namez=fdlg.ui.lineEdit_nameZak.text()
         # firstdat=QDate.strptime(dstart,'%d.%m.%Y')
@@ -99,16 +120,22 @@ class MainWindow(QMainWindow):
 
         if len(numz)>0:
             self.updateWidg("SELECT *  FROM jtab WHERE numZak = '" + numz + "';" , "SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;")
+            Gcue="SELECT *  FROM jtab WHERE numZak = '" + numz + "';"
+            Gcuec="SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;"
         else:
             if len(namez)>0:
+                upnamez=namez.upper()
                 self.updateWidg("SELECT * FROM jtab WHERE (dat between '" + dstart.toString(
-                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak='"+namez+"';",
+                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak LIKE  '%"+namez+"%';",
                                 "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString(
-                                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak='"+namez+"';")
+                                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak LIKE '%"+namez+"%';")
+
+                Gcue = "SELECT * FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak LIKE '%"+namez+"%';"
+                Gcuec = "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak LIKE '%"+namez+"%';"
             else:
                 self.updateWidg("SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';","SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';")
-        #pass
-
+                Gcue ="SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"
+                Gcuec="SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"
     def addRec(self):
 
 
@@ -171,6 +198,7 @@ class newdial(QDialog):
             self.ui.lineEdit_costSum.setText(str(qinp.value(6)))
             self.ui.checkBox_costYN.setChecked(bool(qinp.value(7)))
             self.ui.textEdit_prim.setText(qinp.value(8))
+            self.ui.checkBox_end.setChecked(bool(qinp.value(9)))
         else:
             qdate = QDate.currentDate()
             sd = str(qdate.day())
