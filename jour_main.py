@@ -35,6 +35,9 @@ class MainWindow(QMainWindow):
         DB.setDatabaseName("jourbd.sqlite")
         DB.open()
 
+        #CREATE TABLE "jtab1"( "npp" INTEGER, "dat" TEXT, "numZak" INTEGER, "phone" TEXT, "nameZak" TEXT, "descryption" TEXT, "costSum" REAL, "costYN" BLOB, "prim" TEXT, "End" BLOB, PRIMARY KEY("npp" AUTOINCREMENT) );
+
+
         #self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
 
