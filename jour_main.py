@@ -31,10 +31,24 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Ext.clicked.connect(self.Vidat)
 
 
-        DB = QSqlDatabase.addDatabase('QSQLITE')
-        DB.setDatabaseName("jourbd.sqlite")
-        DB.open()
+        # DB = QSqlDatabase.addDatabase('QIBASE')
+        # DB.setDatabaseName("/home/leone/build/ixjournal/jourbd.fdb")
+        # DB.setUserName("SYSDBA")
+        # DB.setPassword("14062003")
+        # DB.setConnectOptions("server type=Embedded; auto_commit=True;  auto_commit_level=4096; connection lifetime=1; DataBase= \":/home/leone/build/ixjournal/jourbd.fdb\"")
+        # #DB.setHostName("embedded")
 
+        DB = QSqlDatabase.addDatabase('QIBASE')
+        DB.setHostName("192.168.1.59")
+        DB.setPort(3050)
+        DB.setDatabaseName("/srv/nfs4/DBS/ixjournal5.fdb")
+        DB.setUserName("SYSDBA")
+        DB.setPassword("14062003")
+        DB.setConnectOptions( "auto_commit=True;  auto_commit_level=4096; connection lifetime=1;")
+
+        DB.open()
+        lastError = DB.lastError().text()
+        print (lastError)
         #CREATE TABLE "jtab1"( "npp" INTEGER, "dat" TEXT, "numZak" INTEGER, "phone" TEXT, "nameZak" TEXT, "descryption" TEXT, "costSum" REAL, "costYN" BLOB, "prim" TEXT, "End" BLOB, PRIMARY KEY("npp" AUTOINCREMENT) );
 
 
@@ -129,12 +143,12 @@ class MainWindow(QMainWindow):
             if len(namez)>0:
                 upnamez=namez.upper()
                 self.updateWidg("SELECT * FROM jtab WHERE (dat between '" + dstart.toString(
-                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak LIKE  '%"+namez+"%';",
+                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak CONTAINING  '"+namez+"';",
                                 "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString(
-                                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak LIKE '%"+namez+"%';")
+                                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak CONTAINING '"+namez+"';")
 
-                Gcue = "SELECT * FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak LIKE '%"+namez+"%';"
-                Gcuec = "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak LIKE '%"+namez+"%';"
+                Gcue = "SELECT * FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak CONTAINING '"+namez+"';"
+                Gcuec = "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak CONTAINING '"+namez+"';"
             else:
                 self.updateWidg("SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';","SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';")
                 Gcue ="SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"

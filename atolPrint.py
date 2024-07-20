@@ -37,7 +37,7 @@ class MainWindow(QMainWindow):
         DB.setDatabaseName("susndb.ixdb")
         DB.open()
         self.ui.pushButton_test.clicked.connect(self.test)
-        self.ui.closeShift.clicked.connect(self.closeShift)
+        self.ui.closeShift.clicked.connect(self.closeShift,)
         self.ui.listButton.clicked.connect(self.formUpdate)
         self.ui.pushButton_refresh.clicked.connect(self.refresh)
         self.ui.pushButton_Print.clicked.connect(self.print)

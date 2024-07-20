@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
-        MainWindow.resize(889, 495)
+        MainWindow.resize(889, 523)
         sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Preferred)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -63,18 +63,18 @@ class Ui_MainWindow(object):
         self.frame_3.setFrameShadow(QFrame.Raised)
         self.verticalLayout_4 = QVBoxLayout(self.frame_3)
         self.verticalLayout_4.setObjectName(u"verticalLayout_4")
-        self.label = QLabel(self.frame_3)
-        self.label.setObjectName(u"label")
+        self.label_main = QLabel(self.frame_3)
+        self.label_main.setObjectName(u"label_main")
         font = QFont()
         font.setPointSize(20)
-        self.label.setFont(font)
+        self.label_main.setFont(font)
 
-        self.verticalLayout_4.addWidget(self.label)
+        self.verticalLayout_4.addWidget(self.label_main)
 
-        self.label_3 = QLabel(self.frame_3)
-        self.label_3.setObjectName(u"label_3")
+        self.label_mini = QLabel(self.frame_3)
+        self.label_mini.setObjectName(u"label_mini")
 
-        self.verticalLayout_4.addWidget(self.label_3)
+        self.verticalLayout_4.addWidget(self.label_mini)
 
 
         self.verticalLayout_5.addWidget(self.frame_3)
@@ -110,6 +110,11 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.closeShift)
 
+        self.label_2 = QLabel(self.frame_2)
+        self.label_2.setObjectName(u"label_2")
+
+        self.verticalLayout_2.addWidget(self.label_2)
+
         self.pushButton_test = QPushButton(self.frame_2)
         self.pushButton_test.setObjectName(u"pushButton_test")
 
@@ -119,11 +124,6 @@ class Ui_MainWindow(object):
         self.pushButton_refresh.setObjectName(u"pushButton_refresh")
 
         self.verticalLayout_2.addWidget(self.pushButton_refresh)
-
-        self.label_2 = QLabel(self.frame_2)
-        self.label_2.setObjectName(u"label_2")
-
-        self.verticalLayout_2.addWidget(self.label_2)
 
 
         self.verticalLayout_5.addWidget(self.frame_2)
@@ -208,17 +208,17 @@ class Ui_MainWindow(object):
 
     def retranslateUi(self, MainWindow):
         MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MainWindow", None))
-        self.label.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043c\u0435\u043d\u0430 \u0417\u0430\u043a\u0440\u044b\u0442\u0430!", None))
-        self.label_3.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
+        self.label_main.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043c\u0435\u043d\u0430 \u0417\u0430\u043a\u0440\u044b\u0442\u0430!", None))
+        self.label_mini.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.comboBox_kassir.setItemText(0, QCoreApplication.translate("MainWindow", u"\u0413\u043d\u0435\u0437\u0434\u0438\u043b\u043e\u0432\u0430 \u041e.\u0418.", None))
         self.comboBox_kassir.setItemText(1, QCoreApplication.translate("MainWindow", u"\u041d\u0435\u0447\u0435\u043f\u0443\u0440\u0435\u043d\u043a\u043e \u042d.\u0412.", None))
 
         self.openShift.setText(QCoreApplication.translate("MainWindow", u"\u041e\u0442\u043a\u0440\u044b\u0442\u0438\u0435 \u0441\u043c\u0435\u043d\u044b", None))
         self.listButton.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0438\u0441\u043e\u043a \u0440\u0435\u0430\u043b\u0438\u0437\u0430\u0446\u0438\u0439 =>", None))
         self.closeShift.setText(QCoreApplication.translate("MainWindow", u"\u0417\u0430\u043a\u0440\u044b\u0442\u0438\u0435 \u0441\u043c\u0435\u043d\u044b", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.pushButton_test.setText(QCoreApplication.translate("MainWindow", u"Test", None))
         self.pushButton_refresh.setText(QCoreApplication.translate("MainWindow", u"Refresh", None))
-        self.label_2.setText(QCoreApplication.translate("MainWindow", u"TextLabel", None))
         self.pushButton.setText(QCoreApplication.translate("MainWindow", u"PushButton", None))
         self.exitButton.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0445\u043e\u0434", None))
         ___qtablewidgetitem = self.tableWidget.horizontalHeaderItem(0)
