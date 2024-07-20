@@ -29,7 +29,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Change.clicked.connect(self.changeRec)
         self.ui.pushButton_Del.clicked.connect(self.delRec)
         self.ui.pushButton_Ext.clicked.connect(self.Vidat)
-
+        self.ui.pushButton_Pay.clicked.connect(self.Payed)
 
         # DB = QSqlDatabase.addDatabase('QIBASE')
         # DB.setDatabaseName("/home/leone/build/ixjournal/jourbd.fdb")
@@ -55,9 +55,23 @@ class MainWindow(QMainWindow):
         #self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
 
+    def message(self, title="ixJournal", msg=""):
+        qmes=QMessageBox()
+        qmes.setWindowTitle(title)
+        qmes.setText(msg)    
+        qmes.exec()
+
+    def Payed(self):
+        querv=QSqlQuery()
+        querv.exec("UPDATE jtab SET costYN = 'True' WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
+        self.message("ixJournal","Оплачено")
+        self.updateWidg("LAST","")
+
     def Vidat(self):
         querv=QSqlQuery()
-        querv.exec("UPDATE jtab SET End=1 WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
+        querv.exec("UPDATE jtab SET zEND = 'True' WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
+        self.message("ixJournal","Выдано")
+        self.updateWidg("LAST","")
 
     def unFilter(self):
         global Gcue,Gcuec,begd,stod
@@ -69,10 +83,10 @@ class MainWindow(QMainWindow):
         self.updateWidg(Gcue,Gcuec)
 
     def updateWidg(self, que, quec):
-        global Gque,Gquec;
+        global Gcue,Gcuec;
         if que=='LAST':
-            que=Gque;
-            quec=Gquec;
+            que=Gcue;
+            quec=Gcuec;
 
         query = QSqlQuery()
         qcount = QSqlQuery()
@@ -154,8 +168,6 @@ class MainWindow(QMainWindow):
                 Gcue ="SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"
                 Gcuec="SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"
     def addRec(self):
-
-
         qcount = QSqlQuery()
         qcount.exec("SELECT MAX(npp) FROM jtab")
         qcount.first()
@@ -165,7 +177,6 @@ class MainWindow(QMainWindow):
 
     def changeRec(self):
         #currow=self.ui.tableWidget.currentRow()
-
         dlg = newdial(self, self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text(),1)
         dlg.exec()
 
@@ -180,7 +191,7 @@ class MainWindow(QMainWindow):
         if button == QMessageBox.Yes:
             adq = QSqlQuery()
             adq.exec("DELETE FROM jtab WHERE npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+";")
-            self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+            self.updateWidg("LAST","")
         else:
             print("No!")
 
@@ -236,13 +247,12 @@ class newdial(QDialog):
         qinsert = QSqlQuery()
         dat = QDate().fromString(self.ui.lineEdit_dat.text(), 'dd.MM.yyyy').toString('yyyy-MM-dd');
         if ceFlag == 0:
-            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+dat+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', "+str(self.ui.checkBox_costYN.isChecked())+", '"+self.ui.textEdit_prim.toPlainText()+"', "+str(self.ui.checkBox_end.isChecked())+");"
+            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+dat+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', '"+str(self.ui.checkBox_costYN.isChecked())+"', '"+self.ui.textEdit_prim.toPlainText()+"', '"+str(self.ui.checkBox_end.isChecked())+"');"
         if ceFlag == 1:
-            inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= "+str(self.ui.checkBox_costYN.isChecked())+", prim= '"+self.ui.textEdit_prim.toPlainText()+"', End= "+str(self.ui.checkBox_end.isChecked())+" WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
-
-        #print(inNewRow)
+            inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', ZEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
+            #print("UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', zEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;")
         qinsert.exec(inNewRow) 
-        mainW.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+        mainW.updateWidg("LAST","")
         #mainW.hide()
         self.close()
 
