@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'main.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -16,17 +16,17 @@ from PySide6.QtGui import (QAction, QBrush, QColor, QConicalGradient,
     QIcon, QImage, QKeySequence, QLinearGradient,
     QPainter, QPalette, QPixmap, QRadialGradient,
     QTransform)
-from PySide6.QtWidgets import (QApplication, QFrame, QGroupBox, QHBoxLayout,
-    QHeaderView, QMainWindow, QMenu, QMenuBar,
-    QPushButton, QSizePolicy, QStatusBar, QTableWidget,
-    QTableWidgetItem, QVBoxLayout, QWidget)
+from PySide6.QtWidgets import (QAbstractItemView, QApplication, QFrame, QGroupBox,
+    QHBoxLayout, QHeaderView, QMainWindow, QMenu,
+    QMenuBar, QPushButton, QSizePolicy, QStatusBar,
+    QTableWidget, QTableWidgetItem, QVBoxLayout, QWidget)
 
 class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1496, 816)
-        sizePolicy = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Expanding)
+        sizePolicy = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(MainWindow.sizePolicy().hasHeightForWidth())
@@ -57,6 +57,9 @@ class Ui_MainWindow(object):
         __qtablewidgetitem7 = QTableWidgetItem()
         self.tableWidget.setHorizontalHeaderItem(7, __qtablewidgetitem7)
         self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setEditTriggers(QAbstractItemView.NoEditTriggers)
+        self.tableWidget.setSelectionMode(QAbstractItemView.SingleSelection)
+        self.tableWidget.setSelectionBehavior(QAbstractItemView.SelectRows)
 
         self.horizontalLayout.addWidget(self.tableWidget)
 
@@ -68,13 +71,13 @@ class Ui_MainWindow(object):
         self.pushButton_Find = QPushButton(self.frame)
         self.pushButton_Find.setObjectName(u"pushButton_Find")
         self.pushButton_Find.setGeometry(QRect(20, 10, 51, 41))
-        sizePolicy1 = QSizePolicy(QSizePolicy.Expanding, QSizePolicy.Fixed)
+        sizePolicy1 = QSizePolicy(QSizePolicy.Policy.Expanding, QSizePolicy.Policy.Fixed)
         sizePolicy1.setHorizontalStretch(0)
         sizePolicy1.setVerticalStretch(0)
         sizePolicy1.setHeightForWidth(self.pushButton_Find.sizePolicy().hasHeightForWidth())
         self.pushButton_Find.setSizePolicy(sizePolicy1)
         icon = QIcon()
-        icon.addFile(u"Filter1.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon.addFile(u"Filter1.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButton_Find.setIcon(icon)
         self.pushButton_Find.setIconSize(QSize(28, 28))
         self.pushButton_Add = QPushButton(self.frame)
@@ -107,7 +110,7 @@ class Ui_MainWindow(object):
         sizePolicy1.setHeightForWidth(self.pushButton_UnFilter.sizePolicy().hasHeightForWidth())
         self.pushButton_UnFilter.setSizePolicy(sizePolicy1)
         icon1 = QIcon()
-        icon1.addFile(u"UnFilter.png", QSize(), QIcon.Normal, QIcon.Off)
+        icon1.addFile(u"UnFilter.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButton_UnFilter.setIcon(icon1)
         self.pushButton_UnFilter.setIconSize(QSize(28, 28))
 
@@ -116,7 +119,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QMenuBar(MainWindow)
         self.menubar.setObjectName(u"menubar")
-        self.menubar.setGeometry(QRect(0, 0, 1496, 22))
+        self.menubar.setGeometry(QRect(0, 0, 1496, 30))
         self.menu = QMenu(self.menubar)
         self.menu.setObjectName(u"menu")
         self.menu_2 = QMenu(self.menubar)

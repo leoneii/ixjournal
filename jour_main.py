@@ -14,8 +14,8 @@ from PySide6.QtCore import QItemSelectionModel
 
 class MainWindow(QMainWindow):
     global Gcue, Gcuec,begd,stod
-    Gcue="SELECT *  FROM jtab "
-    Gcuec="SELECT COUNT(*) FROM jtab ;"
+    Gcue="SELECT *  FROM jtab WHERE ZEND = False;"
+    Gcuec="SELECT COUNT(*) FROM jtab WHERE ZEND = False ;"
     begd='01.01.2024'
     now = QDate.currentDate()
     stod=now.toString('dd.MM.yyyy')
@@ -27,6 +27,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_UnFilter.clicked.connect(self.unFilter)
         self.ui.pushButton_Add.clicked.connect(self.addRec)
         self.ui.pushButton_Change.clicked.connect(self.changeRec)
+        self.ui.tableWidget.doubleClicked.connect(self.changeRec)
         self.ui.pushButton_Del.clicked.connect(self.delRec)
         self.ui.pushButton_Ext.clicked.connect(self.Vidat)
         self.ui.pushButton_Pay.clicked.connect(self.Payed)
