@@ -14,7 +14,7 @@ from PySide6.QtCore import QItemSelectionModel
 
 class MainWindow(QMainWindow):
     global Gcue, Gcuec,begd,stod
-    Gcue="SELECT *  FROM jtab WHERE ZEND = False;"
+    Gcue="SELECT *  FROM jtab WHERE ZEND = False ORDER BY npp;"
     Gcuec="SELECT COUNT(*) FROM jtab WHERE ZEND = False ;"
     begd = QDate.fromString('01.01.2024','dd.MM.yyyy')
     stod = QDate.currentDate()
@@ -31,6 +31,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Del.clicked.connect(self.delRec)
         self.ui.pushButton_Ext.clicked.connect(self.Vidat)
         self.ui.pushButton_Pay.clicked.connect(self.Payed)
+        self.ui.pushButton_UnFilter_All.clicked.connect(self.unFilterAll)
 
         # DB = QSqlDatabase.addDatabase('QIBASE')
         # DB.setDatabaseName("/home/leone/build/ixjournal/jourbd.fdb")
@@ -76,12 +77,20 @@ class MainWindow(QMainWindow):
 
     def unFilter(self):
         global Gcue,Gcuec,begd,stod
-        Gcue = "SELECT *  FROM jtab "
-        Gcuec = "SELECT COUNT(*) FROM jtab ;"
-        begd = '01.01.2024'
-        now = QDate.currentDate()
-        stod = now.toString('dd.MM.yyyy')
+        Gcue = "SELECT *  FROM jtab WHERE ZEND = False ORDER BY npp"
+        Gcuec = "SELECT COUNT(*) FROM jtab WHERE ZEND = False ;"
+        begd = QDate.fromString('01.01.2024','dd.MM.yyyy')
+        stod = QDate.currentDate()
         self.updateWidg(Gcue,Gcuec)
+
+    def unFilterAll(self):
+        global Gcue,Gcuec,begd,stod
+        Gcue = "SELECT *  FROM jtab ORDER BY npp "
+        Gcuec = "SELECT COUNT(*) FROM jtab ;"
+        begd = QDate.fromString('01.01.2024','dd.MM.yyyy')
+        stod = QDate.currentDate()
+        self.updateWidg(Gcue,Gcuec)
+
 
     def updateWidg(self, que, quec):
         global Gcue,Gcuec;
@@ -165,23 +174,23 @@ class MainWindow(QMainWindow):
         # print(firstdat)
 
         if len(numz)>0:
-            self.updateWidg("SELECT *  FROM jtab WHERE numZak = '" + numz + "';" , "SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;")
-            Gcue="SELECT *  FROM jtab WHERE numZak = '" + numz + "';"
+            self.updateWidg("SELECT *  FROM jtab WHERE numZak = '" + numz + "' ORDER BY npp;" , "SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;")
+            Gcue="SELECT *  FROM jtab WHERE numZak = '" + numz + "' ORDER BY npp;"
             Gcuec="SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;"
         else:
             if len(namez)>0:
-                upnamez=namez.upper()
                 self.updateWidg("SELECT * FROM jtab WHERE (dat between '" + dstart.toString(
-                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak CONTAINING  '"+namez+"';",
-                                "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString(
+                    'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak CONTAINING  '"+namez+"' ORDER BY npp ;",
+                      "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString(
                                     'yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak CONTAINING '"+namez+"';")
 
-                Gcue = "SELECT * FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak CONTAINING '"+namez+"';"
+                Gcue = "SELECT * FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "') and nameZak CONTAINING '"+namez+"' ORDER BY npp;"
                 Gcuec = "SELECT COUNT(*) FROM jtab WHERE (dat between '" + dstart.toString('yyyy-MM-dd') + "' and '" + dstop.toString('yyyy-MM-dd') + "')  and nameZak CONTAINING '"+namez+"';"
             else:
-                self.updateWidg("SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';","SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';")
-                Gcue ="SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"
+                self.updateWidg("SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';","SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"' ORDER BY npp;")
+                Gcue ="SELECT * FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"' ORDER BY npp;"
                 Gcuec="SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"
+
     def addRec(self):
         qcount = QSqlQuery()
         qcount.exec("SELECT MAX(npp) FROM jtab")
@@ -230,8 +239,15 @@ class newdial(QDialog):
         self.ui.buttonBox.accepted.connect(self.okButton)
         self.ui.buttonBox.rejected.connect(self.rejButton)
        # self.ui.comboBox_cont .connect(self.contUpdate)
-        self.ui.toolButton_phonFromTable.clicked.connect(self.phonFromTable)
-        
+        self.ui.toolButton_phonFromTable.clicked.connect(self.phoneFromTable)
+        self.ui.toolButton_textFrom1.clicked.connect(self.textFrom1)
+        self.ui.toolButton_textFrom2.clicked.connect(self.textFrom2)
+        self.ui.toolButton_textFrom3.clicked.connect(self.textFrom3)
+        self.ui.toolButton_textFrom4.clicked.connect(self.textFrom4)
+        self.ui.toolButton_textFrom5.clicked.connect(self.textFrom5)
+        self.ui.toolButton_textFrom6.clicked.connect(self.textFrom6)
+        self.ui.toolButton_textFrom7.clicked.connect(self.textFrom7)
+
         self.contUpdate("ALL")
 
         if ceFlag == 1:
@@ -276,7 +292,28 @@ class newdial(QDialog):
         while (qcont.next()):
             self.ui.comboBox_cont.addItem(qcont.value(0))
 
-    def phonFromTable(self):
+    def textFrom1(self):
+        self.ui.textEdit_descryption.insertPlainText("Запрвка картриджа ")
+
+    def textFrom2(self):
+        self.ui.textEdit_descryption.insertPlainText("Не включается ")
+
+    def textFrom3(self):
+        self.ui.textEdit_descryption.insertPlainText("Не загружается в операционную систему ")       
+
+    def textFrom4(self):
+        self.ui.textEdit_descryption.insertPlainText(" + Блок питания  ")
+
+    def textFrom5(self):
+        self.ui.textEdit_descryption.insertPlainText("Ноутбук ")
+
+    def textFrom6(self):
+        self.ui.textEdit_descryption.insertPlainText("+ сумка ")       
+
+    def textFrom7(self):
+        self.ui.textEdit_descryption.insertPlainText(" Принтер, не работает ")
+
+    def phoneFromTable(self):
         qphone = QSqlQuery()
         qphone.exec("SELECT phone FROM JCONT WHERE NAME = '"+self.ui.comboBox_cont.currentText()+"';")
         qphone.first()

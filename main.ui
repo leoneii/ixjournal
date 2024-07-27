@@ -30,13 +30,16 @@
     <item>
      <widget class="QTableWidget" name="tableWidget">
       <property name="editTriggers">
-       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
+       <set>QAbstractItemView::NoEditTriggers</set>
       </property>
       <property name="selectionMode">
-       <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
+       <enum>QAbstractItemView::SingleSelection</enum>
       </property>
       <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
+       <enum>QAbstractItemView::SelectRows</enum>
+      </property>
+      <property name="showGrid">
+       <bool>true</bool>
       </property>
       <column>
        <property name="text">
@@ -95,11 +98,11 @@
         <height>0</height>
        </size>
       </property>
-      <property name="frameShape">
-       <enum>QFrame::Shape::StyledPanel</enum>
+      <property name="toolTip">
+       <string>Выйти  из программы</string>
       </property>
-      <property name="frameShadow">
-       <enum>QFrame::Shadow::Raised</enum>
+      <property name="frameShape">
+       <enum>QFrame::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="pushButton_Find">
        <property name="geometry">
@@ -135,45 +138,57 @@
         <rect>
          <x>20</x>
          <y>110</y>
-         <width>111</width>
-         <height>23</height>
+         <width>121</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="text">
         <string>Добавить</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>add.jpg</normaloff>add.jpg</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_Change">
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>140</y>
-         <width>111</width>
-         <height>23</height>
+         <y>170</y>
+         <width>121</width>
+         <height>51</height>
         </rect>
        </property>
        <property name="text">
-        <string>Изменить</string>
+        <string>Редактировать</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>edit.png</normaloff>edit.png</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_Del">
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>170</y>
-         <width>111</width>
-         <height>23</height>
+         <y>230</y>
+         <width>121</width>
+         <height>41</height>
         </rect>
        </property>
        <property name="text">
         <string>Удалить</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>remove.png</normaloff>remove.png</iconset>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox">
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>200</y>
+         <y>300</y>
          <width>131</width>
          <height>111</height>
         </rect>
@@ -201,7 +216,7 @@
       <widget class="QPushButton" name="pushButton_UnFilter">
        <property name="geometry">
         <rect>
-         <x>80</x>
+         <x>90</x>
          <y>10</y>
          <width>51</width>
          <height>41</height>
@@ -230,9 +245,41 @@
       <widget class="QPushButton" name="pushButton_UnFilter_All">
        <property name="geometry">
         <rect>
-         <x>80</x>
+         <x>20</x>
          <y>60</y>
-         <width>51</width>
+         <width>121</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Показать все заказы, включая выданные </string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>UnFilterAll.png</normaloff>UnFilterAll.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>28</width>
+         <height>28</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Exit">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>700</y>
+         <width>131</width>
          <height>41</height>
         </rect>
        </property>
@@ -247,7 +294,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>UnFilterAll.png</normaloff>UnFilterAll.png</iconset>
+         <normaloff>Exit.jpg</normaloff>Exit.jpg</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -266,7 +313,7 @@
      <x>0</x>
      <y>0</y>
      <width>1476</width>
-     <height>22</height>
+     <height>30</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
