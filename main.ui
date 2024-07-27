@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1496</width>
+    <width>1476</width>
     <height>816</height>
    </rect>
   </property>
@@ -30,13 +30,13 @@
     <item>
      <widget class="QTableWidget" name="tableWidget">
       <property name="editTriggers">
-       <set>QAbstractItemView::NoEditTriggers</set>
+       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
       </property>
       <property name="selectionMode">
-       <enum>QAbstractItemView::SingleSelection</enum>
+       <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
       </property>
       <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectRows</enum>
+       <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
       </property>
       <column>
        <property name="text">
@@ -96,10 +96,10 @@
        </size>
       </property>
       <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
+       <enum>QFrame::Shape::StyledPanel</enum>
       </property>
       <property name="frameShadow">
-       <enum>QFrame::Raised</enum>
+       <enum>QFrame::Shadow::Raised</enum>
       </property>
       <widget class="QPushButton" name="pushButton_Find">
        <property name="geometry">
@@ -134,7 +134,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>60</y>
+         <y>110</y>
          <width>111</width>
          <height>23</height>
         </rect>
@@ -147,7 +147,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>90</y>
+         <y>140</y>
          <width>111</width>
          <height>23</height>
         </rect>
@@ -160,7 +160,7 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>120</y>
+         <y>170</y>
          <width>111</width>
          <height>23</height>
         </rect>
@@ -173,7 +173,7 @@
        <property name="geometry">
         <rect>
          <x>10</x>
-         <y>180</y>
+         <y>200</y>
          <width>131</width>
          <height>111</height>
         </rect>
@@ -227,6 +227,35 @@
         </size>
        </property>
       </widget>
+      <widget class="QPushButton" name="pushButton_UnFilter_All">
+       <property name="geometry">
+        <rect>
+         <x>80</x>
+         <y>60</y>
+         <width>51</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>UnFilterAll.png</normaloff>UnFilterAll.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>28</width>
+         <height>28</height>
+        </size>
+       </property>
+      </widget>
      </widget>
     </item>
    </layout>
@@ -236,8 +265,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1496</width>
-     <height>30</height>
+     <width>1476</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
