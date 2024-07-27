@@ -16,9 +16,9 @@ class MainWindow(QMainWindow):
     global Gcue, Gcuec,begd,stod
     Gcue="SELECT *  FROM jtab WHERE ZEND = False;"
     Gcuec="SELECT COUNT(*) FROM jtab WHERE ZEND = False ;"
-    begd='01.01.2024'
-    now = QDate.currentDate()
-    stod=now.toString('dd.MM.yyyy')
+    begd = QDate.fromString('01.01.2024','dd.MM.yyyy')
+    stod = QDate.currentDate()
+
     def __init__(self):
         super().__init__()
         self.ui = Ui_MainWindow()
@@ -133,19 +133,33 @@ class MainWindow(QMainWindow):
         global Gcue,Gcuec,begd,stod
         fdlg=fnddial()#self.dateEditDATAInicial.setDate(QDate.currentDate())
         #now=QDate.currentDate()
-        fdlg.ui.lineEdit_dateStart.setText(begd)
-        fdlg.ui.lineEdit_dateStart.setInputMask("99.99.9999")
-        fdlg.ui.lineEdit_dateEnd.setText(stod)
-        fdlg.ui.lineEdit_dateEnd.setInputMask("99.99.9999")
+
+        fdlg.ui.dateEdit_Start.setDate(begd)
+        fdlg.ui.dateEdit_End.setDate(stod)
+   
+
+        def contUpdate(self,like=""):
+            qcont = QSqlQuery()
+            if like=="ALL":
+                qcont.exec("SELECT name FROM jcont ;")
+            else:
+                qcont.exec("SELECT name FROM jcont WHERE name CONTAINING '"+fdlg.ui.comboBox_cont.currentText()+"';")  
+
+            for ind in range(0,fdlg.ui.comboBox_cont.count()+1):
+                fdlg.ui.comboBox_cont.removeItem(ind)  
+        
+            while (qcont.next()):
+                fdlg.ui.comboBox_cont.addItem(qcont.value(0))
+
+        contUpdate("ALL")
         fdlg.exec()
 
-
-        dstart=QDate.fromString(fdlg.ui.lineEdit_dateStart.text(),'dd.MM.yyyy')
-        dstop=QDate.fromString(fdlg.ui.lineEdit_dateEnd.text(),'dd.MM.yyyy')
-        begd=dstart.toString('dd.MM.yyyy')
-        stod=dstop.toString('dd.MM.yyyy')
+        dstart = fdlg.ui.dateEdit_Start.date()
+        dstop = fdlg.ui.dateEdit_End.date()
+        begd = dstart
+        stod = dstop
         numz=fdlg.ui.lineEdit_numbZak.text()
-        namez=fdlg.ui.lineEdit_nameZak.text()
+        namez=fdlg.ui.comboBox_cont.currentText()
         # firstdat=QDate.strptime(dstart,'%d.%m.%Y')
         # secondat=QDate.strptime(dstop,'%d.%m.%Y')
         # print(firstdat)
@@ -215,6 +229,11 @@ class newdial(QDialog):
         self.ui.lineEdit_npp.setText(str(npp))
         self.ui.buttonBox.accepted.connect(self.okButton)
         self.ui.buttonBox.rejected.connect(self.rejButton)
+       # self.ui.comboBox_cont .connect(self.contUpdate)
+        self.ui.toolButton_phonFromTable.clicked.connect(self.phonFromTable)
+        
+        self.contUpdate("ALL")
+
         if ceFlag == 1:
             qinp = QSqlQuery()
             qinp.exec("SELECT * FROM jtab WHERE npp = "+str(npp)+" ;")
@@ -222,7 +241,7 @@ class newdial(QDialog):
             self.ui.lineEdit_dat.setText(QDate().fromString(qinp.value(1),'yyyy-MM-dd').toString('dd.MM.yyyy'));
             self.ui.lineEdit_numZak.setText(str(qinp.value(2)))
             self.ui.lineEdit_phone.setText(qinp.value(3))
-            self.ui.lineEdit_nameZak.setText(qinp.value(4))
+            self.ui.comboBox_cont.setCurrentText(qinp.value(4))
             self.ui.textEdit_descryption.setText(qinp.value(5))
             self.ui.lineEdit_costSum.setText(str(qinp.value(6)))
             self.ui.checkBox_costYN.setChecked(bool(qinp.value(7)))
@@ -243,18 +262,49 @@ class newdial(QDialog):
             qnz.first()
             self.ui.lineEdit_numZak.setText(str(qnz.value(0)+1))
             self.ui.lineEdit_costSum.setText("0")
+
+    def contUpdate(self,like=""):
+        qcont = QSqlQuery()
+        if like=="ALL":
+            qcont.exec("SELECT name FROM jcont ;")
+        else:
+            qcont.exec("SELECT name FROM jcont WHERE name CONTAINING '"+self.ui.comboBox_cont.currentText()+"';")  
+
+        for ind in range(0,self.ui.comboBox_cont.count()+1):
+            self.ui.comboBox_cont.removeItem(ind)  
         
+        while (qcont.next()):
+            self.ui.comboBox_cont.addItem(qcont.value(0))
+
+    def phonFromTable(self):
+        qphone = QSqlQuery()
+        qphone.exec("SELECT phone FROM JCONT WHERE NAME = '"+self.ui.comboBox_cont.currentText()+"';")
+        qphone.first()
+        self.ui.lineEdit_phone.setText(str(qphone.value(0)))
+
     def okButton(self):
         qinsert = QSqlQuery()
         dat = QDate().fromString(self.ui.lineEdit_dat.text(), 'dd.MM.yyyy').toString('yyyy-MM-dd');
         if ceFlag == 0:
-            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+dat+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.lineEdit_nameZak.text()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', '"+str(self.ui.checkBox_costYN.isChecked())+"', '"+self.ui.textEdit_prim.toPlainText()+"', '"+str(self.ui.checkBox_end.isChecked())+"');"
+            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+dat+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.comboBox_cont.currentText()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', '"+str(self.ui.checkBox_costYN.isChecked())+"', '"+self.ui.textEdit_prim.toPlainText()+"', '"+str(self.ui.checkBox_end.isChecked())+"');"
         if ceFlag == 1:
-            inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', ZEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
+            inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.comboBox_cont.currentText()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', ZEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
             #print("UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', zEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;")
         qinsert.exec(inNewRow) 
+
+        #CONT ОБНОВЛЯЕМ
+        qcont = QSqlQuery()
+        qcont.exec("SELECT COUNT(*) FROM JCONT WHERE NAME = '"+self.ui.comboBox_cont.currentText()+"';")
+        qcont.first()
+        #print(qcont.value(0))
+        if int(qcont.value(0))==0:
+            mbx = QMessageBox(QMessageBox.Warning,"ixJournal","Такого контрагента нет в справочнике, добавить?",QMessageBox.Save | QMessageBox.Discard ).exec()
+            if mbx != QMessageBox.Discard :
+                qcont.exec("INSERT INTO JCONT (name,phone) VALUES ('"+self.ui.comboBox_cont.currentText()+"','"+self.ui.lineEdit_phone.text()+"');")
+        else:
+            qcont.exec("UPDATE JCONT SET phone ='"+self.ui.lineEdit_phone.text()+"' WHERE NAME = '"+self.ui.comboBox_cont.currentText()+"';")
+
         mainW.updateWidg("LAST","")
-        #mainW.hide()
         self.close()
 
     def rejButton(self):

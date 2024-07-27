@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'newdial.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,9 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QCheckBox, QDialog,
-    QDialogButtonBox, QLabel, QLineEdit, QSizePolicy,
-    QTextEdit, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QCheckBox, QComboBox,
+    QDialog, QDialogButtonBox, QLabel, QLineEdit,
+    QSizePolicy, QTextEdit, QToolButton, QWidget)
 
 class Ui_Dialog(object):
     def setupUi(self, Dialog):
@@ -81,10 +81,6 @@ class Ui_Dialog(object):
         self.lineEdit_phone.setObjectName(u"lineEdit_phone")
         self.lineEdit_phone.setGeometry(QRect(140, 70, 113, 22))
         self.lineEdit_phone.setFont(font1)
-        self.lineEdit_nameZak = QLineEdit(Dialog)
-        self.lineEdit_nameZak.setObjectName(u"lineEdit_nameZak")
-        self.lineEdit_nameZak.setGeometry(QRect(140, 100, 371, 22))
-        self.lineEdit_nameZak.setFont(font1)
         self.textEdit_descryption = QTextEdit(Dialog)
         self.textEdit_descryption.setObjectName(u"textEdit_descryption")
         self.textEdit_descryption.setGeometry(QRect(140, 130, 371, 71))
@@ -98,10 +94,16 @@ class Ui_Dialog(object):
         self.lineEdit_npp = QLineEdit(Dialog)
         self.lineEdit_npp.setObjectName(u"lineEdit_npp")
         self.lineEdit_npp.setGeometry(QRect(260, 10, 113, 22))
+        self.comboBox_cont = QComboBox(Dialog)
+        self.comboBox_cont.setObjectName(u"comboBox_cont")
+        self.comboBox_cont.setGeometry(QRect(140, 96, 371, 30))
+        self.comboBox_cont.setEditable(True)
+        self.toolButton_phonFromTable = QToolButton(Dialog)
+        self.toolButton_phonFromTable.setObjectName(u"toolButton_phonFromTable")
+        self.toolButton_phonFromTable.setGeometry(QRect(260, 70, 33, 21))
         QWidget.setTabOrder(self.lineEdit_dat, self.lineEdit_numZak)
         QWidget.setTabOrder(self.lineEdit_numZak, self.lineEdit_phone)
-        QWidget.setTabOrder(self.lineEdit_phone, self.lineEdit_nameZak)
-        QWidget.setTabOrder(self.lineEdit_nameZak, self.textEdit_descryption)
+        QWidget.setTabOrder(self.lineEdit_phone, self.textEdit_descryption)
         QWidget.setTabOrder(self.textEdit_descryption, self.lineEdit_costSum)
         QWidget.setTabOrder(self.lineEdit_costSum, self.textEdit_prim)
         QWidget.setTabOrder(self.textEdit_prim, self.checkBox_costYN)
@@ -128,7 +130,10 @@ class Ui_Dialog(object):
         self.lineEdit_dat.setText("")
         self.lineEdit_numZak.setText("")
         self.lineEdit_phone.setText("")
-        self.lineEdit_nameZak.setText("")
         self.lineEdit_costSum.setText("")
+#if QT_CONFIG(tooltip)
+        self.toolButton_phonFromTable.setToolTip(QCoreApplication.translate("Dialog", u"\u041f\u043e\u0434\u0441\u0442\u0430\u0432\u0438\u0442\u044c \u0437\u043d\u0430\u0447\u0435\u043d\u0438\u0435 \u0438\u0437 \u0441\u043f\u0440\u0430\u0432\u043e\u0447\u043d\u0438\u043a\u0430", None))
+#endif // QT_CONFIG(tooltip)
+        self.toolButton_phonFromTable.setText(QCoreApplication.translate("Dialog", u"<--", None))
     # retranslateUi
 

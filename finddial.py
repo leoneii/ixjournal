@@ -3,7 +3,7 @@
 ################################################################################
 ## Form generated from reading UI file 'finddial.ui'
 ##
-## Created by: Qt User Interface Compiler version 6.5.0
+## Created by: Qt User Interface Compiler version 6.7.2
 ##
 ## WARNING! All changes made in this file will be lost when recompiling UI file!
 ################################################################################
@@ -15,8 +15,9 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QFont, QFontDatabase, QGradient, QIcon,
     QImage, QKeySequence, QLinearGradient, QPainter,
     QPalette, QPixmap, QRadialGradient, QTransform)
-from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
-    QLabel, QLineEdit, QSizePolicy, QWidget)
+from PySide6.QtWidgets import (QAbstractButton, QApplication, QComboBox, QDateEdit,
+    QDialog, QDialogButtonBox, QLabel, QLineEdit,
+    QSizePolicy, QWidget)
 
 class Ui_fDial(object):
     def setupUi(self, fDial):
@@ -30,28 +31,31 @@ class Ui_fDial(object):
         self.buttonBox.setStandardButtons(QDialogButtonBox.Cancel|QDialogButtonBox.Ok)
         self.label_date = QLabel(fDial)
         self.label_date.setObjectName(u"label_date")
-        self.label_date.setGeometry(QRect(20, 20, 81, 16))
-        self.lineEdit_dateStart = QLineEdit(fDial)
-        self.lineEdit_dateStart.setObjectName(u"lineEdit_dateStart")
-        self.lineEdit_dateStart.setGeometry(QRect(100, 20, 113, 22))
+        self.label_date.setGeometry(QRect(20, 20, 91, 16))
         self.label_date_2 = QLabel(fDial)
         self.label_date_2.setObjectName(u"label_date_2")
-        self.label_date_2.setGeometry(QRect(220, 20, 21, 16))
-        self.lineEdit_dateEnd = QLineEdit(fDial)
-        self.lineEdit_dateEnd.setObjectName(u"lineEdit_dateEnd")
-        self.lineEdit_dateEnd.setGeometry(QRect(240, 20, 113, 22))
+        self.label_date_2.setGeometry(QRect(240, 20, 21, 16))
         self.label_date_3 = QLabel(fDial)
         self.label_date_3.setObjectName(u"label_date_3")
-        self.label_date_3.setGeometry(QRect(20, 60, 81, 16))
+        self.label_date_3.setGeometry(QRect(20, 60, 91, 16))
         self.lineEdit_numbZak = QLineEdit(fDial)
         self.lineEdit_numbZak.setObjectName(u"lineEdit_numbZak")
-        self.lineEdit_numbZak.setGeometry(QRect(100, 60, 113, 22))
+        self.lineEdit_numbZak.setGeometry(QRect(122, 60, 101, 22))
         self.label_date_4 = QLabel(fDial)
         self.label_date_4.setObjectName(u"label_date_4")
         self.label_date_4.setGeometry(QRect(20, 100, 81, 16))
-        self.lineEdit_nameZak = QLineEdit(fDial)
-        self.lineEdit_nameZak.setObjectName(u"lineEdit_nameZak")
-        self.lineEdit_nameZak.setGeometry(QRect(100, 100, 251, 22))
+        self.comboBox_cont = QComboBox(fDial)
+        self.comboBox_cont.setObjectName(u"comboBox_cont")
+        self.comboBox_cont.setGeometry(QRect(100, 90, 291, 30))
+        self.comboBox_cont.setEditable(True)
+        self.dateEdit_Start = QDateEdit(fDial)
+        self.dateEdit_Start.setObjectName(u"dateEdit_Start")
+        self.dateEdit_Start.setGeometry(QRect(120, 10, 110, 32))
+        self.dateEdit_Start.setCalendarPopup(True)
+        self.dateEdit_End = QDateEdit(fDial)
+        self.dateEdit_End.setObjectName(u"dateEdit_End")
+        self.dateEdit_End.setGeometry(QRect(260, 10, 110, 32))
+        self.dateEdit_End.setCalendarPopup(True)
 
         self.retranslateUi(fDial)
         self.buttonBox.accepted.connect(fDial.accept)
