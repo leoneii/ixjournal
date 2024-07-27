@@ -147,7 +147,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>add.jpg</normaloff>add.jpg</iconset>
+         <normaloff>add.png</normaloff>add.png</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_Change">
