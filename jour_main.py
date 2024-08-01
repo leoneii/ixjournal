@@ -1,16 +1,32 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
-    QMessageBox, QDialog
+    QMessageBox, QDialog, QStyle
 from main_ui import Ui_MainWindow
 from newdial_ui import Ui_Dialog
 from finddial import Ui_fDial
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize, QDate
-from PySide6.QtGui import QColor
+from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt
 #from datetime import date
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
 #from PySide6 import QtWidgets
+from costSum_ui import Ui_costSum
+
+#вот где можно прописывать всякие функции типа QMessagebox))
+def toFixed(f: float, n=0):
+    a, b = str(f).split('.')
+    return '{}.{}{}'.format(a, b[:n], '0'*(n-len(b)))
+
+def message(parent = None, title="ixJournal", msg="" ):
+    qmes=QMessageBox(parent)
+   # qmes.setGeometry(QStyle.alignedRect(Qt.LeftToRight, Qt.AlignCenter, qmes.size(), qmes.geometry()));
+    qmes.setWindowTitle(title)
+    qmes.setText(msg)    
+    qmes.setModal(True)
+    qmes.setIcon(QMessageBox.Icon.Information)
+    qmes.exec()
+
 
 class MainWindow(QMainWindow):
     global Gcue, Gcuec,begd,stod
@@ -32,6 +48,8 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Ext.clicked.connect(self.Vidat)
         self.ui.pushButton_Pay.clicked.connect(self.Payed)
         self.ui.pushButton_UnFilter_All.clicked.connect(self.unFilterAll)
+        self.ui.pushButton_Exit.clicked.connect(self.close)
+        self.ui.pushButton_WorkEnd.clicked.connect(self.WorkEnd)
 
         # DB = QSqlDatabase.addDatabase('QIBASE')
         # DB.setDatabaseName("/home/leone/build/ixjournal/jourbd.fdb")
@@ -57,23 +75,35 @@ class MainWindow(QMainWindow):
         #self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
 
-    def message(self, title="ixJournal", msg=""):
-        qmes=QMessageBox()
-        qmes.setWindowTitle(title)
-        qmes.setText(msg)    
-        qmes.exec()
 
     def Payed(self):
         querv=QSqlQuery()
         querv.exec("UPDATE jtab SET costYN = 'True' WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
-        self.message("ixJournal","Оплачено")
+        message(self,"ixJournal","Оплачено")
         self.updateWidg("LAST","")
 
     def Vidat(self):
         querv=QSqlQuery()
-        querv.exec("UPDATE jtab SET zEND = 'True' WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
-        self.message("ixJournal","Выдано")
-        self.updateWidg("LAST","")
+        querv.exec("SELECT workend  FROM jtab WHERE npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
+        querv.first()
+        if querv.value(0)==True:
+            querv.exec("UPDATE jtab SET zEND = 'True' WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
+            message(self,"ixJournal","Выдано")
+            self.updateWidg("LAST","")
+        else:
+            message(self,"ixJournal","Работы не завершены- необходимо отметить выполнение работы и проставить ее стоимость")
+
+
+    def WorkEnd(self):
+        querv=QSqlQuery()
+        querv.exec("SELECT workend  FROM jtab WHERE npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
+        querv.first()
+        if querv.value(0)==True:
+            message(self,"ixJournal","Работы по этому заказу уже были завершены")
+        else:    
+            dlg = costSum(self,self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text())
+            dlg.exec()
+            self.updateWidg("LAST","")
 
     def unFilter(self):
         global Gcue,Gcuec,begd,stod
@@ -114,9 +144,9 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setItem(r, 3,  QTableWidgetItem(str(query.value(3))))
             self.ui.tableWidget.setItem(r, 4,  QTableWidgetItem(str(query.value(4))))
             self.ui.tableWidget.setItem(r, 5,  QTableWidgetItem(str(query.value(5))))
-            self.ui.tableWidget.setItem(r, 6,  QTableWidgetItem(str(query.value(6))))
+            self.ui.tableWidget.setItem(r, 6,  QTableWidgetItem(toFixed(float(query.value(6)),2)))
             self.ui.tableWidget.setItem(r, 7,  QTableWidgetItem(str(query.value(8))))
-            if str(query.value(7)) == "True":  # оплачено
+            if str(query.value(10)) == "True":  # оплачено
                 for c in range(self.ui.tableWidget.columnCount()):
                     self.ui.tableWidget.item(r, c).setBackground(QColor(0, 250, 100))  # Должно поменять цвет строки
                # pass
@@ -247,6 +277,7 @@ class newdial(QDialog):
         self.ui.toolButton_textFrom5.clicked.connect(self.textFrom5)
         self.ui.toolButton_textFrom6.clicked.connect(self.textFrom6)
         self.ui.toolButton_textFrom7.clicked.connect(self.textFrom7)
+        self.ui.lineEdit_clientCash.textChanged.connect(self.calcCash)
 
         self.contUpdate("ALL")
 
@@ -259,10 +290,11 @@ class newdial(QDialog):
             self.ui.lineEdit_phone.setText(qinp.value(3))
             self.ui.comboBox_cont.setCurrentText(qinp.value(4))
             self.ui.textEdit_descryption.setText(qinp.value(5))
-            self.ui.lineEdit_costSum.setText(str(qinp.value(6)))
+            self.ui.lineEdit_costSum.setText(toFixed(float(qinp.value(6)),2))
             self.ui.checkBox_costYN.setChecked(bool(qinp.value(7)))
             self.ui.textEdit_prim.setText(qinp.value(8))
             self.ui.checkBox_end.setChecked(bool(qinp.value(9)))
+            self.ui.checkBox_WorkEnd.setChecked(bool(qinp.value(10)))
         else:
             qdate = QDate.currentDate()
             sd = str(qdate.day())
@@ -293,7 +325,7 @@ class newdial(QDialog):
             self.ui.comboBox_cont.addItem(qcont.value(0))
 
     def textFrom1(self):
-        self.ui.textEdit_descryption.insertPlainText("Запрвка картриджа ")
+        self.ui.textEdit_descryption.insertPlainText("Заправка картриджа ")
 
     def textFrom2(self):
         self.ui.textEdit_descryption.insertPlainText("Не включается ")
@@ -323,9 +355,9 @@ class newdial(QDialog):
         qinsert = QSqlQuery()
         dat = QDate().fromString(self.ui.lineEdit_dat.text(), 'dd.MM.yyyy').toString('yyyy-MM-dd');
         if ceFlag == 0:
-            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+dat+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.comboBox_cont.currentText()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', '"+str(self.ui.checkBox_costYN.isChecked())+"', '"+self.ui.textEdit_prim.toPlainText()+"', '"+str(self.ui.checkBox_end.isChecked())+"');"
+            inNewRow = "INSERT INTO jtab VALUES ("+self.ui.lineEdit_npp.text()+", '"+dat+"', "+self.ui.lineEdit_numZak.text()+", '"+self.ui.lineEdit_phone.text()+"', '"+self.ui.comboBox_cont.currentText()+"', '"+self.ui.textEdit_descryption.toPlainText()+"', '"+self.ui.lineEdit_costSum.text()+"', '"+str(self.ui.checkBox_costYN.isChecked())+"', '"+self.ui.textEdit_prim.toPlainText()+"', '"+str(self.ui.checkBox_end.isChecked())+"', '"+str(self.ui.checkBox_WorkEnd.isChecked())+"');"
         if ceFlag == 1:
-            inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.comboBox_cont.currentText()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', ZEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
+            inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.comboBox_cont.currentText()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', ZEND= '"+str(self.ui.checkBox_end.isChecked())+"', workend= '"+str(self.ui.checkBox_WorkEnd.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
             #print("UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', zEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;")
         qinsert.exec(inNewRow) 
 
@@ -347,11 +379,38 @@ class newdial(QDialog):
     def rejButton(self):
         self.close()
 
+    def calcCash(self):
+        self.ui.lineEdit_clientRefund.setText(toFixed(float(self.ui.lineEdit_clientCash.text())-float(self.ui.lineEdit_costSum.text()),2))
+
+
 class fnddial(QDialog):
     def __init__(self):
         super().__init__()
         self.ui = Ui_fDial()
         self.ui.setupUi(self)
+
+
+class costSum(QDialog):
+    def __init__(self, parent=None, Npp = '0' ):
+        global npp
+        npp=Npp
+        super().__init__(parent)
+        self.ui = Ui_costSum()
+        self.ui.setupUi(self)
+        self.ui.commandLinkButton_endWork.clicked.connect(self.WorkEnd)
+        #self.ui.lineEdit_costSum.setValidator(QDoubleValidator(0.0, 999999.0, 2 ))
+        qsum = QSqlQuery()
+        qsum.exec("SELECT costSum FROM jtab WHERE npp='"+npp+"';")
+        qsum.first()
+        self.ui.lineEdit_costSum.setText(toFixed(float(qsum.value(0)),2))
+
+
+    def WorkEnd(self):
+        querv=QSqlQuery()
+        querv.exec("UPDATE jtab SET workend = 'True', costSum='"+self.ui.lineEdit_costSum.text()+"' WHERE  npp = "+npp+" ;")
+        message(self,"ixJournal","Работы над заказом завершены")
+        self.close()
+
 
 
 if __name__ == '__main__':

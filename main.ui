@@ -99,7 +99,7 @@
        </size>
       </property>
       <property name="toolTip">
-       <string>Выйти  из программы</string>
+       <string/>
       </property>
       <property name="frameShape">
        <enum>QFrame::NoFrame</enum>
@@ -190,7 +190,7 @@
          <x>10</x>
          <y>300</y>
          <width>131</width>
-         <height>111</height>
+         <height>131</height>
         </rect>
        </property>
        <property name="title">
@@ -198,9 +198,13 @@
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
         <item>
-         <widget class="QPushButton" name="pushButton_Ext">
+         <widget class="QPushButton" name="pushButton_WorkEnd">
           <property name="text">
-           <string>Выдать</string>
+           <string>Готов</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>EndWork.png</normaloff>EndWork.png</iconset>
           </property>
          </widget>
         </item>
@@ -208,6 +212,21 @@
          <widget class="QPushButton" name="pushButton_Pay">
           <property name="text">
            <string>Оплачен</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Payed.png</normaloff>Payed.png</iconset>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <widget class="QPushButton" name="pushButton_Ext">
+          <property name="text">
+           <string>Выдать</string>
+          </property>
+          <property name="icon">
+           <iconset>
+            <normaloff>Moved.png</normaloff>Moved.png</iconset>
           </property>
          </widget>
         </item>
@@ -288,6 +307,9 @@
          <horstretch>0</horstretch>
          <verstretch>0</verstretch>
         </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Выйти  из программы</string>
        </property>
        <property name="text">
         <string/>
