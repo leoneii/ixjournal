@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1476</width>
+    <width>1443</width>
     <height>816</height>
    </rect>
   </property>
@@ -30,13 +30,13 @@
     <item>
      <widget class="QTableWidget" name="tableWidget">
       <property name="editTriggers">
-       <set>QAbstractItemView::NoEditTriggers</set>
+       <set>QAbstractItemView::EditTrigger::NoEditTriggers</set>
       </property>
       <property name="selectionMode">
-       <enum>QAbstractItemView::SingleSelection</enum>
+       <enum>QAbstractItemView::SelectionMode::SingleSelection</enum>
       </property>
       <property name="selectionBehavior">
-       <enum>QAbstractItemView::SelectRows</enum>
+       <enum>QAbstractItemView::SelectionBehavior::SelectRows</enum>
       </property>
       <property name="showGrid">
        <bool>true</bool>
@@ -102,7 +102,7 @@
        <string/>
       </property>
       <property name="frameShape">
-       <enum>QFrame::NoFrame</enum>
+       <enum>QFrame::Shape::NoFrame</enum>
       </property>
       <widget class="QPushButton" name="pushButton_Find">
        <property name="geometry">
@@ -124,7 +124,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>Filter1.png</normaloff>Filter1.png</iconset>
+         <normaloff>image/Filter1.png</normaloff>image/Filter1.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -147,7 +147,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>add.png</normaloff>add.png</iconset>
+         <normaloff>image/add.jpg</normaloff>image/add.jpg</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_Change">
@@ -164,7 +164,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>edit.png</normaloff>edit.png</iconset>
+         <normaloff>image/edit.png</normaloff>image/edit.png</iconset>
        </property>
       </widget>
       <widget class="QPushButton" name="pushButton_Del">
@@ -181,7 +181,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>remove.png</normaloff>remove.png</iconset>
+         <normaloff>image/remove.png</normaloff>image/remove.png</iconset>
        </property>
       </widget>
       <widget class="QGroupBox" name="groupBox">
@@ -215,7 +215,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>Payed.png</normaloff>Payed.png</iconset>
+            <normaloff>image/Payed.png</normaloff>image/Payed.png</iconset>
           </property>
          </widget>
         </item>
@@ -226,7 +226,7 @@
           </property>
           <property name="icon">
            <iconset>
-            <normaloff>Moved.png</normaloff>Moved.png</iconset>
+            <normaloff>image/Moved.png</normaloff>image/Moved.png</iconset>
           </property>
          </widget>
         </item>
@@ -252,7 +252,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>UnFilter.png</normaloff>UnFilter.png</iconset>
+         <normaloff>image/UnFilter.png</normaloff>image/UnFilter.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -284,7 +284,7 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>UnFilterAll.png</normaloff>UnFilterAll.png</iconset>
+         <normaloff>image/UnFilterAll.png</normaloff>image/UnFilterAll.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -316,7 +316,71 @@
        </property>
        <property name="icon">
         <iconset>
-         <normaloff>Exit.jpg</normaloff>Exit.jpg</iconset>
+         <normaloff>image/Exit.jpg</normaloff>image/Exit.jpg</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>28</width>
+         <height>28</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Sprav">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>620</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Выйти  из программы</string>
+       </property>
+       <property name="text">
+        <string>Справочники</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>image/sprav.png</normaloff>image/sprav.png</iconset>
+       </property>
+       <property name="iconSize">
+        <size>
+         <width>28</width>
+         <height>28</height>
+        </size>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="pushButton_Sprav_2">
+       <property name="geometry">
+        <rect>
+         <x>10</x>
+         <y>580</y>
+         <width>131</width>
+         <height>41</height>
+        </rect>
+       </property>
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Expanding" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="toolTip">
+        <string>Выйти  из программы</string>
+       </property>
+       <property name="text">
+        <string>Обновить</string>
+       </property>
+       <property name="icon">
+        <iconset>
+         <normaloff>image/renew.png</normaloff>image/renew.png</iconset>
        </property>
        <property name="iconSize">
         <size>
@@ -334,8 +398,8 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>1476</width>
-     <height>30</height>
+     <width>1443</width>
+     <height>22</height>
     </rect>
    </property>
    <widget class="QMenu" name="menu">
