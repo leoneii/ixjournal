@@ -50,6 +50,10 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_UnFilter_All.clicked.connect(self.unFilterAll)
         self.ui.pushButton_Exit.clicked.connect(self.close)
         self.ui.pushButton_WorkEnd.clicked.connect(self.WorkEnd)
+        self.ui.pushButton_Renew.clicked.connect(self.Renew)
+
+
+
 
         # DB = QSqlDatabase.addDatabase('QIBASE')
         # DB.setDatabaseName("/home/leone/build/ixjournal/jourbd.fdb")
@@ -76,6 +80,8 @@ class MainWindow(QMainWindow):
         #self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
 
+    def Renew(self):
+        self.updateWidg("LAST","")
 
     def Payed(self):
         querv=QSqlQuery()
