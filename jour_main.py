@@ -405,7 +405,6 @@ class costSum(QDialog):
         qsum.first()
         self.ui.lineEdit_costSum.setText(toFixed(float(qsum.value(0)),2))
 
-
     def WorkEnd(self):
         querv=QSqlQuery()
         querv.exec("UPDATE jtab SET workend = 'True', costSum='"+self.ui.lineEdit_costSum.text()+"' WHERE  npp = "+npp+" ;")
