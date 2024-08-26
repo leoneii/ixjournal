@@ -193,7 +193,7 @@ class Ui_MainWindow(object):
         self.pushButton_WorkEnd = QPushButton(self.groupBox)
         self.pushButton_WorkEnd.setObjectName(u"pushButton_WorkEnd")
         icon7 = QIcon()
-        icon7.addFile(u"EndWork.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon7.addFile(u"image/EndWork.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButton_WorkEnd.setIcon(icon7)
 
         self.verticalLayout.addWidget(self.pushButton_WorkEnd)

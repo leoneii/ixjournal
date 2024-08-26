@@ -387,7 +387,7 @@
             </property>
             <property name="icon">
              <iconset>
-              <normaloff>EndWork.png</normaloff>EndWork.png</iconset>
+              <normaloff>image/EndWork.png</normaloff>image/EndWork.png</iconset>
             </property>
            </widget>
           </item>

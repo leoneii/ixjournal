@@ -6,7 +6,7 @@ from newdial_ui import Ui_Dialog
 from finddial import Ui_fDial
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize, QDate
-from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt , QAction
+from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt , QAction, QIcon
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
 #from PySide6 import QtWidgets
@@ -78,17 +78,15 @@ class MainWindow(QMainWindow):
         print (lastError)
         #CREATE TABLE "jtab1"( "npp" INTEGER, "dat" TEXT, "numZak" INTEGER, "phone" TEXT, "nameZak" TEXT, "descryption" TEXT, "costSum" REAL, "costYN" BLOB, "prim" TEXT, "End" BLOB, PRIMARY KEY("npp" AUTOINCREMENT) );
 
-
-
         #self.updateWidg("SELECT * FROM jtab;",зш"SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
 
     def contextMenu(self, pos):
          context = QMenu(self)
-         actWorkEnd = QAction("Готов к выдаче",self)
-         actPayed = QAction("Отметить оплаченным",self)
-         actExt = QAction("Выдать клиенту",self)
-         actDel = QAction("Удалить заказ",self)
+         actWorkEnd = QAction(QIcon("image/EndWork.png"),"Готов к выдаче",self)
+         actPayed = QAction(QIcon("image/Payed.png"),"Отметить оплаченным",self)
+         actExt = QAction(QIcon("image/Moved.png"),"Выдать клиенту",self)
+         actDel = QAction(QIcon("image/remove.png"),"Удалить заказ",self)
 
          context.addAction(actWorkEnd)
          context.addAction(actPayed)
@@ -100,7 +98,7 @@ class MainWindow(QMainWindow):
          actPayed.triggered.connect(self.Payed)
          actWorkEnd.triggered.connect(self.WorkEnd)
          actDel.triggered.connect(self.delRec)
-         
+
          context.exec(self.mapToGlobal(pos))   
 
     def Renew(self):
@@ -205,7 +203,6 @@ class MainWindow(QMainWindow):
 
         fdlg.ui.dateEdit_Start.setDate(begd)
         fdlg.ui.dateEdit_End.setDate(stod)
-   
 
         def contUpdate(self,like=""):
             qcont = QSqlQuery()
