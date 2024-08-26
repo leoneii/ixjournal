@@ -1,13 +1,12 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
-    QMessageBox, QDialog, QStyle
+    QMessageBox, QDialog, QStyle, QMenu
 from main_ui import Ui_MainWindow
 from newdial_ui import Ui_Dialog
 from finddial import Ui_fDial
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize, QDate
-from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt
-#from datetime import date
+from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt , QAction
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
 #from PySide6 import QtWidgets
@@ -52,7 +51,11 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_WorkEnd.clicked.connect(self.WorkEnd)
         self.ui.pushButton_Renew.clicked.connect(self.Renew)
 
+    #Контекстное меню
+        self.ui.tableWidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
+        self.ui.tableWidget.customContextMenuRequested.connect(self.contextMenu)
 
+        
 
 
         # DB = QSqlDatabase.addDatabase('QIBASE')
@@ -79,6 +82,26 @@ class MainWindow(QMainWindow):
 
         #self.updateWidg("SELECT * FROM jtab;",зш"SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
+
+    def contextMenu(self, pos):
+         context = QMenu(self)
+         actWorkEnd = QAction("Готов к выдаче",self)
+         actPayed = QAction("Отметить оплаченным",self)
+         actExt = QAction("Выдать клиенту",self)
+         actDel = QAction("Удалить заказ",self)
+
+         context.addAction(actWorkEnd)
+         context.addAction(actPayed)
+         context.addAction(actExt)
+         context.addSeparator()
+         context.addAction(actDel)
+
+         actExt.triggered.connect(self.Vidat)
+         actPayed.triggered.connect(self.Payed)
+         actWorkEnd.triggered.connect(self.WorkEnd)
+         actDel.triggered.connect(self.delRec)
+         
+         context.exec(self.mapToGlobal(pos))   
 
     def Renew(self):
         self.updateWidg("LAST","")
