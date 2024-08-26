@@ -77,7 +77,7 @@ class MainWindow(QMainWindow):
 
 
 
-        #self.updateWidg("SELECT * FROM jtab;","SELECT COUNT(*) FROM jtab;")
+        #self.updateWidg("SELECT * FROM jtab;",зш"SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
 
     def Renew(self):
