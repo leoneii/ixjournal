@@ -180,6 +180,10 @@ class Ui_MainWindow(object):
 
         self.verticalLayout_2.addWidget(self.pushButton_Sprav)
 
+        self.verticalSpacer_4 = QSpacerItem(20, 40, QSizePolicy.Policy.Minimum, QSizePolicy.Policy.Expanding)
+
+        self.verticalLayout_2.addItem(self.verticalSpacer_4)
+
         self.groupBox = QGroupBox(self.frame)
         self.groupBox.setObjectName(u"groupBox")
         sizePolicy1.setHeightForWidth(self.groupBox.sizePolicy().hasHeightForWidth())
@@ -307,7 +311,7 @@ class Ui_MainWindow(object):
         self.pushButton_Sprav.setToolTip(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0439\u0442\u0438  \u0438\u0437 \u043f\u0440\u043e\u0433\u0440\u0430\u043c\u043c\u044b", None))
 #endif // QT_CONFIG(tooltip)
         self.pushButton_Sprav.setText(QCoreApplication.translate("MainWindow", u"\u0421\u043f\u0440\u0430\u0432\u043e\u0447\u043d\u0438\u043a\u0438", None))
-        self.groupBox.setTitle("")
+        self.groupBox.setTitle(QCoreApplication.translate("MainWindow", u"\u0411\u044b\u0441\u0442\u0440\u044b\u0435 \u0434\u0435\u0439\u0441\u0442\u0432\u0438\u044f", None))
         self.pushButton_WorkEnd.setText(QCoreApplication.translate("MainWindow", u"\u0413\u043e\u0442\u043e\u0432", None))
         self.pushButton_Pay.setText(QCoreApplication.translate("MainWindow", u"\u041e\u043f\u043b\u0430\u0447\u0435\u043d", None))
         self.pushButton_Ext.setText(QCoreApplication.translate("MainWindow", u"\u0412\u044b\u0434\u0430\u0442\u044c", None))
