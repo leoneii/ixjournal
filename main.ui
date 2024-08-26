@@ -364,7 +364,7 @@
           </sizepolicy>
          </property>
          <property name="title">
-          <string/>
+          <string>Быстрые действия</string>
          </property>
          <layout class="QVBoxLayout" name="verticalLayout">
           <item>
