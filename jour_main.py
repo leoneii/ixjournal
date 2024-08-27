@@ -11,6 +11,7 @@ from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
 #from PySide6 import QtWidgets
 from costSum_ui import Ui_costSum
+from sprav_ui import Ui_spDialog
 
 #вот где можно прописывать всякие функции типа QMessagebox))
 def toFixed(f: float, n=0):

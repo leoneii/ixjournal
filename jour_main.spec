@@ -5,7 +5,7 @@ block_cipher = None
 
 
 a = Analysis(
-    ['E:/ixjournal/jour_main.py'],
+    ['jour_main.py'],
     pathex=[],
     binaries=[],
     datas=[],
