@@ -255,6 +255,7 @@ class MainWindow(QMainWindow):
                 Gcuec="SELECT COUNT(*) FROM jtab WHERE dat between '"+dstart.toString('yyyy-MM-dd')+"' and '"+dstop.toString('yyyy-MM-dd')+"';"
 
     def addRec(self):
+        self.Renew()
         qcount = QSqlQuery()
         qcount.exec("SELECT MAX(npp) FROM jtab")
         qcount.first()
