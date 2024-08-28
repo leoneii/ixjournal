@@ -51,6 +51,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Exit.clicked.connect(self.close)
         self.ui.pushButton_WorkEnd.clicked.connect(self.WorkEnd)
         self.ui.pushButton_Renew.clicked.connect(self.Renew)
+        self.ui.pushButton_Sprav.clicked.connect(self.spravScreen)
 
     #Контекстное меню
         self.ui.tableWidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
@@ -82,6 +83,10 @@ class MainWindow(QMainWindow):
         #self.updateWidg("SELECT * FROM jtab;",зш"SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
 
+    def spravScreen(self):
+        sprs=sprScr()
+        sprs.exec()
+        
     def contextMenu(self, pos):
          context = QMenu(self)
          actWorkEnd = QAction(QIcon("image/EndWork.png"),"Готов к выдаче",self)
@@ -283,6 +288,13 @@ class MainWindow(QMainWindow):
       #  jmod.setTable("jtab")
       #  self.ui.tableView.setModel(jmod)
       #  jmod.select()
+
+class sprScr(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_spDialog()
+        self.ui.setupUi(self)
+
 
 class newdial(QDialog):
     def __init__(self, parent=None, npp = 0,ceFlagp=0 ):

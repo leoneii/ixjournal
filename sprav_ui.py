@@ -69,7 +69,7 @@ class Ui_spDialog(object):
         self.pushButton_Add.setObjectName(u"pushButton_Add")
         self.pushButton_Add.setGeometry(QRect(10, 10, 121, 24))
         icon1 = QIcon()
-        icon1.addFile(u"image/add.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"image/add.jpg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButton_Add.setIcon(icon1)
         self.pushButton_Del = QPushButton(self.frame_3)
         self.pushButton_Del.setObjectName(u"pushButton_Del")
