@@ -408,7 +408,8 @@ class newdial(QDialog):
         qcont.first()
         #print(qcont.value(0))
         if int(qcont.value(0))==0:
-            mbx = QMessageBox(QMessageBox.Warning,"ixJournal","Такого контрагента нет в справочнике, добавить?",QMessageBox.Save | QMessageBox.Discard ).exec()
+            mbx = QMessageBox(QMessageBox.Warning,"ixJournal","Такого контрагента нет в справочнике, добавить?",QMessageBox.Save | QMessageBox.Discard, self ).exec()
+            
             if mbx != QMessageBox.Discard :
                 qcont.exec("INSERT INTO JCONT (name,phone) VALUES ('"+self.ui.comboBox_cont.currentText()+"','"+self.ui.lineEdit_phone.text()+"');")
         else:
