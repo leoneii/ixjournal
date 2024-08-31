@@ -12,13 +12,23 @@ from PySide6.QtCore import QItemSelectionModel
 #from PySide6 import QtWidgets
 from costSum_ui import Ui_costSum
 from sprav_ui import Ui_spDialog
+import urllib
+import json
+import urllib.request
+import urllib.parse
+import os; 
+import locale;
+
+os.environ["PYTHONIOENCODING"] = "utf-8"; 
+myLocale=locale.setlocale(category=locale.LC_ALL, locale="ru_RU.UTF-8");
+
 
 #вот где можно прописывать всякие функции типа QMessagebox))
 def toFixed(f: float, n=0):
     a, b = str(f).split('.')
     return '{}.{}{}'.format(a, b[:n], '0'*(n-len(b)))
 
-def message(parent = None, title="ixJournal", msg="" ):
+def message( parent = None, title="ixJournal", msg="" ):
     qmes=QMessageBox(parent)
    # qmes.setGeometry(QStyle.alignedRect(Qt.LeftToRight, Qt.AlignCenter, qmes.size(), qmes.geometry()));
     qmes.setWindowTitle(title)
@@ -26,6 +36,50 @@ def message(parent = None, title="ixJournal", msg="" ):
     qmes.setModal(True)
     qmes.setIcon(QMessageBox.Icon.Information)
     qmes.exec()
+
+
+# Отправка SMS на чистом Python через sms-шлюз SMSPILOT.RU подготовка
+
+def sendSMS( parent= None, type = 'NUM', phoneOrRow= '0', Query = True, text = 'Ваш заказ готов к выдаче, Инфоникс Фатеж Пн-Пт 10-17,Сб 10-15',Sum = 0):
+    if type =='NUM':
+        phone = phoneOrRow
+    else:
+        qinp = QSqlQuery()
+        qinp.exec("SELECT phone, costSum FROM jtab WHERE npp = "+phoneOrRow+" ;")
+        qinp.first()
+        phone = str(qinp.value(0))
+        Sum = int(qinp.value(1))
+
+    if Sum != 0:
+        text = text + "Сумма "+str(Sum)+"руб." 
+
+    if Query == True:
+        mbq = QMessageBox(QMessageBox.Warning,"ixJournal","Отправить сообщение клиенту?",QMessageBox.Ok | QMessageBox.Discard, parent ).exec()
+        if mbq != QMessageBox.Discard :
+            senderSMS(parent, phone,text)
+    else:
+        senderSMS(parent, phone[:-9],text)
+
+
+
+# Функция непосредственной отправки смс
+def senderSMS(parent= None, phone= None, text= None, ):
+    #sender = 'NFXnet' #  имя отправителя из списка https://smspilot.ru/my-sender.php
+    sender = 'INFORM'
+    apikey = 'C0C37F90PPSX2QAK8YBSYPPGE8X233741OSB2O306KTSP4TYJCT7VW07828607C7'
+    formatapi='json'
+
+    url = "http://smspilot.ru/api.php?"
+    params = urllib.parse.urlencode({'send':text, 'to':phone, 'from':sender, 'apikey':apikey, 'format':formatapi })
+    url=url+params
+
+    j = json.loads(urllib.request.urlopen(url.replace(" ", "%20")).read())
+    
+    if ('error' in j):
+        message(parent,"Ошибка","СМС не отправлено " + str(j))
+        return ('Ошибка: %s' % j)
+    else:
+        return (j)
 
 
 class MainWindow(QMainWindow):
@@ -57,7 +111,6 @@ class MainWindow(QMainWindow):
         self.ui.tableWidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.ui.tableWidget.customContextMenuRequested.connect(self.contextMenu)
 
-        
 
 
         # DB = QSqlDatabase.addDatabase('QIBASE')
@@ -137,6 +190,7 @@ class MainWindow(QMainWindow):
         else:    
             dlg = costSum(self,self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text())
             dlg.exec()
+            sendSMS(self,'ROW',self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text())
             self.updateWidg("LAST","")
 
     def unFilter(self):
