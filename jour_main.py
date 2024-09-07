@@ -345,10 +345,33 @@ class MainWindow(QMainWindow):
       #  jmod.select()
 
 class sprScr(QDialog):
-    def __init__(self):
+    def __init__(self, parent = None):
         super().__init__()
         self.ui = Ui_spDialog()
         self.ui.setupUi(self)
+        self.ui.pushButton_zakaz.clicked.connect(self.czak)
+        self.setParent(parent)
+
+        qspr=QSqlQuery()
+        countspr=QSqlQuery()
+        countspr.exec("SELECT COUNT(*) FROM jcont ;")
+        countspr.first()
+        self.ui.tableWidget.setRowCount(int(countspr.value(0)))
+        r=0
+        while qspr.next():
+            self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(str(qspr.value(0))))
+            # self.ui.tableWidget.setItem(r, 0,  QTableWidgetItem(str(qspr.value(0))))
+            # self.ui.tableWidget.setItem(r, 1,  QTableWidgetItem(str(qspr.value(1))))
+            # self.ui.tableWidget.setItem(r, 2,  QTableWidgetItem(str(qspr.value(2))))
+            # self.ui.tableWidget.setItem(r, 3,  QTableWidgetItem(str(qspr.value(3))))
+            # self.ui.tableWidget.setItem(r, 4,  QTableWidgetItem(str(qspr.value(4))))
+            # self.ui.tableWidget.setItem(r, 5,  QTableWidgetItem(str(qspr.value(5))))
+            # self.ui.tableWidget.setItem(r, 6,  QTableWidgetItem(str(qspr.value(6))))
+           
+            r+=1          
+
+    def czak(self):
+        self.ui.label_selSprav.setText("Заказчик")
 
 
 class newdial(QDialog):

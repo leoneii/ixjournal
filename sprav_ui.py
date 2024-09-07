@@ -17,7 +17,7 @@ from PySide6.QtGui import (QBrush, QColor, QConicalGradient, QCursor,
     QPalette, QPixmap, QRadialGradient, QTransform)
 from PySide6.QtWidgets import (QAbstractButton, QApplication, QDialog, QDialogButtonBox,
     QFrame, QHeaderView, QLabel, QPushButton,
-    QSizePolicy, QTableView, QWidget)
+    QSizePolicy, QTableWidget, QTableWidgetItem, QWidget)
 
 class Ui_spDialog(object):
     def setupUi(self, spDialog):
@@ -46,10 +46,10 @@ class Ui_spDialog(object):
         self.frame_2.setFrameShadow(QFrame.Shadow.Raised)
         self.frame_2.setLineWidth(1)
         self.frame_2.setMidLineWidth(0)
-        self.tableView = QTableView(self.frame_2)
-        self.tableView.setObjectName(u"tableView")
-        self.tableView.setGeometry(QRect(10, 30, 391, 391))
-        self.tableView.setMaximumSize(QSize(800, 16777215))
+        self.tableWidget = QTableWidget(self.frame_2)
+        self.tableWidget.setObjectName(u"tableWidget")
+        self.tableWidget.setGeometry(QRect(10, 30, 391, 391))
+        self.tableWidget.setMaximumSize(QSize(800, 16777215))
         self.label_selSprav = QLabel(self.frame_2)
         self.label_selSprav.setObjectName(u"label_selSprav")
         self.label_selSprav.setGeometry(QRect(8, 10, 391, 20))
@@ -63,19 +63,19 @@ class Ui_spDialog(object):
         self.pushButton_Edit.setObjectName(u"pushButton_Edit")
         self.pushButton_Edit.setGeometry(QRect(10, 40, 121, 24))
         icon = QIcon()
-        icon.addFile(u"image/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon.addFile(u"C:/Users/User/.designer/backup/image/edit.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButton_Edit.setIcon(icon)
         self.pushButton_Add = QPushButton(self.frame_3)
         self.pushButton_Add.setObjectName(u"pushButton_Add")
         self.pushButton_Add.setGeometry(QRect(10, 10, 121, 24))
         icon1 = QIcon()
-        icon1.addFile(u"image/add.jpg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon1.addFile(u"C:/Users/User/.designer/backup/image/add.jpg", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButton_Add.setIcon(icon1)
         self.pushButton_Del = QPushButton(self.frame_3)
         self.pushButton_Del.setObjectName(u"pushButton_Del")
         self.pushButton_Del.setGeometry(QRect(10, 70, 121, 24))
         icon2 = QIcon()
-        icon2.addFile(u"image/remove.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
+        icon2.addFile(u"C:/Users/User/.designer/backup/image/remove.png", QSize(), QIcon.Mode.Normal, QIcon.State.Off)
         self.pushButton_Del.setIcon(icon2)
 
         self.retranslateUi(spDialog)

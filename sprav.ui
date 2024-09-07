@@ -91,7 +91,7 @@
    <property name="midLineWidth">
     <number>0</number>
    </property>
-   <widget class="QTableView" name="tableView">
+   <widget class="QTableWidget" name="tableWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -156,7 +156,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>image/edit.png</normaloff>image/edit.png</iconset>
+      <normaloff>C:/Users/User/.designer/backup/image/edit.png</normaloff>C:/Users/User/.designer/backup/image/edit.png</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Add">
@@ -173,7 +173,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>image/add.jpg</normaloff>image/add.jpg</iconset>
+      <normaloff>C:/Users/User/.designer/backup/image/add.jpg</normaloff>C:/Users/User/.designer/backup/image/add.jpg</iconset>
     </property>
    </widget>
    <widget class="QPushButton" name="pushButton_Del">
@@ -190,7 +190,7 @@
     </property>
     <property name="icon">
      <iconset>
-      <normaloff>image/remove.png</normaloff>image/remove.png</iconset>
+      <normaloff>C:/Users/User/.designer/backup/image/remove.png</normaloff>C:/Users/User/.designer/backup/image/remove.png</iconset>
     </property>
    </widget>
   </widget>
