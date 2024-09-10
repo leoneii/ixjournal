@@ -396,6 +396,8 @@ class newdial(QDialog):
         self.ui.toolButton_textFrom6.clicked.connect(self.textFrom6)
         self.ui.toolButton_textFrom7.clicked.connect(self.textFrom7)
         self.ui.lineEdit_clientCash.textChanged.connect(self.calcCash)
+        self.ui.checkBox_WorkEnd.stateChanged.connect(self.workEndChange)
+        
 
         self.contUpdate("ALL")
 
@@ -428,6 +430,12 @@ class newdial(QDialog):
             qnz.first()
             self.ui.lineEdit_numZak.setText(str(qnz.value(0)+1))
             self.ui.lineEdit_costSum.setText("0")
+
+
+    def workEndChange(self):
+        if self.ui.checkBox_WorkEnd.isChecked():
+            sendSMS(self,'ROW',self.ui.lineEdit_npp.text())
+
 
     def contUpdate(self,like=""):
         qcont = QSqlQuery()
