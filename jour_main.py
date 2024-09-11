@@ -396,7 +396,7 @@ class newdial(QDialog):
         self.ui.toolButton_textFrom6.clicked.connect(self.textFrom6)
         self.ui.toolButton_textFrom7.clicked.connect(self.textFrom7)
         self.ui.lineEdit_clientCash.textChanged.connect(self.calcCash)
-        self.ui.checkBox_WorkEnd.stateChanged.connect(self.workEndChange)
+        self.ui.checkBox_WorkEnd.clicked.connect(self.workEndChange)
         
 
         self.contUpdate("ALL")
