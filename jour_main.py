@@ -18,6 +18,8 @@ import urllib.request
 import urllib.parse
 import os; 
 import locale;
+from QSearch_ui import Ui_Dialog_QSearch 
+
 
 os.environ["PYTHONIOENCODING"] = "utf-8"; 
 myLocale=locale.setlocale(category=locale.LC_ALL, locale="ru_RU.UTF-8");
@@ -37,6 +39,12 @@ def message( parent = None, title="ixJournal", msg="" ):
     qmes.setIcon(QMessageBox.Icon.Information)
     qmes.exec()
 
+def backupToFile(parent = None, file = "backup.sql"):
+    qbf = QSqlQuery()
+    qbf.exec("OUTPUT "+file+";"
+             "SELECT * FROM jtab;"
+             "OUTPUT;") 
+    
 
 # Отправка SMS на чистом Python через sms-шлюз SMSPILOT.RU подготовка
 
@@ -106,6 +114,7 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_WorkEnd.clicked.connect(self.WorkEnd)
         self.ui.pushButton_Renew.clicked.connect(self.Renew)
         self.ui.pushButton_Sprav.clicked.connect(self.spravScreen)
+        self.ui.pushButton_notPay.clicked.connect(self.notPayedFilter)
 
     #Контекстное меню
         self.ui.tableWidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
@@ -175,6 +184,9 @@ class MainWindow(QMainWindow):
         querv.first()
         if querv.value(0)==True:
             querv.exec("UPDATE jtab SET zEND = 'True' WHERE  npp = "+self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()+" ;")
+            mbq = QMessageBox(QMessageBox.Warning,"ixJournal","Оплата от клиента получена?",QMessageBox.Ok | QMessageBox.Cancel, self ).exec()
+            if mbq != QMessageBox.Cancel :
+                self.Payed()
             message(self,"ixJournal","Выдано")
             self.updateWidg("LAST","")
         else:
@@ -200,6 +212,15 @@ class MainWindow(QMainWindow):
         begd = QDate.fromString('01.01.2024','dd.MM.yyyy')
         stod = QDate.currentDate()
         self.updateWidg(Gcue,Gcuec)
+
+    def notPayedFilter(self):
+        global Gcue,Gcuec,begd,stod
+        Gcue = "SELECT *  FROM jtab WHERE ZEND = True AND CostYN = False AND WorkEnd = True ORDER BY npp ;"
+        Gcuec = "SELECT COUNT(*) FROM jtab WHERE ZEND = True AND CostYN = False AND WorkEnd = True ;"
+        begd = QDate.fromString('01.01.2024','dd.MM.yyyy')
+        stod = QDate.currentDate()
+        self.updateWidg(Gcue,Gcuec)
+
 
     def unFilterAll(self):
         global Gcue,Gcuec,begd,stod
@@ -234,13 +255,16 @@ class MainWindow(QMainWindow):
             self.ui.tableWidget.setItem(r, 5,  QTableWidgetItem(str(query.value(5))))
             self.ui.tableWidget.setItem(r, 6,  QTableWidgetItem(toFixed(float(query.value(6)),2)))
             self.ui.tableWidget.setItem(r, 7,  QTableWidgetItem(str(query.value(8))))
-            if str(query.value(10)) == "True":  # оплачено
+            if str(query.value(10)) == "True":  # готовы
                 for c in range(self.ui.tableWidget.columnCount()):
-                    self.ui.tableWidget.item(r, c).setBackground(QColor(0, 250, 100))  # Должно поменять цвет строки
-               # pass
-            #f str(query.value(7)) == True: #выдано
-                #self.ui.tableWidget. #Должно поменять цвет строки
-            #   pass
+                    self.ui.tableWidget.item(r, c).setBackground(QColor(0, 180, 100))  # Должно поменять цвет строк
+                if  str(query.value(9)) == 'True': # выданы
+                    for c2 in range(self.ui.tableWidget.columnCount()):
+                        self.ui.tableWidget.item(r, c2).setBackground(QColor(0, 128, 255))  # Должно поменять цвет строк
+                    if  str(query.value(7)) == 'False': # НЕ оплачены
+                        for c2 in range(self.ui.tableWidget.columnCount()):
+                            self.ui.tableWidget.item(r, c2).setBackground(QColor(255, 128, 0))  # Должно поменять цвет строк
+
             r+=1
         #self.ui.tableWidget.resizeColumnsToContents()
         self.ui.tableWidget.resizeColumnToContents(0)
@@ -397,6 +421,7 @@ class newdial(QDialog):
         self.ui.toolButton_textFrom7.clicked.connect(self.textFrom7)
         self.ui.lineEdit_clientCash.textChanged.connect(self.calcCash)
         self.ui.checkBox_WorkEnd.clicked.connect(self.workEndChange)
+        self.ui.checkBox_end.clicked.connect(self.endChange)
         
 
         self.contUpdate("ALL")
@@ -436,6 +461,14 @@ class newdial(QDialog):
         if self.ui.checkBox_WorkEnd.isChecked():
             sendSMS(self,'ROW',self.ui.lineEdit_npp.text())
 
+    def endChange(self):
+        if self.ui.checkBox_WorkEnd.isChecked()==False:
+            message(self,"ixJournal","Работы еще не были завершены, нельзя выдать незавершенный заказ ")
+            self.ui.checkBox_end.setChecked(False)
+        if self.ui.checkBox_end.isChecked() and self.ui.checkBox_costYN.isChecked()==False:
+            mbq = QMessageBox(QMessageBox.Warning,"ixJournal","Оплата от клиента получена?",QMessageBox.Ok | QMessageBox.Cancel, self ).exec()
+            if mbq != QMessageBox.Cancel :
+                self.ui.checkBox_costYN.setChecked(True)
 
     def contUpdate(self,like=""):
         qcont = QSqlQuery()
