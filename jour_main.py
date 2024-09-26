@@ -49,14 +49,20 @@ def backupToFile(parent = None, file = "backup.sql"):
 # Отправка SMS на чистом Python через sms-шлюз SMSPILOT.RU подготовка
 
 def sendSMS( parent= None, type = 'NUM', phoneOrRow= '0', Query = True, text = 'Ваш заказ готов к выдаче, Инфоникс Фатеж Пн-Пт 10-17,Сб 10-15',Sum = 0):
+
     if type =='NUM':
         phone = phoneOrRow
+        Sum = 0
+        prim = ""
+        Row = '0'
     else:
         qinp = QSqlQuery()
-        qinp.exec("SELECT phone, costSum FROM jtab WHERE npp = "+phoneOrRow+" ;")
+        qinp.exec("SELECT phone, costSum, prim FROM jtab WHERE npp = "+phoneOrRow+" ;")
         qinp.first()
         phone = str(qinp.value(0))
         Sum = int(qinp.value(1))
+        prim = str(qinp.value(2)) 
+        Row = phoneOrRow
 
     if Sum != 0:
         text = text + "Сумма "+str(Sum)+"руб." 
@@ -64,14 +70,14 @@ def sendSMS( parent= None, type = 'NUM', phoneOrRow= '0', Query = True, text = '
     if Query == True:
         mbq = QMessageBox(QMessageBox.Warning,"ixJournal","Отправить сообщение клиенту?",QMessageBox.Ok | QMessageBox.Discard, parent ).exec()
         if mbq != QMessageBox.Discard :
-            senderSMS(parent, phone,text)
+            senderSMS(parent, phone,text,prim,Row)
     else:
-        senderSMS(parent, phone[:-9],text)
+        senderSMS(parent, phone,text,prim,Row)
 
 
 
 # Функция непосредственной отправки смс
-def senderSMS(parent= None, phone= None, text= None, ):
+def senderSMS(parent= None, phone= None, text= None, prim= "",Row ='0' ):
     #sender = 'NFXnet' #  имя отправителя из списка https://smspilot.ru/my-sender.php
     sender = 'INFORM'
     apikey = 'C0C37F90PPSX2QAK8YBSYPPGE8X233741OSB2O306KTSP4TYJCT7VW07828607C7'
@@ -87,6 +93,11 @@ def senderSMS(parent= None, phone= None, text= None, ):
         message(parent,"Ошибка","СМС не отправлено " + str(j))
         return ('Ошибка: %s' % j)
     else:
+        if Row!='0':
+            qinp = QSqlQuery()
+            qinp.exec("UPDATE jtab SET prim = '"+prim+" Смс успешно отправлена "+str(QDate.currentDate().toString('dd.MM.yyyy'))+"' WHERE npp = "+Row+" ;")
+            #print("UPDATE jtab SET prim = '"+prim+" Смс успешно отправлена "+str(QDate.currentDate().toString('dd.MM.yyyy'))+"' WHERE npp = "+Row+" ;")
+            qinp.first()
         return (j)
 
 
@@ -264,8 +275,8 @@ class MainWindow(QMainWindow):
                     if  str(query.value(7)) == 'False': # НЕ оплачены
                         for c2 in range(self.ui.tableWidget.columnCount()):
                             self.ui.tableWidget.item(r, c2).setBackground(QColor(255, 128, 0))  # Должно поменять цвет строк
-
             r+=1
+
         #self.ui.tableWidget.resizeColumnsToContents()
         self.ui.tableWidget.resizeColumnToContents(0)
         self.ui.tableWidget.resizeColumnToContents(1)
@@ -460,6 +471,12 @@ class newdial(QDialog):
     def workEndChange(self):
         if self.ui.checkBox_WorkEnd.isChecked():
             sendSMS(self,'ROW',self.ui.lineEdit_npp.text())
+            qinp = QSqlQuery()
+            qinp.exec("SELECT prim FROM jtab WHERE npp = "+self.ui.lineEdit_npp.text()+" ;")
+            qinp.first()
+            self.ui.textEdit_prim.setText(qinp.value(0))
+
+
 
     def endChange(self):
         if self.ui.checkBox_WorkEnd.isChecked()==False:
