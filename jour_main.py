@@ -18,7 +18,7 @@ import urllib.request
 import urllib.parse
 import os; 
 import locale;
-from QSearch_ui import Ui_Dialog_QSearch 
+from QSearch_ui import Ui_Dialog_QSearch
 
 
 os.environ["PYTHONIOENCODING"] = "utf-8"; 
@@ -130,8 +130,8 @@ class MainWindow(QMainWindow):
     #Контекстное меню
         self.ui.tableWidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
         self.ui.tableWidget.customContextMenuRequested.connect(self.contextMenu)
-
-
+    #быстрый поиск
+        self.ui.tableWidget.horizontalHeader().sectionClicked.connect(self.startQSearch)
 
         # DB = QSqlDatabase.addDatabase('QIBASE')
         # DB.setDatabaseName("/home/leone/build/ixjournal/jourbd.fdb")
@@ -155,6 +155,12 @@ class MainWindow(QMainWindow):
 
         #self.updateWidg("SELECT * FROM jtab;",зш"SELECT COUNT(*) FROM jtab;")
         self.updateWidg(Gcue, Gcuec)
+
+    def startQSearch(self, i):
+        column_text = self.ui.tableWidget.horizontalHeaderItem(i).text()
+        if i == 2 or i == 3:
+            QSearchdlg=QSearch(self,i, column_text)
+            QSearchdlg.exec()
 
     def spravScreen(self):
         sprs=sprScr()
@@ -379,6 +385,13 @@ class MainWindow(QMainWindow):
       #  self.ui.tableView.setModel(jmod)
       #  jmod.select()
 
+class fnddial(QDialog):
+    def __init__(self):
+        super().__init__()
+        self.ui = Ui_fDial()
+        self.ui.setupUi(self)
+
+
 class sprScr(QDialog):
     def __init__(self, parent = None):
         super().__init__()
@@ -560,13 +573,6 @@ class newdial(QDialog):
         self.ui.lineEdit_clientRefund.setText(toFixed(float(self.ui.lineEdit_clientCash.text())-float(self.ui.lineEdit_costSum.text()),2))
 
 
-class fnddial(QDialog):
-    def __init__(self):
-        super().__init__()
-        self.ui = Ui_fDial()
-        self.ui.setupUi(self)
-
-
 class costSum(QDialog):
     def __init__(self, parent=None, Npp = '0' ):
         global npp
@@ -586,6 +592,29 @@ class costSum(QDialog):
         querv.exec("UPDATE jtab SET workend = 'True', costSum='"+self.ui.lineEdit_costSum.text()+"' WHERE  npp = "+npp+" ;")
         message(self,"ixJournal","Работы над заказом завершены")
         self.close()
+
+class QSearch(QDialog):
+    def __init__(self, parent, column = 0, column_text="" ):
+        #global par
+        self.par=parent
+        self.col=column
+        super().__init__(parent)
+        self.ui = Ui_Dialog_QSearch()
+        self.ui.setupUi(self)
+        self.setWindowTitle("Поиск по "+column_text)
+        self.ui.toolButton_Filter.clicked.connect(self.Search)
+
+    def Search(self):
+        #global Gcue,Gcuec
+        if self.col == 2:
+            self.par.updateWidg("SELECT *  FROM jtab WHERE numZak CONTAINING '" + self.ui.comboBox.currentText() + "' ORDER BY npp;" , "SELECT COUNT(*) FROM jtab WHERE numZak CONTAINING '"+self.ui.comboBox.currentText() +"' ;")
+        if self.col == 3:
+            self.par.updateWidg("SELECT *  FROM jtab WHERE phone CONTAINING '" + self.ui.comboBox.currentText() + "' ORDER BY npp;" , "SELECT COUNT(*) FROM jtab WHERE phone CONTAINING '"+self.ui.comboBox.currentText() +"' ;")
+
+
+        self.close()
+           # Gcue="SELECT *  FROM jtab WHERE numZak = '" + numz + "' ORDER BY npp;"
+           # Gcuec="SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;"
 
 
 
