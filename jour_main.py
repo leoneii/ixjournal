@@ -603,13 +603,14 @@ class QSearch(QDialog):
         self.ui.setupUi(self)
         self.setWindowTitle("Поиск по "+column_text)
         self.ui.toolButton_Filter.clicked.connect(self.Search)
+        self.ui.toolButton_Cancel.clicked.connect(self.close)
 
     def Search(self):
         #global Gcue,Gcuec
         if self.col == 2:
             self.par.updateWidg("SELECT *  FROM jtab WHERE numZak CONTAINING '" + self.ui.comboBox.currentText() + "' ORDER BY npp;" , "SELECT COUNT(*) FROM jtab WHERE numZak CONTAINING '"+self.ui.comboBox.currentText() +"' ;")
         if self.col == 3:
-            self.par.updateWidg("SELECT *  FROM jtab WHERE phone CONTAINING '" + self.ui.comboBox.currentText() + "' ORDER BY npp;" , "SELECT COUNT(*) FROM jtab WHERE phone CONTAINING '"+self.ui.comboBox.currentText() +"' ;")
+            self.par.updateWidg("SELECT *  FROM jtab WHERE phone CONTAINING '" + self.ui.comboBox.currentText() + "' AND costYN = 'False' ORDER BY npp;" , "SELECT COUNT(*) FROM jtab WHERE phone CONTAINING '"+self.ui.comboBox.currentText() +"' AND costYN = 'False' ;")
 
 
         self.close()
