@@ -6,7 +6,7 @@ from newdial_ui import Ui_Dialog
 from finddial import Ui_fDial
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize, QDate
-from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt , QAction, QIcon
+from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt , QAction, QIcon, QKeyEvent
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
 #from PySide6 import QtWidgets
@@ -604,6 +604,7 @@ class QSearch(QDialog):
         self.setWindowTitle("Поиск по "+column_text)
         self.ui.toolButton_Filter.clicked.connect(self.Search)
         self.ui.toolButton_Cancel.clicked.connect(self.close)
+        self.ui.comboBox.lineEdit().returnPressed.connect(self.Search)
 
     def Search(self):
         #global Gcue,Gcuec
@@ -616,8 +617,6 @@ class QSearch(QDialog):
         self.close()
            # Gcue="SELECT *  FROM jtab WHERE numZak = '" + numz + "' ORDER BY npp;"
            # Gcuec="SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;"
-
-
 
 if __name__ == '__main__':
     app = QApplication(sys.argv)
