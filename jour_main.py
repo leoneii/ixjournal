@@ -219,6 +219,7 @@ class MainWindow(QMainWindow):
         else:    
             dlg = costSum(self,self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text())
             dlg.exec()
+            
             sendSMS(self,'ROW',self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text())
             self.updateWidg("LAST","")
 
@@ -483,6 +484,7 @@ class newdial(QDialog):
 
     def workEndChange(self):
         if self.ui.checkBox_WorkEnd.isChecked():
+            self.okButton(False)
             sendSMS(self,'ROW',self.ui.lineEdit_npp.text())
             qinp = QSqlQuery()
             qinp.exec("SELECT prim FROM jtab WHERE npp = "+self.ui.lineEdit_npp.text()+" ;")
@@ -540,7 +542,7 @@ class newdial(QDialog):
         qphone.first()
         self.ui.lineEdit_phone.setText(str(qphone.value(0)))
 
-    def okButton(self):
+    def okButton(self,close = True):
         qinsert = QSqlQuery()
         dat = QDate().fromString(self.ui.lineEdit_dat.text(), 'dd.MM.yyyy').toString('yyyy-MM-dd');
         if ceFlag == 0:
@@ -549,7 +551,7 @@ class newdial(QDialog):
             inNewRow = "UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.comboBox_cont.currentText()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', ZEND= '"+str(self.ui.checkBox_end.isChecked())+"', workend= '"+str(self.ui.checkBox_WorkEnd.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;"
             #print("UPDATE jtab SET dat='"+dat+"', numzak= "+self.ui.lineEdit_numZak.text()+", phone='"+self.ui.lineEdit_phone.text()+"', nameZak= '"+self.ui.lineEdit_nameZak.text()+"', descryption='"+self.ui.textEdit_descryption.toPlainText()+"', costSum= "+self.ui.lineEdit_costSum.text()+", costYN= '"+str(self.ui.checkBox_costYN.isChecked())+"', prim= '"+self.ui.textEdit_prim.toPlainText()+"', zEND= '"+str(self.ui.checkBox_end.isChecked())+"' WHERE npp = "+self.ui.lineEdit_npp.text()+" ;")
         qinsert.exec(inNewRow) 
-
+        #
         #CONT ОБНОВЛЯЕМ
         qcont = QSqlQuery()
         qcont.exec("SELECT COUNT(*) FROM JCONT WHERE NAME = '"+self.ui.comboBox_cont.currentText()+"';")
@@ -564,7 +566,10 @@ class newdial(QDialog):
             qcont.exec("UPDATE JCONT SET phone ='"+self.ui.lineEdit_phone.text()+"' WHERE NAME = '"+self.ui.comboBox_cont.currentText()+"';")
 
         mainW.updateWidg("LAST","")
-        self.close()
+        if close==True:
+            self.close()
+
+
 
     def rejButton(self):
         self.close()
