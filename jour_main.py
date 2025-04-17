@@ -20,6 +20,7 @@ import os;
 import locale;
 from QSearch_ui import Ui_Dialog_QSearch
 
+import cascade_idigital
 
 os.environ["PYTHONIOENCODING"] = "utf-8"; 
 myLocale=locale.setlocale(category=locale.LC_ALL, locale="ru_RU.UTF-8");
@@ -48,7 +49,9 @@ def backupToFile(parent = None, file = "backup.sql"):
 
 # Отправка SMS на чистом Python через sms-шлюз SMSPILOT.RU подготовка
 
-def sendSMS( parent= None, type = 'NUM', phoneOrRow= '0', Query = True, text = 'Ваш заказ готов к выдаче, Инфоникс Фатеж Пн-Пт 10-17,Сб 10-15',Sum = 0):
+def sendSMS( parent= None, type = 'NUM', phoneOrRow= '0', Query = True, text = 'Ваш заказ готов, Инфоникс Фатеж Пн-Пт 10-17,Сб 10-15 Сумма:',Sum = 0):
+
+    
 
     if type =='NUM':
         phone = phoneOrRow
@@ -65,29 +68,38 @@ def sendSMS( parent= None, type = 'NUM', phoneOrRow= '0', Query = True, text = '
         Row = phoneOrRow
 
     if Sum != 0:
-        text = text + "Сумма "+str(Sum)+"руб." 
+        text = text + " "+str(Sum)+"руб." 
+        textMessager = "Ваш заказ готов к выдаче, Инфоникс Фатеж Пн-Пт 10-17,Сб 10-15 Сумма:"+ " "+str(Sum)+"руб." 
+    else:
+        textMessager = "Ваш заказ готов к выдаче, Инфоникс Фатеж Пн-Пт 10-17,Сб 10-15 Сумма:0 руб."     
 
     if Query == True:
         mbq = QMessageBox(QMessageBox.Warning,"ixJournal","Отправить сообщение клиенту?",QMessageBox.Ok | QMessageBox.Discard, parent ).exec()
         if mbq != QMessageBox.Discard :
-            senderSMS(parent, phone,text,prim,Row)
+            senderSMS(parent, phone,text,textMessager,prim,Row)
     else:
-        senderSMS(parent, phone,text,prim,Row)
+        senderSMS(parent, phone,text,textMessager,prim,Row)
 
 
 
 # Функция непосредственной отправки смс
-def senderSMS(parent= None, phone= None, text= None, prim= "",Row ='0' ):
+def senderSMS(parent= None, phone= None, text= None,textMessager= None, prim= "",Row ='0' ):
     #sender = 'NFXnet' #  имя отправителя из списка https://smspilot.ru/my-sender.php
-    sender = 'INFORM'
-    apikey = 'C0C37F90PPSX2QAK8YBSYPPGE8X233741OSB2O306KTSP4TYJCT7VW07828607C7'
-    formatapi='json'
 
-    url = "http://smspilot.ru/api.php?"
-    params = urllib.parse.urlencode({'send':text, 'to':phone, 'from':sender, 'apikey':apikey, 'format':formatapi })
-    url=url+params
+    j = cascade_idigital.cascade(None,phone,text,textMessager)
 
-    j = json.loads(urllib.request.urlopen(url.replace(" ", "%20")).read())
+    # sender = 'INFORM'
+    # apikey = 'C0C37F90PPSX2QAK8YBSYPPGE8X233741OSB2O306KTSP4TYJCT7VW07828607C7'
+    # formatapi='json'
+
+    # url = "http://smspilot.ru/api.php?"
+    # params = urllib.parse.urlencode({'send':text, 'to':phone, 'from':sender, 'apikey':apikey, 'format':formatapi })
+    # url=url+params
+
+    # j = json.loads(urllib.request.urlopen(url.replace(" ", "%20")).read())
+
+    
+
     
     if ('error' in j):
         message(parent,"Ошибка","СМС не отправлено " + str(j))
@@ -95,10 +107,12 @@ def senderSMS(parent= None, phone= None, text= None, prim= "",Row ='0' ):
     else:
         if Row!='0':
             qinp = QSqlQuery()
-            qinp.exec("UPDATE jtab SET prim = '"+prim+" Смс успешно отправлена "+str(QDate.currentDate().toString('dd.MM.yyyy'))+"' WHERE npp = "+Row+" ;")
+            qinp.exec("UPDATE jtab SET prim = '"+prim+" Сообщение успешно отправлено "+str(QDate.currentDate().toString('dd.MM.yyyy'))+"' WHERE npp = "+Row+" ;")
             #print("UPDATE jtab SET prim = '"+prim+" Смс успешно отправлена "+str(QDate.currentDate().toString('dd.MM.yyyy'))+"' WHERE npp = "+Row+" ;")
             qinp.first()
         return (j)
+
+
 
 
 class MainWindow(QMainWindow):
