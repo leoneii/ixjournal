@@ -1,6 +1,6 @@
 #!/bin/bash
 # Builds ixjournal (PySide6) for Windows and assembles a self-contained
-# dist/jour_main/ folder.
+# dist-win64/jour_main/ folder.
 #
 # Prerequisites (one-time setup, not done by this script):
 #   - A genuine Windows Python installed under Wine (see winpy/README.md),
@@ -19,7 +19,7 @@ cd "$PROJECT_DIR"
 
 WINPY="/home/leone/.wine/drive_c/users/leone/Local Settings/Application Data/Programs/Python/Python311/python.exe"
 FBCLIENT="$PROJECT_DIR/../ixsusndev/win-firebird/extracted/fbclient.dll"
-DIST_DIR="$PROJECT_DIR/dist/jour_main"
+DIST_DIR="$PROJECT_DIR/dist-win64/jour_main"
 
 if [ ! -f "$WINPY" ]; then
     echo "Не найден Wine-Python: $WINPY" >&2
@@ -28,9 +28,11 @@ if [ ! -f "$WINPY" ]; then
 fi
 
 echo "==> Сборка (PyInstaller под Wine)"
-rm -rf "$PROJECT_DIR/build/jour_main" "$DIST_DIR"
+rm -rf "$PROJECT_DIR/build-win64" "$PROJECT_DIR/dist-win64"
 WINEDEBUG=-all wine "$WINPY" -m PyInstaller --noconfirm --onedir --windowed \
     --name jour_main \
+    --distpath "$PROJECT_DIR/dist-win64" \
+    --workpath "$PROJECT_DIR/build-win64" \
     --add-data "image;image" \
     jour_main.py
 

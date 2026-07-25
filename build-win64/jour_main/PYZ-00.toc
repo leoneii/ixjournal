@@ -1,0 +1,1198 @@
+('Z:\\home\\leone\\build\\ixjournal\\build-win64\\jour_main\\PYZ-00.pyz',
+ [('PIL',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\__init__.py',
+   'PYMODULE'),
+  ('PIL.AvifImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\AvifImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BlpImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\BlpImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BmpImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\BmpImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.BufrStubImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\BufrStubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.CurImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\CurImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.DcxImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\DcxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.DdsImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\DdsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.EpsImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\EpsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ExifTags',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ExifTags.py',
+   'PYMODULE'),
+  ('PIL.FitsImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\FitsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FliImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\FliImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FpxImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\FpxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.FtexImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\FtexImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GbrImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\GbrImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GifImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\GifImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.GimpGradientFile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\GimpGradientFile.py',
+   'PYMODULE'),
+  ('PIL.GimpPaletteFile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\GimpPaletteFile.py',
+   'PYMODULE'),
+  ('PIL.GribStubImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\GribStubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Hdf5StubImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\Hdf5StubImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IcnsImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\IcnsImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IcoImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\IcoImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.ImImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Image',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\Image.py',
+   'PYMODULE'),
+  ('PIL.ImageChops',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageChops.py',
+   'PYMODULE'),
+  ('PIL.ImageCms',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageCms.py',
+   'PYMODULE'),
+  ('PIL.ImageColor',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageColor.py',
+   'PYMODULE'),
+  ('PIL.ImageDraw',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageDraw.py',
+   'PYMODULE'),
+  ('PIL.ImageDraw2',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageDraw2.py',
+   'PYMODULE'),
+  ('PIL.ImageFile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageFile.py',
+   'PYMODULE'),
+  ('PIL.ImageFilter',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageFilter.py',
+   'PYMODULE'),
+  ('PIL.ImageFont',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageFont.py',
+   'PYMODULE'),
+  ('PIL.ImageMath',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageMath.py',
+   'PYMODULE'),
+  ('PIL.ImageMode',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageMode.py',
+   'PYMODULE'),
+  ('PIL.ImageOps',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageOps.py',
+   'PYMODULE'),
+  ('PIL.ImagePalette',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImagePalette.py',
+   'PYMODULE'),
+  ('PIL.ImagePath',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImagePath.py',
+   'PYMODULE'),
+  ('PIL.ImageQt',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageQt.py',
+   'PYMODULE'),
+  ('PIL.ImageSequence',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageSequence.py',
+   'PYMODULE'),
+  ('PIL.ImageShow',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageShow.py',
+   'PYMODULE'),
+  ('PIL.ImageText',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageText.py',
+   'PYMODULE'),
+  ('PIL.ImageTk',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageTk.py',
+   'PYMODULE'),
+  ('PIL.ImageWin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImageWin.py',
+   'PYMODULE'),
+  ('PIL.ImtImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\ImtImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.IptcImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\IptcImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.Jpeg2KImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\Jpeg2KImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.JpegImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\JpegImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.JpegPresets',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\JpegPresets.py',
+   'PYMODULE'),
+  ('PIL.McIdasImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\McIdasImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MicImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\MicImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MpegImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\MpegImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MpoImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\MpoImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.MspImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\MspImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PaletteFile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PaletteFile.py',
+   'PYMODULE'),
+  ('PIL.PalmImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PalmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PcdImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PcdImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PcxImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PcxImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PdfImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PdfImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PdfParser',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PdfParser.py',
+   'PYMODULE'),
+  ('PIL.PixarImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PixarImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PngImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PngImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PpmImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PpmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.PsdImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\PsdImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.QoiImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\QoiImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SgiImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\SgiImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SpiderImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\SpiderImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.SunImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\SunImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.TgaImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\TgaImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.TiffImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\TiffImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.TiffTags',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\TiffTags.py',
+   'PYMODULE'),
+  ('PIL.WebPImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\WebPImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.WmfImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\WmfImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XVThumbImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\XVThumbImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XbmImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\XbmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL.XpmImagePlugin',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\XpmImagePlugin.py',
+   'PYMODULE'),
+  ('PIL._binary',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_binary.py',
+   'PYMODULE'),
+  ('PIL._deprecate',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_deprecate.py',
+   'PYMODULE'),
+  ('PIL._typing',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_typing.py',
+   'PYMODULE'),
+  ('PIL._util',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_util.py',
+   'PYMODULE'),
+  ('PIL._version',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_version.py',
+   'PYMODULE'),
+  ('PIL.features',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\features.py',
+   'PYMODULE'),
+  ('PySide6',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\__init__.py',
+   'PYMODULE'),
+  ('PySide6.support',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\support\\__init__.py',
+   'PYMODULE'),
+  ('PySide6.support.deprecated',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\support\\deprecated.py',
+   'PYMODULE'),
+  ('QSearch_ui',
+   'Z:\\home\\leone\\build\\ixjournal\\QSearch_ui.py',
+   'PYMODULE'),
+  ('__future__',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\__future__.py',
+   'PYMODULE'),
+  ('_compat_pickle',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\_compat_pickle.py',
+   'PYMODULE'),
+  ('_compression',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\_compression.py',
+   'PYMODULE'),
+  ('_py_abc',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\_py_abc.py',
+   'PYMODULE'),
+  ('_pydecimal',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\_pydecimal.py',
+   'PYMODULE'),
+  ('_pyi_rth_utils',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PyInstaller\\fake-modules\\_pyi_rth_utils\\__init__.py',
+   'PYMODULE'),
+  ('_pyi_rth_utils.qt',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PyInstaller\\fake-modules\\_pyi_rth_utils\\qt.py',
+   'PYMODULE'),
+  ('_strptime',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\_strptime.py',
+   'PYMODULE'),
+  ('_threading_local',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\_threading_local.py',
+   'PYMODULE'),
+  ('argparse',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\argparse.py',
+   'PYMODULE'),
+  ('ast',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\ast.py',
+   'PYMODULE'),
+  ('base64',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\base64.py',
+   'PYMODULE'),
+  ('bisect',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\bisect.py',
+   'PYMODULE'),
+  ('bz2',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\bz2.py',
+   'PYMODULE'),
+  ('calendar',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\calendar.py',
+   'PYMODULE'),
+  ('cascade_idigital',
+   'Z:\\home\\leone\\build\\ixjournal\\cascade_idigital.py',
+   'PYMODULE'),
+  ('certifi',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\certifi\\__init__.py',
+   'PYMODULE'),
+  ('certifi.core',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\certifi\\core.py',
+   'PYMODULE'),
+  ('charset_normalizer',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\__init__.py',
+   'PYMODULE'),
+  ('charset_normalizer.api',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\api.py',
+   'PYMODULE'),
+  ('charset_normalizer.constant',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\constant.py',
+   'PYMODULE'),
+  ('charset_normalizer.legacy',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\legacy.py',
+   'PYMODULE'),
+  ('charset_normalizer.models',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\models.py',
+   'PYMODULE'),
+  ('charset_normalizer.utils',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\utils.py',
+   'PYMODULE'),
+  ('charset_normalizer.version',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\version.py',
+   'PYMODULE'),
+  ('colorsys',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\colorsys.py',
+   'PYMODULE'),
+  ('contextlib',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\contextlib.py',
+   'PYMODULE'),
+  ('contextvars',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\contextvars.py',
+   'PYMODULE'),
+  ('copy',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\copy.py',
+   'PYMODULE'),
+  ('costSum_ui',
+   'Z:\\home\\leone\\build\\ixjournal\\costSum_ui.py',
+   'PYMODULE'),
+  ('csv',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\csv.py',
+   'PYMODULE'),
+  ('dataclasses',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\dataclasses.py',
+   'PYMODULE'),
+  ('datetime',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\datetime.py',
+   'PYMODULE'),
+  ('decimal',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\decimal.py',
+   'PYMODULE'),
+  ('dis',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\dis.py',
+   'PYMODULE'),
+  ('email',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\__init__.py',
+   'PYMODULE'),
+  ('email._encoded_words',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\_encoded_words.py',
+   'PYMODULE'),
+  ('email._header_value_parser',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\_header_value_parser.py',
+   'PYMODULE'),
+  ('email._parseaddr',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\_parseaddr.py',
+   'PYMODULE'),
+  ('email._policybase',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\_policybase.py',
+   'PYMODULE'),
+  ('email.base64mime',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\base64mime.py',
+   'PYMODULE'),
+  ('email.charset',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\charset.py',
+   'PYMODULE'),
+  ('email.contentmanager',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\contentmanager.py',
+   'PYMODULE'),
+  ('email.encoders',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\encoders.py',
+   'PYMODULE'),
+  ('email.errors',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\errors.py',
+   'PYMODULE'),
+  ('email.feedparser',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\feedparser.py',
+   'PYMODULE'),
+  ('email.generator',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\generator.py',
+   'PYMODULE'),
+  ('email.header',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\header.py',
+   'PYMODULE'),
+  ('email.headerregistry',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\headerregistry.py',
+   'PYMODULE'),
+  ('email.iterators',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\iterators.py',
+   'PYMODULE'),
+  ('email.message',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\message.py',
+   'PYMODULE'),
+  ('email.parser',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\parser.py',
+   'PYMODULE'),
+  ('email.policy',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\policy.py',
+   'PYMODULE'),
+  ('email.quoprimime',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\quoprimime.py',
+   'PYMODULE'),
+  ('email.utils',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\email\\utils.py',
+   'PYMODULE'),
+  ('finddial', 'Z:\\home\\leone\\build\\ixjournal\\finddial.py', 'PYMODULE'),
+  ('fnmatch',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\fnmatch.py',
+   'PYMODULE'),
+  ('fractions',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\fractions.py',
+   'PYMODULE'),
+  ('ftplib',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\ftplib.py',
+   'PYMODULE'),
+  ('getopt',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\getopt.py',
+   'PYMODULE'),
+  ('getpass',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\getpass.py',
+   'PYMODULE'),
+  ('gettext',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\gettext.py',
+   'PYMODULE'),
+  ('gzip',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\gzip.py',
+   'PYMODULE'),
+  ('hashlib',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\hashlib.py',
+   'PYMODULE'),
+  ('hmac',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\hmac.py',
+   'PYMODULE'),
+  ('http',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\http\\__init__.py',
+   'PYMODULE'),
+  ('http.client',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\http\\client.py',
+   'PYMODULE'),
+  ('http.cookiejar',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\http\\cookiejar.py',
+   'PYMODULE'),
+  ('http.cookies',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\http\\cookies.py',
+   'PYMODULE'),
+  ('idna',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\idna\\__init__.py',
+   'PYMODULE'),
+  ('idna.core',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\idna\\core.py',
+   'PYMODULE'),
+  ('idna.idnadata',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\idna\\idnadata.py',
+   'PYMODULE'),
+  ('idna.intranges',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\idna\\intranges.py',
+   'PYMODULE'),
+  ('idna.package_data',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\idna\\package_data.py',
+   'PYMODULE'),
+  ('idna.uts46data',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\idna\\uts46data.py',
+   'PYMODULE'),
+  ('importlib',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\__init__.py',
+   'PYMODULE'),
+  ('importlib._abc',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\_abc.py',
+   'PYMODULE'),
+  ('importlib._bootstrap',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\_bootstrap.py',
+   'PYMODULE'),
+  ('importlib._bootstrap_external',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\_bootstrap_external.py',
+   'PYMODULE'),
+  ('importlib.abc',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\abc.py',
+   'PYMODULE'),
+  ('importlib.machinery',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\machinery.py',
+   'PYMODULE'),
+  ('importlib.metadata',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\metadata\\__init__.py',
+   'PYMODULE'),
+  ('importlib.metadata._adapters',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\metadata\\_adapters.py',
+   'PYMODULE'),
+  ('importlib.metadata._collections',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\metadata\\_collections.py',
+   'PYMODULE'),
+  ('importlib.metadata._functools',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\metadata\\_functools.py',
+   'PYMODULE'),
+  ('importlib.metadata._itertools',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\metadata\\_itertools.py',
+   'PYMODULE'),
+  ('importlib.metadata._meta',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\metadata\\_meta.py',
+   'PYMODULE'),
+  ('importlib.metadata._text',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\metadata\\_text.py',
+   'PYMODULE'),
+  ('importlib.readers',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\readers.py',
+   'PYMODULE'),
+  ('importlib.resources',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\resources\\__init__.py',
+   'PYMODULE'),
+  ('importlib.resources._adapters',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\resources\\_adapters.py',
+   'PYMODULE'),
+  ('importlib.resources._common',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\resources\\_common.py',
+   'PYMODULE'),
+  ('importlib.resources._itertools',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\resources\\_itertools.py',
+   'PYMODULE'),
+  ('importlib.resources._legacy',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\resources\\_legacy.py',
+   'PYMODULE'),
+  ('importlib.resources.abc',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\resources\\abc.py',
+   'PYMODULE'),
+  ('importlib.resources.readers',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\resources\\readers.py',
+   'PYMODULE'),
+  ('importlib.util',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\importlib\\util.py',
+   'PYMODULE'),
+  ('inspect',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\inspect.py',
+   'PYMODULE'),
+  ('ipaddress',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\ipaddress.py',
+   'PYMODULE'),
+  ('json',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\json\\__init__.py',
+   'PYMODULE'),
+  ('json.decoder',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\json\\decoder.py',
+   'PYMODULE'),
+  ('json.encoder',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\json\\encoder.py',
+   'PYMODULE'),
+  ('json.scanner',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\json\\scanner.py',
+   'PYMODULE'),
+  ('labelprinter',
+   'Z:\\home\\leone\\build\\ixjournal\\labelprinter.py',
+   'PYMODULE'),
+  ('logging',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\logging\\__init__.py',
+   'PYMODULE'),
+  ('lzma',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\lzma.py',
+   'PYMODULE'),
+  ('main_ui', 'Z:\\home\\leone\\build\\ixjournal\\main_ui.py', 'PYMODULE'),
+  ('messagesender',
+   'Z:\\home\\leone\\build\\ixjournal\\messagesender.py',
+   'PYMODULE'),
+  ('mimetypes',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\mimetypes.py',
+   'PYMODULE'),
+  ('netrc',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\netrc.py',
+   'PYMODULE'),
+  ('newdial_ui',
+   'Z:\\home\\leone\\build\\ixjournal\\newdial_ui.py',
+   'PYMODULE'),
+  ('niimprint',
+   'Z:\\home\\leone\\build\\ixjournal\\niimprint\\__init__.py',
+   'PYMODULE'),
+  ('niimprint.packet',
+   'Z:\\home\\leone\\build\\ixjournal\\niimprint\\packet.py',
+   'PYMODULE'),
+  ('niimprint.printer',
+   'Z:\\home\\leone\\build\\ixjournal\\niimprint\\printer.py',
+   'PYMODULE'),
+  ('nturl2path',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\nturl2path.py',
+   'PYMODULE'),
+  ('numbers',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\numbers.py',
+   'PYMODULE'),
+  ('opcode',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\opcode.py',
+   'PYMODULE'),
+  ('pathlib',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\pathlib.py',
+   'PYMODULE'),
+  ('pickle',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\pickle.py',
+   'PYMODULE'),
+  ('pprint',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\pprint.py',
+   'PYMODULE'),
+  ('py_compile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\py_compile.py',
+   'PYMODULE'),
+  ('queue',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\queue.py',
+   'PYMODULE'),
+  ('quopri',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\quopri.py',
+   'PYMODULE'),
+  ('random',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\random.py',
+   'PYMODULE'),
+  ('requests',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\__init__.py',
+   'PYMODULE'),
+  ('requests.__version__',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\__version__.py',
+   'PYMODULE'),
+  ('requests._internal_utils',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\_internal_utils.py',
+   'PYMODULE'),
+  ('requests._types',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\_types.py',
+   'PYMODULE'),
+  ('requests.adapters',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\adapters.py',
+   'PYMODULE'),
+  ('requests.api',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\api.py',
+   'PYMODULE'),
+  ('requests.auth',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\auth.py',
+   'PYMODULE'),
+  ('requests.certs',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\certs.py',
+   'PYMODULE'),
+  ('requests.compat',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\compat.py',
+   'PYMODULE'),
+  ('requests.cookies',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\cookies.py',
+   'PYMODULE'),
+  ('requests.exceptions',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\exceptions.py',
+   'PYMODULE'),
+  ('requests.hooks',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\hooks.py',
+   'PYMODULE'),
+  ('requests.models',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\models.py',
+   'PYMODULE'),
+  ('requests.packages',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\packages.py',
+   'PYMODULE'),
+  ('requests.sessions',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\sessions.py',
+   'PYMODULE'),
+  ('requests.status_codes',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\status_codes.py',
+   'PYMODULE'),
+  ('requests.structures',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\structures.py',
+   'PYMODULE'),
+  ('requests.utils',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\requests\\utils.py',
+   'PYMODULE'),
+  ('selectors',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\selectors.py',
+   'PYMODULE'),
+  ('settings_ui',
+   'Z:\\home\\leone\\build\\ixjournal\\settings_ui.py',
+   'PYMODULE'),
+  ('shiboken6',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\shiboken6\\__init__.py',
+   'PYMODULE'),
+  ('shlex',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\shlex.py',
+   'PYMODULE'),
+  ('shutil',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\shutil.py',
+   'PYMODULE'),
+  ('signal',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\signal.py',
+   'PYMODULE'),
+  ('socket',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\socket.py',
+   'PYMODULE'),
+  ('sprav_ui', 'Z:\\home\\leone\\build\\ixjournal\\sprav_ui.py', 'PYMODULE'),
+  ('ssl',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\ssl.py',
+   'PYMODULE'),
+  ('statistics',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\statistics.py',
+   'PYMODULE'),
+  ('string',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\string.py',
+   'PYMODULE'),
+  ('stringprep',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\stringprep.py',
+   'PYMODULE'),
+  ('subprocess',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\subprocess.py',
+   'PYMODULE'),
+  ('tarfile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\tarfile.py',
+   'PYMODULE'),
+  ('tempfile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\tempfile.py',
+   'PYMODULE'),
+  ('textwrap',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\textwrap.py',
+   'PYMODULE'),
+  ('threading',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\threading.py',
+   'PYMODULE'),
+  ('token',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\token.py',
+   'PYMODULE'),
+  ('tokenize',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\tokenize.py',
+   'PYMODULE'),
+  ('tracemalloc',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\tracemalloc.py',
+   'PYMODULE'),
+  ('typing',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\typing.py',
+   'PYMODULE'),
+  ('urllib',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\urllib\\__init__.py',
+   'PYMODULE'),
+  ('urllib.error',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\urllib\\error.py',
+   'PYMODULE'),
+  ('urllib.parse',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\urllib\\parse.py',
+   'PYMODULE'),
+  ('urllib.request',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\urllib\\request.py',
+   'PYMODULE'),
+  ('urllib.response',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\urllib\\response.py',
+   'PYMODULE'),
+  ('urllib3',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\__init__.py',
+   'PYMODULE'),
+  ('urllib3._base_connection',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\_base_connection.py',
+   'PYMODULE'),
+  ('urllib3._collections',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\_collections.py',
+   'PYMODULE'),
+  ('urllib3._request_methods',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\_request_methods.py',
+   'PYMODULE'),
+  ('urllib3._version',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\_version.py',
+   'PYMODULE'),
+  ('urllib3.connection',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\connection.py',
+   'PYMODULE'),
+  ('urllib3.connectionpool',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\connectionpool.py',
+   'PYMODULE'),
+  ('urllib3.contrib',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.contrib.emscripten',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.contrib.emscripten.connection',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\connection.py',
+   'PYMODULE'),
+  ('urllib3.contrib.emscripten.fetch',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\fetch.py',
+   'PYMODULE'),
+  ('urllib3.contrib.emscripten.request',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\request.py',
+   'PYMODULE'),
+  ('urllib3.contrib.emscripten.response',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\emscripten\\response.py',
+   'PYMODULE'),
+  ('urllib3.contrib.pyopenssl',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\pyopenssl.py',
+   'PYMODULE'),
+  ('urllib3.contrib.socks',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\contrib\\socks.py',
+   'PYMODULE'),
+  ('urllib3.exceptions',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\exceptions.py',
+   'PYMODULE'),
+  ('urllib3.fields',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\fields.py',
+   'PYMODULE'),
+  ('urllib3.filepost',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\filepost.py',
+   'PYMODULE'),
+  ('urllib3.http2',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\http2\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.http2.connection',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\http2\\connection.py',
+   'PYMODULE'),
+  ('urllib3.http2.probe',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\http2\\probe.py',
+   'PYMODULE'),
+  ('urllib3.poolmanager',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\poolmanager.py',
+   'PYMODULE'),
+  ('urllib3.response',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\response.py',
+   'PYMODULE'),
+  ('urllib3.util',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\__init__.py',
+   'PYMODULE'),
+  ('urllib3.util.connection',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\connection.py',
+   'PYMODULE'),
+  ('urllib3.util.proxy',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\proxy.py',
+   'PYMODULE'),
+  ('urllib3.util.request',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\request.py',
+   'PYMODULE'),
+  ('urllib3.util.response',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\response.py',
+   'PYMODULE'),
+  ('urllib3.util.retry',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\retry.py',
+   'PYMODULE'),
+  ('urllib3.util.ssl_',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\ssl_.py',
+   'PYMODULE'),
+  ('urllib3.util.ssl_match_hostname',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\ssl_match_hostname.py',
+   'PYMODULE'),
+  ('urllib3.util.ssltransport',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\ssltransport.py',
+   'PYMODULE'),
+  ('urllib3.util.timeout',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\timeout.py',
+   'PYMODULE'),
+  ('urllib3.util.url',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\url.py',
+   'PYMODULE'),
+  ('urllib3.util.util',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\util.py',
+   'PYMODULE'),
+  ('urllib3.util.wait',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\urllib3\\util\\wait.py',
+   'PYMODULE'),
+  ('xml',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\__init__.py',
+   'PYMODULE'),
+  ('xml.etree',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\etree\\__init__.py',
+   'PYMODULE'),
+  ('xml.etree.ElementInclude',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\etree\\ElementInclude.py',
+   'PYMODULE'),
+  ('xml.etree.ElementPath',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\etree\\ElementPath.py',
+   'PYMODULE'),
+  ('xml.etree.ElementTree',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\etree\\ElementTree.py',
+   'PYMODULE'),
+  ('xml.etree.cElementTree',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\etree\\cElementTree.py',
+   'PYMODULE'),
+  ('xml.parsers',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\parsers\\__init__.py',
+   'PYMODULE'),
+  ('xml.parsers.expat',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\parsers\\expat.py',
+   'PYMODULE'),
+  ('xml.sax',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\sax\\__init__.py',
+   'PYMODULE'),
+  ('xml.sax._exceptions',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\sax\\_exceptions.py',
+   'PYMODULE'),
+  ('xml.sax.expatreader',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\sax\\expatreader.py',
+   'PYMODULE'),
+  ('xml.sax.handler',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\sax\\handler.py',
+   'PYMODULE'),
+  ('xml.sax.saxutils',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\sax\\saxutils.py',
+   'PYMODULE'),
+  ('xml.sax.xmlreader',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\xml\\sax\\xmlreader.py',
+   'PYMODULE'),
+  ('zipfile',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\zipfile.py',
+   'PYMODULE')])

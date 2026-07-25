@@ -1,0 +1,784 @@
+([('PIL\\_avif.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_avif.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imaging.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_imaging.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingcms.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_imagingcms.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingft.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_imagingft.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingmath.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_imagingmath.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_imagingtk.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_imagingtk.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('PIL\\_webp.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PIL\\_webp.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('PySide6\\MSVCP140.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\MSVCP140.dll',
+   'BINARY'),
+  ('PySide6\\MSVCP140_1.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\MSVCP140_1.dll',
+   'BINARY'),
+  ('PySide6\\MSVCP140_2.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\MSVCP140_2.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Core.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Core.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Gui.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Gui.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Network.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Network.dll',
+   'BINARY'),
+  ('PySide6\\Qt6OpenGL.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6OpenGL.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Pdf.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Pdf.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Qml.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Qml.dll',
+   'BINARY'),
+  ('PySide6\\Qt6QmlMeta.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6QmlMeta.dll',
+   'BINARY'),
+  ('PySide6\\Qt6QmlModels.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6QmlModels.dll',
+   'BINARY'),
+  ('PySide6\\Qt6QmlWorkerScript.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6QmlWorkerScript.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Quick.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Quick.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Sql.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Sql.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Svg.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Svg.dll',
+   'BINARY'),
+  ('PySide6\\Qt6VirtualKeyboard.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6VirtualKeyboard.dll',
+   'BINARY'),
+  ('PySide6\\Qt6Widgets.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\Qt6Widgets.dll',
+   'BINARY'),
+  ('PySide6\\QtCore.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\QtCore.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtGui.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\QtGui.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtNetwork.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\QtNetwork.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtSql.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\QtSql.pyd',
+   'EXTENSION'),
+  ('PySide6\\QtWidgets.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\QtWidgets.pyd',
+   'EXTENSION'),
+  ('PySide6\\VCRUNTIME140.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('PySide6\\VCRUNTIME140_1.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('PySide6\\opengl32sw.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\opengl32sw.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\generic\\qtuiotouchplugin.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\iconengines\\qsvgicon.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\iconengines\\qsvgicon.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qgif.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qgif.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qicns.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qicns.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qico.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qico.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qjpeg.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qjpeg.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qpdf.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qpdf.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qsvg.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qsvg.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qtga.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qtga.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qtiff.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qtiff.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qwbmp.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qwbmp.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\imageformats\\qwebp.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\imageformats\\qwebp.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\networkinformation\\qnetworklistmanager.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\platforminputcontexts\\qtvirtualkeyboardplugin.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qdirect2d.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qdirect2d.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qminimal.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qminimal.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qoffscreen.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qoffscreen.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\platforms\\qwindows.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\platforms\\qwindows.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\sqldrivers\\qsqlibase.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\sqldrivers\\qsqlibase.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\sqldrivers\\qsqlite.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\sqldrivers\\qsqlite.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\sqldrivers\\qsqlmimer.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\sqldrivers\\qsqlmimer.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\sqldrivers\\qsqloci.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\sqldrivers\\qsqloci.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\sqldrivers\\qsqlodbc.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\sqldrivers\\qsqlodbc.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\sqldrivers\\qsqlpsql.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\sqldrivers\\qsqlpsql.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\styles\\qmodernwindowsstyle.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\styles\\qmodernwindowsstyle.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\tls\\qcertonlybackend.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\tls\\qcertonlybackend.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\tls\\qopensslbackend.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\tls\\qopensslbackend.dll',
+   'BINARY'),
+  ('PySide6\\plugins\\tls\\qschannelbackend.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\plugins\\tls\\qschannelbackend.dll',
+   'BINARY'),
+  ('PySide6\\pyside6.abi3.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\pyside6.abi3.dll',
+   'BINARY'),
+  ('PySide6\\translations\\qt_ar.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_bg.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ca.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_cs.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_da.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_de.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_en.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_es.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_fa.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_fa.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_fi.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_fi.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_fr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_gd.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_gd.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_gl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_gl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_he.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_he.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ar.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_bg.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ca.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_cs.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_da.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_de.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_en.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_es.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_fr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_gl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_gl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_hr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_hu.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_it.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ja.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ka.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_ka.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ko.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_nl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_nn.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_nn.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_pl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_pt_BR.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_ru.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_sk.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_sl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_sl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_sv.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_sv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_tr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_uk.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_uk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_zh_CN.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_help_zh_TW.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_help_zh_TW.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_hr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_hu.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_it.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ja.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ka.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_ka.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ko.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lg.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_lg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lt.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_lt.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_lv.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_lv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_nl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_nn.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_nn.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pt_BR.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_pt_PT.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_pt_PT.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_ru.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sk.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_sl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_sv.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_sv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_tr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_uk.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_uk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_zh_CN.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qt_zh_TW.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qt_zh_TW.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ar.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_ar.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_bg.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_bg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ca.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_ca.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_cs.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_cs.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_da.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_da.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_de.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_de.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_en.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_en.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_es.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_es.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fa.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_fa.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fi.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_fi.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_fr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_fr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_gd.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_gd.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_he.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_he.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_hr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_hr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_hu.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_hu.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_it.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_it.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ja.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_ja.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ka.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_ka.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ko.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_ko.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_lg.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_lg.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_lv.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_lv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_nl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_nl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_nn.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_nn.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_pl.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_pl.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_pt_BR.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_pt_BR.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_ru.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_ru.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_sk.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_sk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_sv.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_sv.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_tr.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_tr.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_uk.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_uk.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_zh_CN.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_zh_CN.qm',
+   'DATA'),
+  ('PySide6\\translations\\qtbase_zh_TW.qm',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\PySide6\\translations\\qtbase_zh_TW.qm',
+   'DATA'),
+  ('VCRUNTIME140.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('VCRUNTIME140_1.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('_bz2.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_bz2.pyd',
+   'EXTENSION'),
+  ('_decimal.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_decimal.pyd',
+   'EXTENSION'),
+  ('_elementtree.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_elementtree.pyd',
+   'EXTENSION'),
+  ('_hashlib.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_hashlib.pyd',
+   'EXTENSION'),
+  ('_lzma.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_lzma.pyd',
+   'EXTENSION'),
+  ('_queue.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_queue.pyd',
+   'EXTENSION'),
+  ('_socket.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_socket.pyd',
+   'EXTENSION'),
+  ('_ssl.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\_ssl.pyd',
+   'EXTENSION'),
+  ('ada92cb5d92a588d1b93__mypyc.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\ada92cb5d92a588d1b93__mypyc.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('base_library.zip',
+   'Z:\\home\\leone\\build\\ixjournal\\build-win64\\jour_main\\base_library.zip',
+   'DATA'),
+  ('certifi\\cacert.pem',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\certifi\\cacert.pem',
+   'DATA'),
+  ('certifi\\py.typed',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\certifi\\py.typed',
+   'DATA'),
+  ('charset_normalizer\\cd.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\cd.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('charset_normalizer\\md.cp311-win_amd64.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\charset_normalizer\\md.cp311-win_amd64.pyd',
+   'EXTENSION'),
+  ('image\\EndWork.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\EndWork.png',
+   'DATA'),
+  ('image\\Exit.jpg',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\Exit.jpg',
+   'DATA'),
+  ('image\\Filter.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\Filter.png',
+   'DATA'),
+  ('image\\Filter1.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\Filter1.png',
+   'DATA'),
+  ('image\\Moved.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\Moved.png',
+   'DATA'),
+  ('image\\Payed.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\Payed.png',
+   'DATA'),
+  ('image\\UnFilter.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\UnFilter.png',
+   'DATA'),
+  ('image\\UnFilterAll.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\UnFilterAll.png',
+   'DATA'),
+  ('image\\add.jpg',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\add.jpg',
+   'DATA'),
+  ('image\\add.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\add.png',
+   'DATA'),
+  ('image\\edit.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\edit.png',
+   'DATA'),
+  ('image\\remove.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\remove.png',
+   'DATA'),
+  ('image\\renew.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\renew.png',
+   'DATA'),
+  ('image\\sprav.png',
+   'Z:\\home\\leone\\build\\ixjournal\\image\\sprav.png',
+   'DATA'),
+  ('jour_main.exe',
+   'Z:\\home\\leone\\build\\ixjournal\\build-win64\\jour_main\\jour_main.exe',
+   'EXECUTABLE'),
+  ('libcrypto-3.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\libcrypto-3.dll',
+   'BINARY'),
+  ('libssl-3.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\libssl-3.dll',
+   'BINARY'),
+  ('pyexpat.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\pyexpat.pyd',
+   'EXTENSION'),
+  ('python3.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\python3.dll',
+   'BINARY'),
+  ('python311.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\python311.dll',
+   'BINARY'),
+  ('select.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\select.pyd',
+   'EXTENSION'),
+  ('shiboken6\\MSVCP140.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\shiboken6\\MSVCP140.dll',
+   'BINARY'),
+  ('shiboken6\\Shiboken.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\shiboken6\\Shiboken.pyd',
+   'EXTENSION'),
+  ('shiboken6\\VCRUNTIME140.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\shiboken6\\VCRUNTIME140.dll',
+   'BINARY'),
+  ('shiboken6\\VCRUNTIME140_1.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\shiboken6\\VCRUNTIME140_1.dll',
+   'BINARY'),
+  ('shiboken6\\shiboken6.abi3.dll',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\Lib\\site-packages\\shiboken6\\shiboken6.abi3.dll',
+   'BINARY'),
+  ('unicodedata.pyd',
+   'C:\\users\\leone\\Local Settings\\Application '
+   'Data\\Programs\\Python\\Python311\\DLLs\\unicodedata.pyd',
+   'EXTENSION')],)
