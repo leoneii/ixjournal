@@ -1,0 +1,15 @@
+{
+    "files": [
+        "atolMain.py",
+        "atolMain.ui",
+        "atolPrint.py",
+        "jour_main.py",
+        "jourbd.sqlite",
+        "libfptr10.py",
+        "main_ui.py",
+        "main.ui",
+        "newdial_ui.py",
+        "newdial.ui",
+        "susndb.ixdb"
+    ]
+}

@@ -537,16 +537,40 @@
      <string>Печать</string>
     </property>
    </widget>
-   <widget class="QMenu" name="menu_3">
+   <widget class="QMenu" name="menu_Quit">
     <property name="title">
      <string>Выход</string>
     </property>
+    <addaction name="actionExit"/>
+   </widget>
+   <widget class="QMenu" name="menuService">
+    <property name="title">
+     <string>Сервис</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="action"/>
    </widget>
    <addaction name="menu"/>
    <addaction name="menu_2"/>
-   <addaction name="menu_3"/>
+   <addaction name="menuService"/>
+   <addaction name="menu_Quit"/>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Настройки</string>
+   </property>
+  </action>
+  <action name="actionExit">
+   <property name="text">
+    <string>Выход</string>
+   </property>
+  </action>
+  <action name="action">
+   <property name="text">
+    <string>О программе</string>
+   </property>
+  </action>
  </widget>
  <resources/>
  <connections/>

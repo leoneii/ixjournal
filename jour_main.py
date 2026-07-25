@@ -1,12 +1,12 @@
 import sys
 from PySide6.QtWidgets import QApplication, QMainWindow, QHeaderView, QTableWidget, QTableWidgetItem, QAbstractItemView, \
-    QMessageBox, QDialog, QStyle, QMenu
+    QMessageBox, QDialog, QStyle, QMenu, QSplashScreen
 from main_ui import Ui_MainWindow
 from newdial_ui import Ui_Dialog
 from finddial import Ui_fDial
 from PySide6.QtSql import QSqlDatabase, QSqlTableModel, QSqlQuery
 from PySide6.QtCore import QSize, QDate
-from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt , QAction, QIcon, QKeyEvent
+from PySide6.QtGui import QColor, QValidator, QDoubleValidator, Qt , QAction, QIcon, QKeyEvent, QPixmap, QPainter, QFont
 from PySide6.QtCore import QItemSelectionModel
 #import PySide6.QtGui
 #from PySide6 import QtWidgets
@@ -16,11 +16,18 @@ import urllib
 import json
 import urllib.request
 import urllib.parse
-import os; 
+import os;
 import locale;
 from QSearch_ui import Ui_Dialog_QSearch
+from settings_ui import Ui_SettingsDialog
+from PySide6.QtCore import QSettings
 
-import cascade_idigital
+from messagesender import (MessageSender, SERVICE_IDIGITAL, SERVICE_SMSPILOT,
+    SETTINGS_ORG, SETTINGS_APP, SETTINGS_KEY_SERVICE)
+from labelprinter import (LabelPrinter, DEFAULT_DENSITY, DEFAULT_LENGTH_MM,
+    SETTINGS_KEY_ADDRESS as PRINTER_SETTINGS_KEY_ADDRESS,
+    SETTINGS_KEY_DENSITY as PRINTER_SETTINGS_KEY_DENSITY,
+    SETTINGS_KEY_LENGTH_MM as PRINTER_SETTINGS_KEY_LENGTH_MM)
 
 os.environ["PYTHONIOENCODING"] = "utf-8"; 
 myLocale=locale.setlocale(category=locale.LC_ALL, locale="ru_RU.UTF-8");
@@ -84,23 +91,11 @@ def sendSMS( parent= None, type = 'NUM', phoneOrRow= '0', Query = True, text = '
 
 # Функция непосредственной отправки смс
 def senderSMS(parent= None, phone= None, text= None,textMessager= None, prim= "",Row ='0' ):
-    #sender = 'NFXnet' #  имя отправителя из списка https://smspilot.ru/my-sender.php
+    settings = QSettings(SETTINGS_ORG, SETTINGS_APP)
+    service = settings.value(SETTINGS_KEY_SERVICE, SERVICE_IDIGITAL)
 
-    j = cascade_idigital.cascade(None,phone,text,textMessager)
+    j = MessageSender().send(phone, text, textMessager, service=service)
 
-    # sender = 'INFORM'
-    # apikey = 'C0C37F90PPSX2QAK8YBSYPPGE8X233741OSB2O306KTSP4TYJCT7VW07828607C7'
-    # formatapi='json'
-
-    # url = "http://smspilot.ru/api.php?"
-    # params = urllib.parse.urlencode({'send':text, 'to':phone, 'from':sender, 'apikey':apikey, 'format':formatapi })
-    # url=url+params
-
-    # j = json.loads(urllib.request.urlopen(url.replace(" ", "%20")).read())
-
-    
-
-    
     if ('error' in j):
         message(parent,"Ошибка","СМС не отправлено " + str(j))
         return ('Ошибка: %s' % j)
@@ -136,10 +131,12 @@ class MainWindow(QMainWindow):
         self.ui.pushButton_Pay.clicked.connect(self.Payed)
         self.ui.pushButton_UnFilter_All.clicked.connect(self.unFilterAll)
         self.ui.pushButton_Exit.clicked.connect(self.close)
+        self.ui.actionExit.triggered.connect(self.close)
         self.ui.pushButton_WorkEnd.clicked.connect(self.WorkEnd)
         self.ui.pushButton_Renew.clicked.connect(self.Renew)
         self.ui.pushButton_Sprav.clicked.connect(self.spravScreen)
         self.ui.pushButton_notPay.clicked.connect(self.notPayedFilter)
+        self.ui.actionSettings.triggered.connect(self.openSettings)
 
     #Контекстное меню
         self.ui.tableWidget.setContextMenuPolicy(Qt.ContextMenuPolicy.CustomContextMenu)
@@ -179,26 +176,48 @@ class MainWindow(QMainWindow):
     def spravScreen(self):
         sprs=sprScr()
         sprs.exec()
+
+    def openSettings(self):
+        dlg = SettingsDialog(self)
+        dlg.exec()
         
     def contextMenu(self, pos):
          context = QMenu(self)
          actWorkEnd = QAction(QIcon("image/EndWork.png"),"Готов к выдаче",self)
          actPayed = QAction(QIcon("image/Payed.png"),"Отметить оплаченным",self)
          actExt = QAction(QIcon("image/Moved.png"),"Выдать клиенту",self)
+         actPrintLabel = QAction("Печать этикетки",self)
          actDel = QAction(QIcon("image/remove.png"),"Удалить заказ",self)
 
          context.addAction(actWorkEnd)
          context.addAction(actPayed)
          context.addAction(actExt)
          context.addSeparator()
+         context.addAction(actPrintLabel)
+         context.addSeparator()
          context.addAction(actDel)
 
          actExt.triggered.connect(self.Vidat)
          actPayed.triggered.connect(self.Payed)
          actWorkEnd.triggered.connect(self.WorkEnd)
+         actPrintLabel.triggered.connect(self.printLabel)
          actDel.triggered.connect(self.delRec)
 
-         context.exec(self.mapToGlobal(pos))   
+         context.exec(self.mapToGlobal(pos))
+
+    def printLabel(self):
+        npp = self.ui.tableWidget.item(self.ui.tableWidget.currentRow(),0).text()
+        qlbl = QSqlQuery()
+        qlbl.exec("SELECT numZak, phone, dat FROM jtab WHERE npp = "+npp+" ;")
+        qlbl.first()
+        numZak = str(qlbl.value(0))
+        phone = str(qlbl.value(1))
+        date = str(qlbl.value(2))
+
+        try:
+            LabelPrinter().printOrderLabel(numZak, phone, date)
+        except Exception as e:
+            message(self,"Ошибка печати","Не удалось напечатать этикетку: "+str(e))
 
     def Renew(self):
         self.updateWidg("LAST","")
@@ -405,6 +424,36 @@ class fnddial(QDialog):
         super().__init__()
         self.ui = Ui_fDial()
         self.ui.setupUi(self)
+
+
+class SettingsDialog(QDialog):
+    def __init__(self, parent=None):
+        super().__init__(parent)
+        self.ui = Ui_SettingsDialog()
+        self.ui.setupUi(self)
+
+        settings = QSettings(SETTINGS_ORG, SETTINGS_APP)
+        service = settings.value(SETTINGS_KEY_SERVICE, SERVICE_IDIGITAL)
+        if service == SERVICE_SMSPILOT:
+            self.ui.radioButton_SmsPilot.setChecked(True)
+        else:
+            self.ui.radioButton_iDigital.setChecked(True)
+
+        self.ui.lineEdit_PrinterAddress.setText(settings.value(PRINTER_SETTINGS_KEY_ADDRESS, ""))
+        self.ui.spinBox_PrinterDensity.setValue(int(settings.value(PRINTER_SETTINGS_KEY_DENSITY, DEFAULT_DENSITY)))
+        length_mm = int(settings.value(PRINTER_SETTINGS_KEY_LENGTH_MM, DEFAULT_LENGTH_MM))
+        self.ui.comboBox_PrinterLength.setCurrentIndex(1 if length_mm >= 40 else 0)
+
+        self.ui.buttonBox.accepted.connect(self.save)
+
+    def save(self):
+        service = SERVICE_SMSPILOT if self.ui.radioButton_SmsPilot.isChecked() else SERVICE_IDIGITAL
+        settings = QSettings(SETTINGS_ORG, SETTINGS_APP)
+        settings.setValue(SETTINGS_KEY_SERVICE, service)
+        settings.setValue(PRINTER_SETTINGS_KEY_ADDRESS, self.ui.lineEdit_PrinterAddress.text().strip())
+        settings.setValue(PRINTER_SETTINGS_KEY_DENSITY, self.ui.spinBox_PrinterDensity.value())
+        length_mm = 40 if self.ui.comboBox_PrinterLength.currentIndex() == 1 else 30
+        settings.setValue(PRINTER_SETTINGS_KEY_LENGTH_MM, length_mm)
 
 
 class sprScr(QDialog):
@@ -637,8 +686,39 @@ class QSearch(QDialog):
            # Gcue="SELECT *  FROM jtab WHERE numZak = '" + numz + "' ORDER BY npp;"
            # Gcuec="SELECT COUNT(*) FROM jtab WHERE numZak = '"+numz+"' ;"
 
+def makeSplashPixmap():
+    # Готового логотипа в image/ нет - рисуем заставку программно.
+    # Если появится файл, например image/logo.png, можно заменить на
+    # QPixmap("image/logo.png").
+    pixmap = QPixmap(420, 260)
+    pixmap.fill(QColor("#2c3e50"))
+
+    painter = QPainter(pixmap)
+    painter.setPen(QColor("white"))
+    font = QFont()
+    font.setPointSize(28)
+    font.setBold(True)
+    painter.setFont(font)
+    painter.drawText(pixmap.rect().adjusted(0, -20, 0, -20), Qt.AlignmentFlag.AlignCenter, "ixJournal")
+
+    font.setPointSize(11)
+    font.setBold(False)
+    painter.setFont(font)
+    painter.drawText(pixmap.rect().adjusted(0, 40, 0, 40), Qt.AlignmentFlag.AlignCenter, "Журнал Инфоникс")
+    painter.end()
+
+    return pixmap
+
+
 if __name__ == '__main__':
     app = QApplication(sys.argv)
+
+    splash = QSplashScreen(makeSplashPixmap())
+    splash.showMessage("Загрузка...", Qt.AlignmentFlag.AlignBottom | Qt.AlignmentFlag.AlignHCenter, QColor("white"))
+    splash.show()
+    app.processEvents()
+
     window = MainWindow()
+    splash.finish(window)
     window.show()
     sys.exit(app.exec())

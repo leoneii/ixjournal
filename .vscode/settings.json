@@ -1,0 +1,22 @@
+{
+    "sqltools.connections": [
+        {
+            "port": 3050,
+            "firebirdOptions": {
+                "lowercase_keys": false,
+                "role": null,
+                "pageSize": 4096,
+                "retryConnectionInterval": 1000,
+                "blobAsText": false,
+                "encoding": "UTF8"
+            },
+            "previewLimit": 50,
+            "driver": "SQLTools Firebird",
+            "host": "192.168.1.59",
+            "database": "/srv/nfs4/DBS/ixjournal5.fdb",
+            "username": "SYSDBA",
+            "name": "ixJournal",
+            "connectionMethod": "Server and Port"
+        }
+    ]
+}
